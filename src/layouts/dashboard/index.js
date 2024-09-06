@@ -70,7 +70,7 @@ const DashboardLayout = () => {
   const {onToggleMode} = useSettings()
 
   return (
-    <>
+    <Stack direction={"row"}>
       {/* // item sidebar */}
 
       {/* // logo */}
@@ -172,9 +172,13 @@ const DashboardLayout = () => {
             <Avatar src={faker.image.avatar()} />
           </Stack>
         </Stack>
+
       </Box>
+
       <Outlet />
-    </>
+
+    </Stack>
+    
   );
 };
 
