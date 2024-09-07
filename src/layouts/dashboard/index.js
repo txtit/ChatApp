@@ -169,7 +169,7 @@ const DashboardLayout = () => {
             }} 
             defaultChecked
             />
-            <Avatar src={faker.image.avatar()} />
+            <Avatar src={faker.image.cats()} />
           </Stack>
         </Stack>
 

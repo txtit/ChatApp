@@ -3,20 +3,46 @@ import { ArchiveBox, CircleDashed, FlagCheckered, MagnifyingGlass } from "phosph
 import { faker } from '@faker-js/faker';
 
 import React from "react";
-import { styled, alpha } from "@mui/material/styles"
+import { styled, alpha, useTheme } from "@mui/material/styles"
+import { ChatList } from "../../data";
+import { SimpleBarStyle } from "../../components/Scrollbar";
 
-const ChatElement =() => {
+const ChatElement =({id,name,msg,time,unread,online}) => {
+    const theme = useTheme();
+
     return (
         <Box sx={{
             width:"100%",
-            height:60,
             borderRadius:1,
-            backgroundColor:"#fff",
+            backgroundColor: theme.palette.mode === "light" ? "#fff" : theme.palette.background.default,
         }} p={2} >
-            <StyledBadge>
-            <Avatar src={faker.image.avatar()} alt="" />
+            <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+             <Stack direction={"row"} spacing={2}>
+       {online ?        <StyledBadge overlap="circular" anchorOrigin={{vertical: "bottom",horizontal:"right"}} variant="dot">
 
-            </StyledBadge>
+            <Avatar src={faker.image.animals()}  />
+            </StyledBadge> : <Avatar src={faker.image.animals()} /> }
+            <Stack spacing={0.3}>
+                <Typography variant="subtitle2" >
+                    {name}
+                </Typography>
+                <Typography variant="caption" >
+                    {msg}
+                </Typography>
+            </Stack>
+
+             </Stack>
+             <Stack spacing={2} alignItems={"center"}>
+                <Typography sx={{fontWeight:600}} variant="caption">
+                    {time}
+                </Typography>
+                <Badge color="primary" badgeContent={unread}>
+
+                </Badge>
+             </Stack>
+            
+            </Stack>
+           
         </Box>
     )
 }
@@ -75,17 +101,17 @@ const SearchInputBase = styled(InputBase)(({ theme }) => ({
 
 }));
 const Chats = () => {
+    const theme = useTheme();
     return (
         <Box sx={{
             position: "relative",
-            height: "100vh",
             width: 320,
-            backgroundColor: "#F8FAFF",
+            backgroundColor: theme.palette.mode ==="light" ? "#F8FAFF" : theme.palette.background.paper,
             boxShadow: "0px 0px 2px rgba(0,0,0,0.25)",
         }}
 
         >
-            <Stack p={3} spacing={2}>
+            <Stack p={3} spacing={2} sx={{height: "100vh"}}>
 
                 <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
                     <Typography variant="h5">
@@ -115,8 +141,32 @@ const Chats = () => {
                     </Stack>
                     <Divider/>
                 </Stack>
-                <Stack direction={"column"}>
-                    <ChatElement/>
+                <Stack spacing={2} direction={"column"} sx={{flexGrow:1,overflowY: "scroll", height:"100%"}}>
+                    
+                    <SimpleBarStyle timeout={500} clickOnTrack={false}>
+
+                    <Stack spacing={2.4} >   
+                    <Typography variant="subtitle2" sx={{color: "#676767"}}>
+                    Pinned
+                    </Typography>
+                    {/* // fill pinned chat */}
+                    {ChatList.filter((el) => el.pinned).map((el)=>{
+                     return <ChatElement {...el}/>
+
+                    })} 
+                    </Stack>
+                    <Stack spacing={2.4} >   
+                    <Typography variant="subtitle2" sx={{color: "#676767"}}>
+                    All Chats
+                    </Typography>
+                    {/* // fill pinned chat */}
+                    {ChatList.filter((el) => !el.pinned).map((el)=>{
+                     return <ChatElement {...el}/>
+
+                    })} 
+                    </Stack>
+                    </SimpleBarStyle>
+
                 </Stack>
             </Stack>
         </Box>
