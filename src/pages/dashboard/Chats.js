@@ -7,7 +7,7 @@ import { styled, alpha, useTheme } from "@mui/material/styles"
 import { ChatList } from "../../data";
 import { SimpleBarStyle } from "../../components/Scrollbar";
 
-const ChatElement =({id,name,msg,time,unread,online}) => {
+const ChatElement =({ img, name, msg, time, unread, online, id }) => {
     const theme = useTheme();
 
     return (
@@ -20,8 +20,9 @@ const ChatElement =({id,name,msg,time,unread,online}) => {
              <Stack direction={"row"} spacing={2}>
        {online ?        <StyledBadge overlap="circular" anchorOrigin={{vertical: "bottom",horizontal:"right"}} variant="dot">
 
-            <Avatar src={faker.image.animals()}  />
-            </StyledBadge> : <Avatar src={faker.image.animals()} /> }
+       <Avatar alt={name} src={img} />
+            </StyledBadge> :        <Avatar alt={name} src={img} />
+        }
             <Stack spacing={0.3}>
                 <Typography variant="subtitle2" >
                     {name}
