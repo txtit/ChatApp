@@ -1,8 +1,8 @@
-import { useTheme } from '@emotion/react';
+import { useTheme } from '@mui/material/styles';
 import { Avatar, Box, Button, Divider, IconButton, Stack, Typography } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { toggleSidebar } from "../redux/slices/app";
+import { toggleSidebar, updateSidebarType } from "../redux/slices/app";
 import { faker } from '@faker-js/faker';
 import { Bell, CaretRight, Phone, Prohibit, Star, Trash, VideoCamera } from 'phosphor-react';
 import AntSwitch from "./AntSwitch";
@@ -68,7 +68,7 @@ const Contact = () => {
                 <Divider/>
                 <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
                   <Typography>Media, Links & Docs</Typography>
-                  <Button endIcon={<CaretRight/>}>
+                  <Button onClick={() => {dispatch(updateSidebarType("SHARED"))}} endIcon={<CaretRight/>}>
                     401
                   </Button>
 
@@ -89,7 +89,7 @@ const Contact = () => {
                     <Star size={"21"}/>
                     <Typography variant='subtitle2'>Started Messages</Typography>
                 </Stack>
-                <IconButton>
+                <IconButton onClick={() => {dispatch(updateSidebarType("STARRED"))}}>
                   <CaretRight/>
                 </IconButton>
                 </Stack>
