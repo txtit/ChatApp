@@ -18,7 +18,7 @@ const Conversation = () => {
            <Header/>
             {/* Msg */}
             <Box width={"100%"} sx={{flexGrow: 1, height:"100%" , overflowY:"scroll", backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper}}>
-                <Msg/>
+                <Msg menu ={true}/>
             </Box>
 
             {/* Chatfooter */}

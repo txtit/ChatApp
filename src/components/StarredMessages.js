@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar, updateSidebarType } from "../redux/slices/app";
 import { Backspace } from "phosphor-react";
+import Msg from "./Conversation/Msg";
 
 const StarredMessages = () =>{
     const theme = useTheme();
@@ -17,7 +18,7 @@ const StarredMessages = () =>{
           width:"100%",
           backgroundColor: theme.palette.mode === "Light" ? "#F8FAFF" : theme.palette.background,
         }}>
-      <Stack sx={{height:"100%",p:2}} direction="now" alignItems={"center"} justifyContent={'space-between'} spacing={3}>
+      <Stack sx={{height:"100%",p:2}} direction="row" alignItems={"center"} justifyContent={'space-between'} spacing={3}>
       <IconButton onClick={()=>{    
         dispatch(updateSidebarType("CONTACT"));
       }}>
@@ -27,6 +28,16 @@ const StarredMessages = () =>{
    
       </Stack>
         </Box>
+        {/* body */}
+        <Stack sx= {{
+                height:"100%",
+                position: "relative", 
+                flexGrow:1, 
+                overflow: "scroll"}} 
+                p= {3} spacing={3} >
+
+                  <Msg />
+                  </Stack>
         </Stack>
    </Box>
     )
