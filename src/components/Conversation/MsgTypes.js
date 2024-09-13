@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles"
 import {   DotsThreeVertical, DownloadSimple, Image } from "phosphor-react";
 import { Message_options } from "../../data";
 
-const DocMsg = ({ el }) => {
+const DocMsg = ({ el, menu }) => {
     const theme = useTheme();
 
     return (
@@ -24,7 +24,8 @@ const DocMsg = ({ el }) => {
                     <Typography variant="body2" sx={{color: el.incoming ? theme.palette.text : "#fff"}}>{el.message}</Typography>
                 </Stack>
             </Box>
-            <MessageOption/>
+            {menu && <MessageOption/>}
+            
 
         </Stack>
 
@@ -33,7 +34,7 @@ const DocMsg = ({ el }) => {
 
 
 
-const LinkMsg = ({ el }) => {
+const LinkMsg = ({ el , menu}) => {
     const theme = useTheme();
 
     return (
@@ -59,7 +60,7 @@ const LinkMsg = ({ el }) => {
                     </Stack>
                 </Stack>
             </Box>
-            <MessageOption/>
+            {menu && <MessageOption/>}
 
         </Stack>
 
