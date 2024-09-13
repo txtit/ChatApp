@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar, updateSidebarType } from "../redux/slices/app";
-import { Backspace } from "phosphor-react";
+import { Backspace, CaretLeft } from "phosphor-react";
 import Msg from "./Conversation/Msg";
 
 const StarredMessages = () =>{
@@ -18,11 +18,11 @@ const StarredMessages = () =>{
           width:"100%",
           backgroundColor: theme.palette.mode === "Light" ? "#F8FAFF" : theme.palette.background,
         }}>
-      <Stack sx={{height:"100%",p:2}} direction="row" alignItems={"center"} justifyContent={'space-between'} spacing={3}>
+      <Stack sx={{height:"100%",p:2}} direction="row" alignItems={"center"}  spacing={3}>
       <IconButton onClick={()=>{    
         dispatch(updateSidebarType("CONTACT"));
       }}>
-        <Backspace/>
+         <CaretLeft />
       </IconButton>
       <Typography variant="subtitle2">Starred</Typography>
    

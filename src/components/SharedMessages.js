@@ -37,7 +37,6 @@ const SharredMessages = () => {
             sx={{ height: "100%", p: 2 }}
             direction="row"
             alignItems={"center"}
-            justifyContent={"space-between"}
             spacing={3}
           >
             <IconButton
