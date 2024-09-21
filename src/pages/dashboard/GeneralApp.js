@@ -32,9 +32,9 @@ const GeneralApp = () => {
           case "CONTACT":
             return <Contact />
           case "STARRED":
-            return <StarredMessages/>
+            return <StarredMessages />
           case "SHARED":
-           return <SharredMessages/>
+            return <SharredMessages />
 
           default:
             break;
