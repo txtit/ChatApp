@@ -23,12 +23,13 @@ const CreateGroupForm = ({ handleClose }) => {
     }
     const methods = useForm({
         resolver: yupResolver(NewGroupSchema),
-        defaultValues
+        defaultValues,
     })
     const {
         reset,
         watch,
         setError,
+        setValue,
         handleSubmit,
         formState: { errors, isSubmitting, isSubmitSuccessful, isValid },
     } = methods;
@@ -47,11 +48,11 @@ const CreateGroupForm = ({ handleClose }) => {
             <Stack spacing={3}>
                 <RHFTextField name={'title'} label='Title' />
                 <RHFAutocomplete
-                    name={'members'}
-                    label={'Members'}
+                    name='members'
+                    label='Members'
                     multiple
                     freeSolo
-                    options={MEMBERS.map((option) => option)}
+                    options={MEMBERS?.map((option) => option)}
                     ChipProps={{ size: 'medium' }} />
                 <Stack
                     spacing={2}
@@ -80,6 +81,7 @@ const CreateGroup = ({ open, handleClose }) => {
             open={open}
             TransitionComponent={Transition}
             keepMounted
+            onClose={handleClose}
             sx={{ p: 4 }}>
             {/* Title */}
             <DialogTitle sx={{ mb: 3 }}>Create New Group</DialogTitle>

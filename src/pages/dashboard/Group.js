@@ -9,8 +9,8 @@ import ChatElement from '../../components/ChatElement'
 import CreateGroup from '../../sections/main/CreateGroup'
 
 const Group = () => {
-    const [openDialog, setOpenDialog] = useState(false)
     const theme = useTheme()
+    const [openDialog, setOpenDialog] = useState(false)
     const handleCloseDialog = () => {
         setOpenDialog(false)
     }
