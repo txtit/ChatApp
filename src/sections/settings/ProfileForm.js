@@ -1,12 +1,10 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import * as Yup from "yup";
-import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider'
-import { Alert, Button, IconButton, InputAdornment, Link, Stack } from '@mui/material';
+import { Alert, Button, Link, Stack } from '@mui/material';
 import { RHFTextField } from '../../components/hook-form';
-import { Eye, EyeSlash } from 'phosphor-react';
 
 const ProfileForm = () => {
     const LoginSchema = Yup.object().shape({
@@ -37,7 +35,7 @@ const ProfileForm = () => {
     } = methods;
 
     const values = watch();
-    const handleDrop = useCallback(() => {
+    const handleDrop = useCallback((acceptedFiles) => {
         const file = acceptedFiles[0];
         const newFile = Object.assign(file, {
             preview: URL.createObjectURL(file)
