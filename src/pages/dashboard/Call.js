@@ -44,7 +44,7 @@ const Call = ({ online }) => {
                 <StyledInputBase placeholder="Search..." inputProps={{ "aria-label": "search" }} />
               </Search>
             </Stack>
-            
+
             <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
               <Typography variant='subtitle2' component={Link}>
                 Start Conversation
@@ -57,7 +57,7 @@ const Call = ({ online }) => {
             </Stack>
 
             <Divider />
-            <Stack spacing={3} sx={{ flexGrow: 1, overflow: 'scroll', height: '100%' }}>
+            <Stack spacing={3} sx={{ flexGrow: 1, overflowY: 'auto', height: '100%' }}>
               <SimpleBarStyle timeout={500} clickOnTrack={false}>
                 <Stack spacing={2.5}>
                   <Typography variant='subtitle2' sx={{ color: '#676666' }}>Pinned</Typography>
