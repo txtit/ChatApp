@@ -7,8 +7,38 @@ import { Nav_Buttons, Profile_Menu } from "../../data";
 import { Gear } from "phosphor-react";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch";
+import { useNavigate } from "react-router-dom";
 
+const getPath = (index) => {
+    switch (index) {
+        case 0:
+            return '/app';
+        case 1:
+            return '/group';
+        case 2:
+            return '/call';
+        case 3:
+            return '/settings';
+        default:
+            break;
+    }
+}
+const getMenuPath = (index) => {
+    switch (index) {
+        case 0:
+            return '/profile';
+        case 1:
+            return '/settings';
+        case 2:
+            //todo => update token and set isAuth = false
+            return '/auth/login';
+
+        default:
+            break;
+    }
+}
 const SideBar = () => {
+    const navigate = useNavigate()
     const theme = useTheme();
     // select item sidebar
     const [selected, setSelected] = useState(0);
@@ -18,6 +48,7 @@ const SideBar = () => {
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
+        // navigate();
     };
     const handleClose = () => {
         setAnchorEl(null);
@@ -79,6 +110,7 @@ const SideBar = () => {
                                 <IconButton
                                     onClick={() => {
                                         setSelected(el.index);
+                                        navigate(getPath(el.index));
                                     }}
                                     sx={{ width: "max-content", color: theme.palette.mode === 'dark' ? theme.palette.text.primary : "#000" }}
                                     key={el.index}
@@ -103,6 +135,7 @@ const SideBar = () => {
                         ) : (
                             <IconButton
                                 onClick={() => {
+                                    navigate(getPath(3));
                                     setSelected(3);
                                 }}
                                 sx={{ width: "max-content", color: theme.palette.mode === 'dark' ? theme.palette.text.primary : "#000" }}
@@ -124,7 +157,7 @@ const SideBar = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                         onClick={handleClick}
-                         src={faker.image.cats()} />
+                        src={faker.image.cats()} />
                     <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}
@@ -134,19 +167,28 @@ const SideBar = () => {
                             'aria-labelledby': 'basic-button',
                         }}
                         anchorOrigin={{
-                            vertical:"bottom",
+                            vertical: "bottom",
                             horizontal: "right",
                         }}
                         transformOrigin={{
-                            vertical:"bottom",
+                            vertical: "bottom",
                             horizontal: "left",
 
                         }}
                     >
                         <Stack spacing={1} px={1}>
-                            {Profile_Menu.map((el) => (
-                                <MenuItem onClick={handleClose}>
-                                    <Stack sx={{ width: 100 }} direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+                            {Profile_Menu.map((el, idx) => (
+                                <MenuItem onClick={() => {
+                                    handleClick();
+                                }}>
+                                    <Stack
+                                        onClick={() => {
+                                            navigate(getMenuPath(idx));
+                                        }}
+                                        sx={{ width: 100 }}
+                                        direction={"row"}
+                                        alignItems={"center"}
+                                        justifyContent={"space-between"}>
                                         <span>
                                             {el.title}
                                         </span>

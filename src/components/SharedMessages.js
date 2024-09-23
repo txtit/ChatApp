@@ -67,7 +67,7 @@ const SharredMessages = () => {
             height: "100%",
             position: "relative",
             flexGrow: 1,
-            overflow: "scroll",
+            overflowY: "auto",
           }}
           p={3}
           spacing={value === 1 ? 1 : 3}
