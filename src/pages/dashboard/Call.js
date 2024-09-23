@@ -7,7 +7,7 @@ import { SimpleBarStyle } from '../../components/Scrollbar'
 import { CallLogs, ChatList } from '../../data'
 import ChatElement from '../../components/ChatElement'
 import CreateGroup from '../../sections/main/CreateGroup'
-import { CallElement } from '../../components/CallElement'
+import { CallElement, CallLogElement } from '../../components/CallElement'
 import StartCall from '../../sections/main/StartCall'
 
 const Call = ({ online }) => {
@@ -62,7 +62,7 @@ const Call = ({ online }) => {
                 <Stack spacing={2.5}>
                   <Typography variant='subtitle2' sx={{ color: '#676666' }}>Pinned</Typography>
                   {/* Call logs*/}
-                  {CallLogs.map((el) => <CallElement {...el} />)}
+                  {CallLogs.map((el) => <CallLogElement {...el} />)}
                 </Stack>
               </SimpleBarStyle>
             </Stack>
