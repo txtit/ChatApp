@@ -1,6 +1,6 @@
 import { Badge, Typography, Box, Stack, Avatar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 import StyledBadge from "./StyledBadge";
 
 const ChatElement = ({ img, name, msg, time, unread, online, id }) => {

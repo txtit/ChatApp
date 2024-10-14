@@ -5,11 +5,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
 import { Alert, Button, Stack } from "@mui/material";
 import { RHFTextField } from "../../components/hook-form";
+import { ForgotPassword } from "../../redux/slices/auth";
 
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ResetPasswordForm = () => {
-  // const {isLoading} = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.auth);
   const ResetPasswordSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is required")
@@ -17,7 +19,7 @@ const ResetPasswordForm = () => {
   });
 
   const defaultValues = {
-    email: "demo@tawk.com",
+    email: "tran2hao02@gmail.com",
   };
 
   const methods = useForm({
@@ -36,7 +38,7 @@ const ResetPasswordForm = () => {
     try {
       console.log(data);
       // submit data to backend
-      //   dispatch(LoginUser(data));
+      dispatch(ForgotPassword(data));
     } catch (error) {
       console.error(error);
       reset();
@@ -56,28 +58,28 @@ const ResetPasswordForm = () => {
 
         <RHFTextField name="email" label="Email address" />
         <Button
-        fullWidth
-        color="inherit"
-        size="large"
-        type="submit"
-        variant="contained"
-        // loading={isLoading}
-        sx={{
-          bgcolor: "text.primary",
-          color: (theme) =>
-            theme.palette.mode === "light" ? "common.white" : "grey.800",
-          "&:hover": {
+          fullWidth
+          color="inherit"
+          size="large"
+          type="submit"
+          variant="contained"
+          // loading={isLoading}
+          sx={{
             bgcolor: "text.primary",
             color: (theme) =>
               theme.palette.mode === "light" ? "common.white" : "grey.800",
-          },
-        }}
-      >
-        Send Request
-      </Button>
+            "&:hover": {
+              bgcolor: "text.primary",
+              color: (theme) =>
+                theme.palette.mode === "light" ? "common.white" : "grey.800",
+            },
+          }}
+        >
+          Send Request
+        </Button>
       </Stack>
 
-      
+
     </FormProvider>
   );
 };

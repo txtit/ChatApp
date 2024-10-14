@@ -4,10 +4,10 @@ import { Search, SearchIconWrapper, StyledInputBase } from '../../components/Sea
 import { MagnifyingGlass, Plus } from 'phosphor-react'
 import { useTheme } from '@mui/material/styles'
 import { SimpleBarStyle } from '../../components/Scrollbar'
-import { CallLogs, ChatList } from '../../data'
-import ChatElement from '../../components/ChatElement'
-import CreateGroup from '../../sections/main/CreateGroup'
-import { CallElement, CallLogElement } from '../../components/CallElement'
+import { CallLogs } from '../../data'
+// import ChatElement from '../../components/ChatElement'
+// import CreateGroup from '../../sections/main/CreateGroup'
+import { CallLogElement } from '../../components/CallElement'
 import StartCall from '../../sections/main/StartCall'
 
 const Call = ({ online }) => {

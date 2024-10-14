@@ -10,6 +10,7 @@ import FormProvider, { RHFTextField } from '../../components/hook-form';
 import { Eye, EyeSlash } from 'phosphor-react';
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { NewPassword } from '../../redux/slices/auth';
 // import { NewPassword } from '../../redux/slices/auth';
 
 // ----------------------------------------------------------------------
@@ -20,7 +21,7 @@ export default function NewPasswordForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   const VerifyCodeSchema = Yup.object().shape({
-    
+
     password: Yup.string()
       .min(6, 'Password must be at least 6 characters')
       .required('Password is required'),
@@ -46,8 +47,8 @@ export default function NewPasswordForm() {
 
   const onSubmit = async (data) => {
     try {
-    //   Send API Request
-    // dispatch(NewPassword({...data, token: queryParameters.get('token')}));
+      //   Send API Request
+      dispatch(NewPassword({ ...data, token: queryParameters.get('token') }));
     } catch (error) {
       console.error(error);
     }
@@ -56,7 +57,7 @@ export default function NewPasswordForm() {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
-        
+
 
         <RHFTextField
           name="password"
@@ -64,15 +65,15 @@ export default function NewPasswordForm() {
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    onClick={() => setShowPassword(!showPassword)}
-                    edge="end"
-                  >
-                    {showPassword ? <Eye /> : <EyeSlash />}
-                  </IconButton>
-                </InputAdornment>
-              ),
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  {showPassword ? <Eye /> : <EyeSlash />}
+                </IconButton>
+              </InputAdornment>
+            ),
           }}
         />
 
@@ -82,15 +83,15 @@ export default function NewPasswordForm() {
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    onClick={() => setShowPassword(!showPassword)}
-                    edge="end"
-                  >
-                    {showPassword ? <Eye /> : <EyeSlash />}
-                  </IconButton>
-                </InputAdornment>
-              ),
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={() => setShowPassword(!showPassword)}
+                  edge="end"
+                >
+                  {showPassword ? <Eye /> : <EyeSlash />}
+                </IconButton>
+              </InputAdornment>
+            ),
           }}
         />
 
@@ -99,7 +100,7 @@ export default function NewPasswordForm() {
           size="large"
           type="submit"
           variant="contained"
-          
+
           sx={{
             mt: 3,
             bgcolor: "text.primary",

@@ -2,8 +2,8 @@ import { Box, IconButton, Stack, Typography } from "@mui/material";
 import React from "react";
 import { useTheme } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
-import { toggleSidebar, updateSidebarType } from "../redux/slices/app";
-import { Backspace, CaretLeft } from "phosphor-react";
+import { updateSidebarType } from "../redux/slices/app";
+import { CaretLeft } from "phosphor-react";
 import Msg from "./Conversation/Msg";
 
 const StarredMessages = () => {

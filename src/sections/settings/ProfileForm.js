@@ -3,10 +3,11 @@ import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from '../../components/hook-form/FormProvider'
-import { Alert, Button, Link, Stack } from '@mui/material';
+import { Alert, Button, Stack } from '@mui/material';
 import { RHFTextField } from '../../components/hook-form';
 
 const ProfileForm = () => {
+
     const LoginSchema = Yup.object().shape({
         name: Yup.string().required("Name is required"),
         about: Yup.string().required('About is requied'),
@@ -49,7 +50,7 @@ const ProfileForm = () => {
         try {
             console.log('data: ', data);
             // submit data to backend
-            //   dispatch(LoginUser(data));
+            // dispatch(LoginUser(data));
         } catch (error) {
             console.error(error);
             reset();
