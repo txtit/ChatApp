@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "../../utils/axios";
+import { showSnackBar } from "./app";
 const initialState = {
     isLoggedIn: false,
     token: "",
@@ -40,14 +41,17 @@ export default slice.reducer;
 export function LoginUser(formValues) {
     //formValues email, password
     return async (dispatch, getState) => {
+        dispatch(slice.actions.updateIsLoading({ isLoading: true, error: false }));
         await axios.post("auth/login", {
             ...formValues,
         },
+
             {
                 headers: {
                     "Content-Type": "application/json",
                 },
             }
+
         ).then(function (response) {
             console.log(response);
             dispatch(
@@ -56,7 +60,16 @@ export function LoginUser(formValues) {
                     token: response.data.token,
                 })
             );
+
+            dispatch(showSnackBar({ severity: "success", message: response.data.message }))
+            dispatch(
+                slice.actions.updateIsLoading({ isLoading: false, error: false })
+            );
         }).catch(function (err) {
+            dispatch(showSnackBar({ severity: "error", message: err.message }));
+            dispatch(
+                slice.actions.updateIsLoading({ isLoading: false, error: true })
+            );
             console.log(err);
         });
     }

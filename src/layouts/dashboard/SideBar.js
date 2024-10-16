@@ -8,8 +8,10 @@ import { Gear } from "phosphor-react";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LogoutUser } from "../../redux/slices/auth";
+import LoadingScreen from "../../components/LoadingScreen";
+import Typography from "../../theme/overrides/Typography";
 
 
 const getPath = (index) => {
@@ -46,7 +48,7 @@ const getMenuPath = (index) => {
 const SideBar = () => {
     const dispatch = useDispatch();
 
-
+    const { isLoading } = useSelector((state) => state.auth);
     const navigate = useNavigate()
     const theme = useTheme();
     // select item sidebar
@@ -118,6 +120,7 @@ const SideBar = () => {
                             ) : (
                                 <IconButton
                                     onClick={() => {
+                                        // LoadingScreen
                                         setSelected(el.index);
                                         navigate(getPath(el.index));
                                     }}
