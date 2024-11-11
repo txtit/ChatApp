@@ -60,6 +60,7 @@ export function LoginUser(formValues) {
                     token: response.data.token,
                 })
             );
+            window.localStorage.setItem("user_id", response.data.user_id);
 
             dispatch(showSnackBar({ severity: "success", message: response.data.message }))
             dispatch(
@@ -79,6 +80,8 @@ export function LoginUser(formValues) {
 export function LogoutUser() {
     return async (dispatch, getState) => {
         dispatch(slice.actions.logOut())
+        window.localStorage.removeItem("user_id");
+
     }
 }
 
@@ -163,7 +166,8 @@ export function VerifyEmail(formValues) {
             dispatch(slice.actions.logIn({
                 isLoggedIn: true,
                 token: response.data.token,
-            }))
+            }));
+            window.localStorage.setItem("user_id", response.data.user_id);
         }).catch((error) => {
             console.log(error);
         })

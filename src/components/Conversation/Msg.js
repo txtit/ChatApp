@@ -15,38 +15,38 @@ const Msg = (menu) => {
             <SimpleBarStyle timeout={500}>
 
                 <Stack spacing={3}>
-                    {Chat_History.map((el) => {
+                    {Chat_History.map((el, idx) => {
                         switch (el.type) {
                             case "divider":
                                 //Timeline
-                                return <Timeline el={el} />
+                                return <Timeline key={idx} el={el} />
 
                             case "msg":
                                 switch (el.subtype) {
                                     case "img":
                                         //img msg
-                                        return <MediaMsg el={el} menu={menu} />
+                                        return <MediaMsg key={idx} el={el} menu={menu} />
                                     case "doc":
                                         //Doc msg
-                                        return <DocMsg el={el} menu={menu} />
+                                        return <DocMsg key={idx} el={el} menu={menu} />
 
                                     case "link":
                                         //Link msg
-                                        return <LinkMsg el={el} menu={menu} />
+                                        return <LinkMsg key={idx} el={el} menu={menu} />
 
                                     case "reply":
                                         //reply msg
-                                        return <ReplyMsg el={el} menu={menu} />
+                                        return <ReplyMsg key={idx} el={el} menu={menu} />
 
 
                                     default:
                                         //text msg
-                                        return <TextMsg el={el} menu={menu} />
+                                        return <TextMsg key={idx} el={el} menu={menu} />
                                 }
 
 
                             default:
-                                break;
+                                return null;
                         }
                     })}
 

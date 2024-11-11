@@ -104,6 +104,7 @@ const SideBar = () => {
                         {Nav_Buttons.map((el) =>
                             el.index === selected ? (
                                 <Box
+                                    key={el.index}
                                     p={1}
                                     sx={{
                                         backgroundColor: theme.palette.primary.main,
@@ -134,6 +135,7 @@ const SideBar = () => {
                         <Divider sx={{ width: "48" }} />
                         {selected === 3 ? (
                             <Box
+                                key='gear-selected'
                                 p={1}
                                 sx={{
                                     backgroundColor: theme.palette.primary.main,
@@ -146,6 +148,7 @@ const SideBar = () => {
                             </Box>
                         ) : (
                             <IconButton
+                                key='gear-selected'
                                 onClick={() => {
                                     navigate(getPath(3));
                                     setSelected(3);
@@ -190,7 +193,7 @@ const SideBar = () => {
                     >
                         <Stack spacing={1} px={1}>
                             {Profile_Menu.map((el, idx) => (
-                                <MenuItem onClick={() => {
+                                <MenuItem key={idx} onClick={() => {
                                     handleClick();
 
                                 }}>

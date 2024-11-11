@@ -83,8 +83,8 @@ const ChatInput = ({ openPicker, setOpenPicker }) => {
                 display: openActions ? "inline-block" : "none",
               }}
             >
-              {Actions.map((el) => (
-                <Tooltip placement="right" title={el.title}>
+              {Actions.map((el, idx) => (
+                <Tooltip key={idx} placement="right" title={el.title}>
                   <Fab
                     onClick={() => {
                       setOpenActions(!openActions);
@@ -168,8 +168,8 @@ const Footer = () => {
                 right: isMobile
                   ? 20
                   : searchParams.get("open") === "true"
-                  ? 420
-                  : 100,
+                    ? 420
+                    : 100,
               }}
             >
               <Picker

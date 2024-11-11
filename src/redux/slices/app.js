@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // 
 import { type } from "@testing-library/user-event/dist/type";
+import axios from "axios";
+import axiosInstance from "../../utils/axios";
 
 const initialState = {
     sidebar: {
@@ -12,7 +14,12 @@ const initialState = {
         open: false,
         severity: null,
         message: null,
-    }
+    },
+    users: [],
+    friends: [],
+    friendsRequest: [],
+    chat_type: null,
+    room_id: null,
 }
 
 const slice = createSlice({
@@ -40,7 +47,24 @@ const slice = createSlice({
             console.log("This is getting executed");
             state.snackbar.open = false;
             state.snackbar.message = null;
-        }
+        },
+        updateUsers(state, action) {
+            state.users = action.payload.users;
+        },
+        updateFriends(state, action) {
+            state.friends = action.payload.friends;
+        },
+        updateFriendsRequest(state, action) {
+            state.friendsRequest = action.payload.friendsRequest;
+        },
+        selectConversation(state, action) {
+            console.log('roomid', action.payload.room_id);
+            state.chat_type = 'individual';
+            state.room_id = action.payload.room_id;
+        },
+        resetRoomId(state) {
+            state.room_id = null;  // Hoặc giá trị mặc định mà bạn muốn
+        },
     },
 
 });
@@ -60,30 +84,97 @@ export const showSnackBar = ({ severity, message }) =>
             dispatch(slice.actions.closeSnackBar());
         }, 4000);
     };
-
-
 export const closeSnackBar = () =>
     async (dispatch, getState) => {
         dispatch(slice.actions.closeSnackBar());
     };
-
-
-
-
 export function toggleSidebar() {
-    return async (dispatch, getState) => {
+    return (dispatch) => {
         dispatch(slice.actions.toggleSidebar());
     };
 
 }
 export function updateSidebarType(type) {
-    return async (dispatch, getState) => {
+    return (dispatch,) => {
         dispatch(slice.actions.updateSidebarType({
             type,
         }));
     };
 
 }
+
+export function fecthUsers() {
+    return async (dispatch, getState) => {
+        await axiosInstance.get("/user/get-users", {
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${getState().auth.token}`
+            }
+        })
+            .then((response) => {
+                console.log(response);
+                dispatch(slice.actions.updateUsers({
+                    users: response.data.data,
+                }))
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+}
+
+export function fecthFriends() {
+    return async (dispatch, getState) => {
+        await axiosInstance
+            .get("/user/get-friends", {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getState().auth.token}`
+                }
+            }).then((response) => {
+                console.log(response);
+                dispatch(slice.actions.updateFriends({
+                    friends: response.data.data
+                }))
+            }).catch((error) => {
+                console.log(error);
+            })
+    }
+}
+
+export function fecthRequest() {
+    return async (dispatch, getState) => {
+
+        await axiosInstance
+            .get("user/get-request-friends", {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getState().auth.token}`
+                }
+            }).then((response) => {
+                console.log("banbeyeucau", response.data.data);
+                dispatch(slice.actions.updateFriendsRequest({
+                    friendsRequest: response.data.data
+                }))
+            }).catch((error) => {
+                console.log("Error fetching friend request", error);
+            })
+    }
+}
+
+export function SelectConversation({ room_id }) {
+    return (dispatch) => {
+        dispatch(slice.actions.selectConversation({ room_id }));
+    }
+}
+
+export function ResetRoomId() {
+    return (dispatch) => {
+        dispatch(slice.actions.resetRoomId());
+    }
+}
+
+
 
 
 
