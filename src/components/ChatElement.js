@@ -2,18 +2,25 @@ import { Badge, Typography, Box, Stack, Avatar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 // import { styled } from "@mui/material/styles";
 import StyledBadge from "./StyledBadge";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ResetRoomId, SelectConversation } from "../redux/slices/app";
+import { SetCurrentConversation } from "../redux/slices/coversation";
 
 const ChatElement = ({ img, name, msg, time, unread, online, id }) => {
     const theme = useTheme();
     const dispatch = useDispatch();
+    const { conversations = [] } = useSelector((state) => state.conversation.direct_chat);
+
+    // console.log("idelement", id);
+    const current = conversations.find((el) => el?.id === id);
+    console.log(current)
+
     return (
         <Box
             onClick={() => {
-                dispatch(ResetRoomId());
+
                 dispatch(SelectConversation({ room_id: id }));
-                console.log('helo');
+                // dispatch(SetCurrentConversation({ current_conversation: current }));
             }}
             sx={{
                 width: "100%",
@@ -32,7 +39,7 @@ const ChatElement = ({ img, name, msg, time, unread, online, id }) => {
                             {name}
                         </Typography>
                         <Typography variant="caption" >
-                            {msg}
+                            {typeof msg === "string" ? msg : JSON.stringify(msg)}
                         </Typography>
                     </Stack>
 

@@ -11,28 +11,85 @@ import ChatElement from "../../components/ChatElement";
 import Friends from "../../sections/main/Friend";
 import { socket } from "../../socket";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchDirectConversations, fetchDirectConversationsAction } from "../../redux/slices/coversation";
-import { ResetRoomId } from "../../redux/slices/app";
+import { AddDirectMessage, FetchDirectConversations, fetchDirectConversationsAction, FetchUnreadConversation, RemoveAllDirectMessage, UpdateDirectConversations } from "../../redux/slices/coversation";
+import { ResetRoomId, SelectConversation, UpdateRoomId } from "../../redux/slices/app";
 
 
 const user_id = window.localStorage.getItem("user_id");
 const Chats = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const dispatch = useDispatch();
+    const { room_id } = useSelector((state) => state.app);
+
     const theme = useTheme();
+    const { conversations = [], current_messages = [] } = useSelector((state) => state.conversation?.direct_chat || {});
 
-    const { conversations = [] } = useSelector((state) => state.conversation?.direct_chat || {});
+
+
     useEffect(() => {
-        dispatch(ResetRoomId());
-
+        if (conversations.length === 0) {
+            dispatch(ResetRoomId());
+            if (current_messages.length === 0) {
+                dispatch(RemoveAllDirectMessage());
+            }
+        }
         socket.emit("get_direct_conversations", { user_id }, (data) => {
             // data => list of conversations
             console.log('API Response:', data);
-            dispatch(fetchDirectConversationsAction({ conversations: data }));
+
+
+            const messasge = data?.map((el) => { return el.messages.length });
+            console.log(messasge)
+            if (data.length === 0 || messasge.length === 0) {
+                dispatch(fetchDirectConversationsAction({ conversations: data }));
+                // if (messasge.length !== 0) {
+                // dispatch(fetchDirectConversationsAction({ conversations: data }));
+
+                // }
+            }
         });
     }, [dispatch]);
 
-    console.log('conversation', conversations);
+    useEffect(() => {
+        socket.on("new message", (data) => {
+            // if (conversations.length === 0) {
+            //     dispatch(ResetRoomId());
+            //     dispatch(RemoveAllDirectMessage());
+            // }
+            const roomid = conversations.map((el) => { return el.id });
+            console.log("idneeeeeeeeeeeee", roomid);
+            if (room_id === null) {
+
+                dispatch(UpdateRoomId({ roomid }));
+            }
+            const current = conversations.find((el) => el?.id === room_id);
+            console.log("cuuruurrurururururur", conversations);
+
+            if (data.message) {
+                const newMessage = {
+                    ...data.message,
+                    outgoing: data.message.from === user_id,  // Kiểm tra tin nhắn gửi đi hay nhận
+                };
+
+
+                socket.emit("get_direct_conversations", { user_id }, (data) => {
+                    // data => list of conversations
+                    console.log('API Response:', data);
+                    dispatch(fetchDirectConversationsAction({ conversations: data }));
+                    // dispatch(FetchUnreadConversation({ conversation: current }));
+
+                    dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
+
+
+                });
+
+                dispatch(AddDirectMessage({ message: newMessage }));
+                dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
+            }
+        })
+    }, [dispatch]);
+
+
 
     const handleCloseDialog = () => {
         setOpenDialog(false);
@@ -60,6 +117,12 @@ const Chats = () => {
                             <IconButton onClick={() => {
                                 handleOpenDialog()
                             }}>
+                                <Badge anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }} badgeContent={2} color="primary">
+                                    <Users color="action" />
+                                </Badge>
                                 <Users />
                             </IconButton>
                             <IconButton>
@@ -106,7 +169,7 @@ const Chats = () => {
                                     All Chats
                                 </Typography>
                                 {/* // fill pinned chat */}
-                                {conversations && conversations.length > 0 ? (
+                                {conversations && current_messages.length > 0 && conversations.length > 0 ? (
 
                                     conversations.filter((el) => el && !el.pinned).map((el) => {
                                         return <ChatElement key={el._id} {...el} />

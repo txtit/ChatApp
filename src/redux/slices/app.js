@@ -1,8 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-// 
-import { type } from "@testing-library/user-event/dist/type";
-import axios from "axios";
 import axiosInstance from "../../utils/axios";
 
 const initialState = {
@@ -63,8 +59,11 @@ const slice = createSlice({
             state.room_id = action.payload.room_id;
         },
         resetRoomId(state) {
-            state.room_id = null;  // Hoặc giá trị mặc định mà bạn muốn
+            state.room_id = null;
         },
+        updateRoomId(state, action) {
+            state.room_id = action.payload.room_id;
+        }
     },
 
 });
@@ -171,6 +170,12 @@ export function SelectConversation({ room_id }) {
 export function ResetRoomId() {
     return (dispatch) => {
         dispatch(slice.actions.resetRoomId());
+    }
+}
+
+export function UpdateRoomId(room_id) {
+    return (dispatch) => {
+        dispatch(slice.actions.updateRoomId({ room_id }));
     }
 }
 

@@ -139,9 +139,10 @@ const TextMsg = ({ el }) => {
         <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
             <Box p={1.5} sx={{
                 backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5,
+
                 width: "max-content",
             }}>
-                <Typography variant="body2" color={color}>
+                <Typography variant="body2">
                     {el.message}
                 </Typography>
             </Box>
@@ -157,9 +158,21 @@ const Timeline = ({ el }) => {
     const color = validColors.includes(el.color) ? el.color : 'textPrimary';
     return (
         <Stack direction="row" alignItems={"center"} justifyContent={"space-between"}>
-            <Divider width="46%" />
-            <Typography variant="caption" sx={{ color: theme.palette.text }}>{el.text}</Typography>
-            <Divider width="46%" />
+            <Divider width="35%" />
+            <Typography variant="caption" sx={{ color: theme.palette.text }}>{el.message}</Typography>
+            <Divider width="35%" />
+
+        </Stack>
+    )
+}
+const Timeline2 = ({ el }) => {
+    const theme = useTheme();
+
+    const validColors = ['primary', 'secondary', 'error', 'info', 'success', 'warning', 'textPrimary', 'textSecondary'];
+    const color = validColors.includes(el.color) ? el.color : 'textPrimary';
+    return (
+        <Stack direction="row" alignItems={"center"} justifyContent={"center"}>
+            <Typography variant="caption" sx={{ color: theme.palette.text }}>{el.message}</Typography>
 
         </Stack>
     )
@@ -207,4 +220,4 @@ const MessageOption = () => {
     )
 }
 
-export { Timeline, TextMsg, MediaMsg, ReplyMsg, LinkMsg, DocMsg };
+export { Timeline, Timeline2, TextMsg, MediaMsg, ReplyMsg, LinkMsg, DocMsg };

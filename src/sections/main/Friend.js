@@ -1,8 +1,18 @@
-import { Dialog, DialogContent, Stack, Tab, Tabs } from "@mui/material";
+import { Dialog, DialogContent, Stack, styled, Tab, Tabs } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Badge from '@mui/material/Badge';
 import { fecthFriends, fecthRequest, fecthUsers } from "../../redux/slices/app";
 import { FriendComponent, FriendRequestComponent, UserComponent } from "../../components/Friends";
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+        left: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}));
 
 const UsersList = () => {
     const dispatch = useDispatch();
@@ -87,10 +97,33 @@ const Friends = ({ open, handleClose }) => {
     return (
         <Dialog fullWidth maxWidth='xs' open={open} keepMounted onClose={handleClose} sx={{ p: 4 }}>
             <Stack p={2} sx={{ width: "100%" }}>
-                <Tabs value={value} onChange={handleChange} centered >
-                    <Tab label="Explore" />
-                    <Tab label="Friends" />
-                    <Tab label="Request" />
+                <Tabs value={value} onChange={handleChange} centered sx={{
+                    '& .MuiTab-root': {
+                        minWidth: '80px', // Tăng chiều rộng
+                    },
+                }} >
+
+                    <Tab
+                        label={
+                            <Badge badgeContent={4} color="primary">
+                                Explore
+                            </Badge>
+                        }
+                    />
+                    <Tab
+                        label={
+                            <Badge badgeContent={4} color="primary">
+                                Friends
+                            </Badge>
+                        }
+                    />
+                    <Tab
+                        label={
+                            <Badge badgeContent={4} color="primary">
+                                Request
+                            </Badge>
+                        }
+                    />
                 </Tabs>
             </Stack>
             {/* Dialog Content */}

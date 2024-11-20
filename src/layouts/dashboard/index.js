@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { connectSocket, socket } from "../../socket";
-import { ResetRoomId, SelectConversation, showSnackBar } from "../../redux/slices/app";
+import { SelectConversation, showSnackBar } from "../../redux/slices/app";
 import { AddDirectConversationsAction, UpdateDirectConversations } from "../../redux/slices/coversation";
 
 // fixing
@@ -40,7 +40,7 @@ const DashboardLayout = () => {
         dispatch(showSnackBar({ severity: "success", message: data.message }));
       })
       socket.on("start_chat", (data) => {
-        console.log(data);
+        console.log("hehehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh", data);
         // add / update to conversation list
         const existing_conversation = conversations.find((el) => el?.id === data._id);
 
@@ -52,7 +52,7 @@ const DashboardLayout = () => {
         } else {
           dispatch(AddDirectConversationsAction({ conversation: data }));
         }
-        dispatch(ResetRoomId());
+
         dispatch(SelectConversation({ room_id: data._id }))
       });
     }
@@ -62,7 +62,7 @@ const DashboardLayout = () => {
       socket.off("request_sent");
       socket.off("start_chat");
     }
-  }, [isLoggedIn, socket])
+  }, [isLoggedIn, socket, conversations, dispatch, user_id])
   if (!isLoggedIn) {
     return <Navigate to={'auth/login'} />
   }
