@@ -38,7 +38,8 @@
     "sudo": "^1.0.3",
     "web-vitals": "^2.1.4",
     "yub": "^0.11.1",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zego-express-engine-webrtc": "^3.7.4"
   },
   "scripts": {
     "start": "react-scripts start",

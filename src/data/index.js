@@ -277,15 +277,15 @@ const Message_options = [
   {
     title: "React to message",
   },
-  {
-    title: "Forward message",
-  },
-  {
-    title: "Star message",
-  },
-  {
-    title: "Report",
-  },
+  // {
+  //   title: "Forward message",
+  // },
+  // {
+  //   title: "Star message",
+  // },
+  // {
+  //   title: "Report",
+  // },
   {
     title: "Delete Message",
   },

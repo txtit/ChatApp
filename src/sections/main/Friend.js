@@ -93,6 +93,9 @@ const Friends = ({ open, handleClose }) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const { friendsRequest = [] } = useSelector((state) => state.app);
+    const { friends } = useSelector((state) => state.app);
+    const { users } = useSelector((state) => state.app);
 
     return (
         <Dialog fullWidth maxWidth='xs' open={open} keepMounted onClose={handleClose} sx={{ p: 4 }}>
@@ -105,21 +108,21 @@ const Friends = ({ open, handleClose }) => {
 
                     <Tab
                         label={
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={users.length} color="primary">
                                 Explore
                             </Badge>
                         }
                     />
                     <Tab
                         label={
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={friends.length} color="primary">
                                 Friends
                             </Badge>
                         }
                     />
                     <Tab
                         label={
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={friendsRequest.length} color="primary">
                                 Request
                             </Badge>
                         }

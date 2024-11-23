@@ -142,7 +142,7 @@ const TextMsg = ({ el }) => {
 
                 width: "max-content",
             }}>
-                <Typography variant="body2">
+                <Typography sx={{ color: el.incoming ? "primary" : "white" }} variant="body2">
                     {el.message}
                 </Typography>
             </Box>
@@ -188,6 +188,7 @@ const MessageOption = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
     return (
         <>
             <DotsThreeVertical
@@ -210,7 +211,7 @@ const MessageOption = () => {
             >
                 <Stack spacing={1} px={1}>
                     {Message_options.map((el, idx) => (
-                        <MenuItem key={idx} onClick={handleClose}>{el.title}</MenuItem>
+                        <MenuItem key={idx} onClick={() => handleClick(el)}>{el.title}</MenuItem>
 
                     ))}
                 </Stack>
@@ -219,5 +220,8 @@ const MessageOption = () => {
         </>
     )
 }
+
+
+
 
 export { Timeline, Timeline2, TextMsg, MediaMsg, ReplyMsg, LinkMsg, DocMsg };

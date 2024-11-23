@@ -20,6 +20,7 @@ const Chats = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const dispatch = useDispatch();
     const { room_id } = useSelector((state) => state.app);
+    const { friendsRequest } = useSelector((state) => state.app);
 
     const theme = useTheme();
     const { conversations = [], current_messages = [] } = useSelector((state) => state.conversation?.direct_chat || {});
@@ -120,7 +121,7 @@ const Chats = () => {
                                 <Badge anchorOrigin={{
                                     vertical: 'top',
                                     horizontal: 'right',
-                                }} badgeContent={2} color="primary">
+                                }} badgeContent={friendsRequest.length} color="primary">
                                     <Users color="action" />
                                 </Badge>
                                 <Users />
@@ -154,7 +155,7 @@ const Chats = () => {
 
                         <SimpleBarStyle timeout={500} clickOnTrack={false}>
 
-                            <Stack spacing={2.4} >
+                            <Stack spacing={1} >
                                 {/* <Typography variant="subtitle2" sx={{ color: "#676767" }}>
                                         Pinned
                                     </Typography> */}

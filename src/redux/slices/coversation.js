@@ -85,10 +85,12 @@ const slice = createSlice({
         //     })
         //     console.log(state.direct_chat.conversations);
         // },
+
         fetchDirectConversations(state, action) {
 
-
-
+            console.log("fetch =========================")
+            console.log(action.payload.unread);
+            // const listConversation = action.payload.unread;
             const list = action.payload.conversations.map((el) => {
                 if (!el.participants || el.participants.length === 0) {
                     console.log("Không tìm thấy participants cho cuộc trò chuyện với ID:", el._id);
@@ -96,7 +98,7 @@ const slice = createSlice({
                 }
 
                 const this_user = el.participants.find((elm) => elm._id.toString() !== user_id);
-
+                const this_conversation = action.payload.unread.find((els) => els.id === el._id);
                 if (!this_user) {
                     console.log(`Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${el._id}`);
                     return null;
@@ -104,11 +106,11 @@ const slice = createSlice({
 
                 const lastMessage = el.messages[el.messages.length - 1];
                 console.log("last", el.messages?.length);
-                const date = new Date(Date.parse(lastMessage?.created_at));
+                const date = new Date(lastMessage?.created_at);
                 const time = !isNaN(date.getTime())
                     ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
                     : "Invalid Date"; // xử lý trường hợp không hợp lệ
-                const address = lastMessage?.from === user_id;
+                const address = lastMessage?.to !== user_id;
                 return {
                     id: el._id,
                     user_id: this_user._id,
@@ -117,114 +119,74 @@ const slice = createSlice({
                     img: faker.animal.cat(),
                     msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
                     time: time,
-                    unread: 0,
+                    unread: address ? 0 : this_conversation?.unread || 0,
+                    iso: lastMessage?.created_at,
                     pinned: false,
                 };
-            }).filter(Boolean);
-
+            }).filter(Boolean).sort((a, b) => new Date(b.iso) - new Date(a.iso));
+            console.log("danh sach", list);
             state.direct_chat.conversations = list.length > 0 ? list : [];
             console.log('neeeeeeeeeeeeeeeeeeeee', state.direct_chat.conversations);
 
         },
-
         fetchUnreadConversation(state, action) {
-            const this_conversation = action.payload.conversation;
-            console.log('userneeeeeeeeeeeeeeeee', this_conversation);
+            console.log("unread ===================================");
+            console.log("id", action.payload.conversation_id);
+            const id = action.payload.conversation_id;
+            console.log("unread", action.payload.unread);
+            const unreadCount = action.payload.unread
+            const this_conversation = action.payload.conversations.find((el) => el._id === id);
+            console.log(this_conversation);
+            if (!this_conversation) {
+                console.log("Không tìm thấy cuộc trò chuyện với ID:", id);
+                return;
+            }
 
-            const list = action.payload.conversation.map((el) => {
-                if (!el.participants || el.participants.length === 0) {
-                    console.log("Không tìm thấy participants cho cuộc trò chuyện với ID:", el._id);
-                    return null;
-                }
+            const this_user = this_conversation.participants.find((elm) => elm._id.toString() !== user_id);
 
-                const this_user = el.participants.find((elm) => elm._id.toString() !== user_id);
+            if (!this_user) {
+                console.log(`Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${this_conversation._id}`);
+                return;
+            }
 
-                if (!this_user) {
-                    console.log(`Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${el._id}`);
-                    return null;
-                }
+            const lastMessage = this_conversation.messages[this_conversation.messages.length - 1];
+            console.log("last", this_conversation.messages?.length);
+            const date = new Date(Date.parse(lastMessage?.created_at));
+            const time = !isNaN(date.getTime())
+                ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                : "Invalid Date"; // xử lý trường hợp không hợp lệ
+            const address = lastMessage?.to !== user_id;
+            // if(lastMessage)
+            // if (!address) {
+            //     unreadCount = unreadCount + 1;
+            // }
+            const updatedConversation = {
+                id: this_conversation._id,
+                user_id: this_user._id,
+                name: `${this_user.firstName} ${this_user.lastName}`,
+                online: this_user.status === "Online",
+                img: faker.animal.cat(),
+                msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
+                time: time,
+                unread: address ? 0 : unreadCount + 1,
+                pinned: false,
+            };
 
-                const lastMessage = el.messages[el.messages.length - 1];
-                console.log("last", el.messages?.length);
-                const date = new Date(Date.parse(lastMessage?.created_at));
-                const time = !isNaN(date.getTime())
-                    ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                    : "Invalid Date"; // xử lý trường hợp không hợp lệ
-                const address = lastMessage?.from === user_id;
+            const conversationIndex = state.direct_chat.conversations.findIndex((eln) => eln.id === id);
+            if (conversationIndex !== -1) {
+                state.direct_chat.conversations[conversationIndex] = updatedConversation;
+                console.log('neeeeeeeeeeeeeeeeeeeee', state.direct_chat.conversations[conversationIndex]);
 
-
-                let count = 0;
-                if (this_conversation.user_id === this_user._id) {
-                    count = this_conversation?.unread;
-
-                }
-
-                if (!address) {
-                    count += 1;
-                } else {
-                    count = 0;
-                }
-                console.log("count", this_conversation.user_id);
-                console.log("count", this_user._id);
-
-
-
-
-                return {
-                    id: el._id,
-                    user_id: this_user._id,
-                    name: `${this_user.firstName} ${this_user.lastName}`,
-                    online: this_user.status === "Online",
-                    img: faker.animal.cat(),
-                    msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
-                    time: time,
-                    unread: count,
-                    pinned: false,
-                };
-            }).filter(Boolean);
-
-            state.direct_chat.conversation = list.length > 0 ? list : [];
-            console.log('huhuehuehueheuheu', state.direct_chat.conversations);
-
-            // const this_conversation = action.payload.conversation;
-            // // const this_cur_mes = action.payload.message;
-            // console.log('neeeeeeeeeeeeeeeeeeeee', this_conversation);
-            // console.log('userneeeeeeeeeeeeeeeee', this_conversation);
-
-            // const address = this_cur_mes?.from === user_id;
-            // console.log("addresss", address);
-            // const date = new Date(this_cur_mes?.created_at);
-            // const time = `${date.getHours()}:${date.getMinutes()}`;
-            // Tạo mảng conversations mới
-            // state.direct_chat.conversations = state.direct_chat.conversations.map((el) => {
-            //     if (el?.id?.toString() !== this_conversation._id?.toString()) {
-            //         return el;
-            //     } else {
-            //         const user = this_conversation.participants.find(
-            //             (elm) => elm._id.toString() !== user_id
-            //         );
-            //         // const count = lla;
-            //         // console.log(count);
-            //         return {
-            //             ...el, // Tạo bản sao mới
-            //             name: `${user?.firstName} ${user?.lastName}`,
-            //             online: user?.status === "Online",
-            //             img: faker.animal.cat(),
-            //             msg: `${address ? "You:" : ""}${this_cur_mes?.text || "No new message"}`,
-            //             time: time,
-            //             unread: 0,
-            //             pinned: false,
-            //         };
-            //     }
-            // });
-            // console.log('neeeeeeeeeeeeeeeeeeeee', state.direct_chat.conversations);
+            }
         },
 
         updateDirectConversation(state, action) {
+
+            console.log("update=============================")
             const this_conversation = action.payload.conversation;
             const this_cur_mes = action.payload.message;
             console.log('neeeeeeeeeeeeeeeeeeeee', this_conversation);
-            console.log('userneeeeeeeeeeeeeeeee', this_conversation);
+            console.log('userneeeeeeeeeeeeeeeee', this_conversation.unread);
 
             const address = this_cur_mes?.from === user_id;
             console.log("addresss", address);
@@ -247,7 +209,7 @@ const slice = createSlice({
                         img: faker.animal.cat(),
                         msg: `${address ? "You:" : ""}${this_cur_mes?.text || "No new message"}`,
                         time: time,
-                        unread: 0,
+                        unread: 6,
                         pinned: false,
                     };
                 }
@@ -302,22 +264,11 @@ const slice = createSlice({
         },
         setCurrentConversation(state, action) {
             // const this_conversation = action.payload.current_conversation;
-            // console.log(this_conversation?.time);
-            // state.direct_chat.current_conversation = action.payload.current_conversation;
+            console.log("set current =======================================")
+            console.log(action.payload.conversation);
+            state.direct_chat.current_conversation = action.payload.conversation;
 
-            // const lastMessage = this_conversation?.msg;
-            // const current = {
-            //     // ...this_conversation, // Tạo bản sao mới
-            //     name: `${this_conversation?.firstName} ${this_conversation?.lastName}`,
-            //     online: this_conversation?.status === "Online",
-            //     img: faker.animal.cat(),
-            //     msg: this_conversation?.msg,
-            //     time: this_conversation?.time,
-            //     unread: 10,
-            //     pinned: false,
-            // };
 
-            // state.direct_chat.conversations = action.payload.current_conversation;
 
 
 
@@ -417,24 +368,24 @@ export default slice.reducer;
 
 // ----------------------------------------------------------------------
 
-export const fetchDirectConversationsAction = ({ conversations }) => {
+export const fetchDirectConversationsAction = ({ conversations, unread }) => {
     return async (dispatch) => {
         console.log("Calling fetchDirectConversationsAction"); // Kiểm tra nếu action được gọi
         try {
             console.log("Dispatching fetchDirectConversations with:", conversations); // Kiểm tra dữ liệu trước khi dispatch
-            dispatch(slice.actions.fetchDirectConversations({ conversations }));
+            dispatch(slice.actions.fetchDirectConversations({ conversations, unread }));
         } catch (error) {
             console.error("Failed to fetch conversations:", error);
         }
     };
 };
 
-export const FetchUnreadConversation = ({ conversation }) => {
+export const FetchUnreadConversation = ({ conversations, conversation_id, unread }) => {
     return async (dispatch) => {
         console.log("Calling fetchUnreadConversation"); // Kiểm tra nếu action được gọi
         try {
-            console.log("Dispatching fetchUnreadConversation with:", conversation); // Kiểm tra dữ liệu trước khi dispatch
-            dispatch(slice.actions.fetchUnreadConversation({ conversation }));
+            console.log("Dispatching fetchUnreadConversation with:", conversations); // Kiểm tra dữ liệu trước khi dispatch
+            dispatch(slice.actions.fetchUnreadConversation({ conversations, conversation_id, unread }));
         } catch (error) {
             console.error("Failed to fetch conversations:", error);
         }
@@ -483,9 +434,9 @@ export const AddDirectMessage = ({ message }) => {
     }
 }
 
-export const SetCurrentConversation = ({ current_conversation }) => {
+export const SetCurrentConversation = ({ conversation }) => {
     return async (dispatch) => {
-        dispatch(slice.actions.setCurrentConversation({ current_conversation }));
+        dispatch(slice.actions.setCurrentConversation({ conversation }));
     }
 }
 

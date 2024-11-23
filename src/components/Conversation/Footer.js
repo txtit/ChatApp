@@ -6,7 +6,8 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../socket";
-import { AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, UpdateDirectConversations } from "../../redux/slices/coversation";
+import { AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, UpdateDirectConversations } from "../../redux/slices/coversation";
+import { SelectConversation } from "../../redux/slices/app";
 
 
 const Actions = [
@@ -154,6 +155,7 @@ const Footer = () => {
         emoji +
         value.substring(selectionEnd)
       );
+      handleOnChange();
 
       // Move the cursor to the end of the inserted emoji
       input.selectionStart = input.selectionEnd = selectionStart + 1;
@@ -178,6 +180,43 @@ const Footer = () => {
     console.log("to", newMessage);
 
     setValue("")
+  }
+
+
+
+  const handleOnChange = () => {
+    // 1. Cập nhật cuộc trò chuyện hiện tại
+    dispatch(SelectConversation({ room_id: room_id }));
+    console.log("Đã chọn cuộc trò chuyện:", room_id);
+
+    // 2. Lấy thông tin cuộc trò chuyện hiện tại từ danh sách
+    const current = conversations?.find((el) => el?.id === room_id);
+    console.log("Cuộc trò chuyện hiện tại:", current);
+
+    // 3. Gửi yêu cầu lấy danh sách cuộc trò chuyện qua socket
+    socket.emit("get_direct_conversations", { user_id }, (data) => {
+      console.log("Danh sách từ server:", data);
+
+      if (!current) {
+        console.warn("Không tìm thấy cuộc trò chuyện hiện tại!");
+        return;
+      }
+
+      // 4. Dispatch hành động để cập nhật Redux
+      dispatch(UpdateDirectConversations({ conversation: current }));
+      console.log("Cập nhật trạng thái cuộc trò chuyện:", current);
+
+      // 5. Cập nhật trạng thái chưa đọc
+      dispatch(
+        FetchUnreadConversation({
+          conversations: data,
+          conversation_id: current?.id,
+          unread: 0,
+        })
+      );
+
+      console.log("Cập nhật số lượng chưa đọc về 0 cho cuộc trò chuyện:", current?.id);
+    });
   }
   return (
     <Box

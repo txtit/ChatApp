@@ -33,8 +33,6 @@ const Msg = (menu) => {
         }
         const current = conversations.find((el) => el?.id === room_id);
 
-        console.log("current", current?.unread);
-
 
         socket.emit("get_messages", { conversation_id: current?.id }, (data) => {
             // data => list of messages
@@ -51,12 +49,19 @@ const Msg = (menu) => {
 
 
         });
-
-    }, [room_id, conversations, dispatch, user_id]);
+        console.log("current conversation ==================", current)
+        dispatch(SetCurrentConversation({ conversation: current }));
+    }, [room_id, current_conversation, conversations, dispatch, user_id]);
 
 
     useEffect(() => {
         const current = conversations?.find((el) => el?.id === room_id);
+        const this_current_conversation = current_conversation?.id === room_id;
+        if (this_current_conversation) {
+
+            console.log('hientai', current_conversation.unread);
+        }
+
         // const this_conversation = 
         // Lắng nghe tin nhắn mới từ server
         socket.on("new message", (data) => {
@@ -64,11 +69,20 @@ const Msg = (menu) => {
             console.log("current messages", current);
 
             // Kiểm tra nếu data chứa tin nhắn đơn lẻ
-            if (data.message) {
+            if (data.message && current) {
                 const newMessage = {
                     ...data.message,
                     outgoing: data.message.from === user_id,  // Kiểm tra tin nhắn gửi đi hay nhận
                 };
+
+                const currentConversationId = data.conversation_id;
+                console.log("current messages", currentConversationId);
+                const currentConversaton = conversations?.find((el) => el.id === currentConversationId);
+                console.log("current conversation", currentConversaton?.unread);
+                // if (current_conversations) {
+                //     currentConversaton?.unread = 0;
+                // }
+
 
 
                 dispatch(AddDirectMessage({ message: newMessage }));
@@ -84,16 +98,23 @@ const Msg = (menu) => {
                     // console.log(currentid);
                     // // console.log(currentConversaton.id);
                     // // console.log(currentafter);
-                    // const unreadCount = currentConversaton?.unread;
-                    // console.log(unreadCount);
+
+
+                    console.log("ehehehehehehduehfuhfdsf", newMessage);
+
 
                     // todo => lay id tu current conversation 
 
-                    dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
 
-                    // dispatch(FetchUnreadConversation({ conversations: data, unread: unreadCount, conversations_id: currentConversaton?.id }));
-                    dispatch(fetchDirectConversationsAction({ conversations: data }));
+                    console.log("ccccccccccccccccccccccc", current_conversation.unread);
+                    dispatch(fetchDirectConversationsAction({ conversations: data, unread: conversations }));
 
+                    dispatch(UpdateDirectConversations({ conversation: currentConversaton ? currentConversaton : current }));
+                    dispatch(FetchUnreadConversation({ conversations: data, conversation_id: currentConversationId, unread: currentConversaton?.unread }));
+                    // dispatch(SetCurrentConversation({ conversation: current }))
+                    console.log("ccccccccccccccccccccccc", current);
+
+                    // dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
 
 
 
@@ -106,9 +127,9 @@ const Msg = (menu) => {
         });
 
         // Kiểm tra nếu cuộc trò chuyện hiện tại đã tồn tại
-        if (current) {
-            dispatch(SetCurrentConversation(current));  // Cập nhật cuộc trò chuyện hiện tại
-        }
+        // if (current) {
+        //     dispatch(SetCurrentConversation(current));  // Cập nhật cuộc trò chuyện hiện tại
+        // }
 
         // Dọn dẹp khi component unmount
         return () => {
