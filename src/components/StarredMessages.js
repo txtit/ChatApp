@@ -16,7 +16,7 @@ const StarredMessages = () => {
         <Box sx={{
           boxShadow: "0px 0px 2px rgba(0,0,0,0.25)",
           width: "100%",
-          backgroundColor: theme.palette.mode === "Light" ? "#F8FAFF" : theme.palette.background,
+          backgroundColor: theme.palette.mode === "Light" ? "#F8FAFF" : theme.palette.background.paper,
         }}>
           <Stack sx={{ height: "100%", p: 2 }} direction="row" alignItems={"center"} spacing={3}>
             <IconButton onClick={() => {

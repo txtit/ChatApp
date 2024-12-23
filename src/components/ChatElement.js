@@ -21,10 +21,14 @@ const ChatElement = ({ img, name, msg, time, unread, online, id }) => {
     const BoldTypography = styled(Typography)(({ theme }) => ({
         fontWeight: current2 ? 700 : 350,
     }));
-
+    const handleRightClick = (event) => {
+        event.preventDefault(); // Ngăn menu chuột phải mặc định
+        console.log("Right-clicked on box!");
+    };
 
     return (
         <Box
+            onContextMenu={handleRightClick}
             onClick={() => {
                 // 1. Cập nhật cuộc trò chuyện hiện tại
                 dispatch(SelectConversation({ room_id: id }));

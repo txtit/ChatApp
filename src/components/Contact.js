@@ -102,7 +102,7 @@ const Contact = () => {
               backgroundColor:
                 theme.palette.mode === "Light"
                   ? "#F8FAFF"
-                  : theme.palette.background,
+                  : theme.palette.background.paper,
             }}
           >
             <Stack
@@ -128,7 +128,7 @@ const Contact = () => {
               height: "100%",
               position: "relative",
               flexGrow: 1,
-              overflow: "scroll",
+              overflow: "auto",
             }}
             p={3}
             spacing={3}

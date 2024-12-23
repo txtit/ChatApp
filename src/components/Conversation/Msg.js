@@ -34,7 +34,7 @@ const Msg = (menu) => {
         const current = conversations.find((el) => el?.id === room_id);
 
 
-        socket.emit("get_messages", { conversation_id: current?.id }, (data) => {
+        socket.emit("get_messages", { user_id: user_id, conversation_id: current?.id }, (data) => {
             // data => list of messages
             console.log(data, "List of messages");
             // xu li out in
@@ -57,10 +57,10 @@ const Msg = (menu) => {
     useEffect(() => {
         const current = conversations?.find((el) => el?.id === room_id);
         const this_current_conversation = current_conversation?.id === room_id;
-        if (this_current_conversation) {
+        // if (this_current_conversation) {
 
-            console.log('hientai', current_conversation.unread);
-        }
+        //     console.log('hientai', current_conversation?.unread);
+        // }
 
         // const this_conversation = 
         // Lắng nghe tin nhắn mới từ server

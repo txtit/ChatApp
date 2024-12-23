@@ -17,6 +17,8 @@ import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from "phosphor-react";
 import { faker } from "@faker-js/faker";
 import { useSearchParams } from "react-router-dom";
 import useResponsive from "../../hooks/useResponsive";
+import { useDispatch, useSelector } from "react-redux";
+import { StartAudioCall } from "../../redux/slices/audioCall";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -72,6 +74,7 @@ const ChatHeader = () => {
   const openConversationMenu = Boolean(conversationMenuAnchorEl);
   const handleClickConversationMenu = (event) => {
     setConversationMenuAnchorEl(event.currentTarget);
+    console.log(event.currentTarget)
   };
   const handleCloseConversationMenu = () => {
     setConversationMenuAnchorEl(null);
@@ -119,10 +122,10 @@ const ChatHeader = () => {
           </Stack>
         </Stack>
         <Stack direction={"row"} alignItems="center" spacing={isMobile ? 1 : 3}>
-          <IconButton>
+          <IconButton >
             <VideoCamera />
           </IconButton>
-          <IconButton>
+          <IconButton >
             <Phone />
           </IconButton>
           {!isMobile && (
@@ -140,6 +143,7 @@ const ChatHeader = () => {
             aria-haspopup="true"
             aria-expanded={openConversationMenu ? "true" : undefined}
             onClick={handleClickConversationMenu}
+
           >
             <CaretDown />
           </IconButton>
@@ -181,7 +185,7 @@ const ChatHeader = () => {
           </Menu>
         </Stack>
       </Stack>
-    </Box>
+    </Box >
   );
 };
 

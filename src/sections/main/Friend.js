@@ -1,9 +1,10 @@
 import { Dialog, DialogContent, Stack, styled, Tab, Tabs } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Badge from '@mui/material/Badge';
-import { fecthFriends, fecthRequest, fecthUsers } from "../../redux/slices/app";
+import { fecthFriends, fecthRequest, fecthUsers, ResetSent, showSnackBar } from "../../redux/slices/app";
 import { FriendComponent, FriendRequestComponent, UserComponent } from "../../components/Friends";
+import { socket } from "../../socket";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -14,17 +15,28 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 
+
 const UsersList = () => {
+    // const sent = useSelector((state) => state.app.sent);
+    const { friendsRequest = [] } = useSelector((state) => state.app);
+
     const dispatch = useDispatch();
+    const [send, setSent] = useState(false)
     useEffect(() => {
+        dispatch(fecthFriends());
+        dispatch(fecthRequest());
         dispatch(fecthUsers());
+
     }, []);
+    // let to_id;
     const { users } = useSelector((state) => state.app);
+
     return (
         <>
             {Array.isArray(users) ? (
                 users.map((el) => (
                     <UserComponent key={el._id} {...el} />
+
                 ))
             ) : (
                 <p>No users available</p>
@@ -57,15 +69,17 @@ const FriendsList = () => {
 
 const RequestFriendsList = () => {
     const dispatch = useDispatch();
-
+    const { friendsRequest = [] } = useSelector((state) => state.app);
+    console.log("danhsach", friendsRequest);
     useEffect(() => {
         console.log('Dispatching fetchRequest...');
         dispatch(fecthRequest());
     }, [dispatch]);
+    const handleFetchRequest = () => {
+        dispatch(fecthRequest());
+    };
 
 
-    const { friendsRequest = [] } = useSelector((state) => state.app);
-    console.log("danhsach", friendsRequest);
 
     return (
         <Stack>
@@ -78,6 +92,7 @@ const RequestFriendsList = () => {
                         lastName={el.sender.lastName}
                         img={el.sender.img}
                         online={el.sender.online}
+                        fetchRequest={handleFetchRequest}
                     />
                 ))
             ) : (

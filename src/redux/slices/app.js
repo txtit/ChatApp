@@ -11,7 +11,9 @@ const initialState = {
         severity: null,
         message: null,
     },
+    this_users: null,
     users: [],
+    sent: [],
     friends: [],
     friendsRequest: [],
     chat_type: null,
@@ -46,6 +48,7 @@ const slice = createSlice({
         },
         updateUsers(state, action) {
             state.users = action.payload.users;
+            state.this_users = action.payload.this_users;
         },
         updateFriends(state, action) {
             state.friends = action.payload.friends;
@@ -63,6 +66,9 @@ const slice = createSlice({
         },
         updateRoomId(state, action) {
             state.room_id = action.payload.room_id;
+        },
+        updateUserSent: (state, action) => {
+            state.sent = action.payload.sent; // Cập nhật state.sent với mảng mới
         }
     },
 
@@ -114,6 +120,7 @@ export function fecthUsers() {
                 console.log(response);
                 dispatch(slice.actions.updateUsers({
                     users: response.data.data,
+                    this_users: response.data.cur_user,
                 }))
             })
             .catch((error) => {
@@ -176,6 +183,12 @@ export function ResetRoomId() {
 export function UpdateRoomId(room_id) {
     return (dispatch) => {
         dispatch(slice.actions.updateRoomId({ room_id }));
+    }
+}
+
+export function UpdateSent(newSent) {
+    return (dispatch) => {
+        dispatch(slice.actions.updateUserSent({ sent: newSent }));
     }
 }
 

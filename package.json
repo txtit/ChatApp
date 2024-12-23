@@ -18,6 +18,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "chat": "file:",
+    "dompurify": "^3.2.3",
     "emoji-mart": "^5.6.0",
     "framer-motion": "^7.5.3",
     "node-global-key-listener": "^0.3.0",

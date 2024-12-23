@@ -6,10 +6,26 @@ import { useSelector } from "react-redux";
 
 const MainLayout = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
-
+  const user_id = window.localStorage.getItem("user_id");
+  console.log(user_id)
+  const this_users = useSelector((state) => state.app);
   if (isLoggedIn) {
-    return <Navigate to={'/app'} />
+    // Nếu cần mở tab mới trước, thực hiện điều này
+
+    if (window.location.host !== "localhost:5173") {
+      // Mở tab mới trên FE 5173
+      window.open(`http://localhost:5173/#loaded/${user_id}`, "_blank");
+      // window.location.href = `http://localhost:5173/#loaded/${user_id}`;
+      return <Navigate to={'/app'} />;
+
+    }
+
+    // Sau đó, trả về điều hướng tới ứng dụng chính
   }
+  // if (isLoggedIn) {
+  //   // if (!window.location.hash) {
+  //   // }
+  // }
   return (
     <>
       <Container sx={{ mt: 5 }} maxWidth="sm">

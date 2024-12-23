@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../socket";
 import { AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, UpdateDirectConversations } from "../../redux/slices/coversation";
 import { SelectConversation } from "../../redux/slices/app";
-
+import DOMPurify from "dompurify";
 
 const Actions = [
   {
@@ -120,6 +120,14 @@ function linkify(text) {
     urlRegex,
     (url) => `<a href="${url}" target="_blank">${url}</a>`
   );
+  // const urlRegex = /(https?:\/\/[^\s]+)/g;
+  // const sanitizedText = DOMPurify.sanitize(
+  //   text.replace(
+  //     urlRegex,
+  //     (url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+  //   )
+  // );
+  // return sanitizedText;
 }
 
 function containsUrl(text) {
@@ -169,8 +177,10 @@ const Footer = () => {
       conversation_id: room_id,
       from: user_id,
       to: current?.user_id,
-      type: containsUrl(value) ? "Link" : "Text"
+      type: containsUrl(value) ? "link" : "msg",
+      // subtype: containsUrl(value) ? "link" : null,
     };
+
     socket.emit("text_message", newMessage, (response) => {
       console.log("server response", response);
       // dispatch(AddDirectMessage({ message: newMessage }));

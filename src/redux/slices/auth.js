@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "../../utils/axios";
-import { showSnackBar } from "./app";
+import { fecthUsers, showSnackBar } from "./app";
 const initialState = {
     isLoggedIn: false,
     token: "",
     isLoading: false,
     email: "",
+    name: "",
     error: false
 };
 
@@ -27,6 +28,7 @@ const slice = createSlice({
         },
         registerUser(state, action) {
             state.email = action.payload.email;
+            state.name = action.payload.name;
         }
 
     }
@@ -50,16 +52,22 @@ export function LoginUser(formValues) {
                 headers: {
                     "Content-Type": "application/json",
                 },
-            }
+                withCredentials: true // Gửi cookie hoặc thông tin xác thực
+
+            },
+
 
         ).then(function (response) {
             console.log(response);
+
             dispatch(
                 slice.actions.logIn({
                     isLoggedIn: true,
                     token: response.data.token,
                 })
             );
+            dispatch(fecthUsers());
+            window.localStorage.setItem("isLoggin", true);
             window.localStorage.setItem("user_id", response.data.user_id);
 
             dispatch(showSnackBar({ severity: "success", message: response.data.message }))
@@ -79,11 +87,41 @@ export function LoginUser(formValues) {
 //Log out
 export function LogoutUser() {
     return async (dispatch, getState) => {
-        dispatch(slice.actions.logOut())
-        window.localStorage.removeItem("user_id");
+        const user_id = window.localStorage.getItem("user_id");
 
-    }
+        if (!user_id) {
+            console.error("User ID not found in localStorage.");
+            return;
+        }
+
+        try {
+            // Dispatch action để cập nhật Redux state
+            dispatch(slice.actions.logOut());
+
+            // Gửi yêu cầu đến API
+            const response = await axios.put(
+                `/user/remove-token/${user_id}`,
+                {},
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true // Gửi cookie hoặc thông tin xác thực
+
+                }
+            );
+
+            console.log("Logout successful:", response.data);
+
+            // Xóa user_id khỏi localStorage
+            window.localStorage.removeItem("user_id");
+        } catch (err) {
+            console.error("Failed to logout:", err);
+            alert("Đăng xuất thất bại. Vui lòng thử lại.");
+        }
+    };
 }
+
 
 // forgot password 
 export function ForgotPassword(formValues) {

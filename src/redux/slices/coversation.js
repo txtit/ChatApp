@@ -98,7 +98,7 @@ const slice = createSlice({
                 }
 
                 const this_user = el.participants.find((elm) => elm._id.toString() !== user_id);
-                const this_conversation = action.payload.unread.find((els) => els.id === el._id);
+                const this_conversation = action.payload.unread?.find((els) => els.id === el._id);
                 if (!this_user) {
                     console.log(`Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${el._id}`);
                     return null;
@@ -119,7 +119,7 @@ const slice = createSlice({
                     img: faker.animal.cat(),
                     msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
                     time: time,
-                    unread: address ? 0 : this_conversation?.unread || 0,
+                    unread: !address ? 0 : this_conversation?.unread || 0,
                     iso: lastMessage?.created_at,
                     pinned: false,
                 };
@@ -186,34 +186,37 @@ const slice = createSlice({
             const this_conversation = action.payload.conversation;
             const this_cur_mes = action.payload.message;
             console.log('neeeeeeeeeeeeeeeeeeeee', this_conversation);
-            console.log('userneeeeeeeeeeeeeeeee', this_conversation.unread);
+            console.log('userneeeeeeeeeeeeeeeee', this_conversation?.unread);
 
             const address = this_cur_mes?.from === user_id;
             console.log("addresss", address);
             const date = new Date(this_cur_mes?.created_at);
             const time = `${date.getHours()}:${date.getMinutes()}`;
             // Tạo mảng conversations mới
-            state.direct_chat.conversations = state.direct_chat.conversations.map((el) => {
-                if (el?.id?.toString() !== this_conversation._id?.toString()) {
-                    return el;
-                } else {
-                    const user = this_conversation.participants.find(
-                        (elm) => elm._id.toString() !== user_id
-                    );
-                    // const count = lla;
-                    // console.log(count);
-                    return {
-                        ...el, // Tạo bản sao mới
-                        name: `${user?.firstName} ${user?.lastName}`,
-                        online: user?.status === "Online",
-                        img: faker.animal.cat(),
-                        msg: `${address ? "You:" : ""}${this_cur_mes?.text || "No new message"}`,
-                        time: time,
-                        unread: 6,
-                        pinned: false,
-                    };
-                }
-            });
+            if (state.direct_chat.conversations) {
+
+                state.direct_chat.conversations = state.direct_chat.conversations?.map((el) => {
+                    if (el?.id?.toString() !== this_conversation._id?.toString()) {
+                        return el;
+                    } else {
+                        const user = this_conversation.participants.find(
+                            (elm) => elm._id.toString() !== user_id
+                        );
+                        // const count = lla;
+                        // console.log(count);
+                        return {
+                            ...el, // Tạo bản sao mới
+                            name: `${user?.firstName} ${user?.lastName}`,
+                            online: user?.status === "Online",
+                            img: faker.animal.cat(),
+                            msg: `${address ? "You:" : ""}${this_cur_mes?.text || "No new message"}`,
+                            time: time,
+                            unread: 6,
+                            pinned: false,
+                        };
+                    }
+                });
+            }
             console.log('neeeeeeeeeeeeeeeeeeeee', state.direct_chat.conversations);
 
         },
@@ -245,33 +248,32 @@ const slice = createSlice({
 
         addDirectConversation(state, action) {
             const this_conversation = action.payload.conversation;
-            console.log("countAddDriect", this_conversation.unread);
+            console.log("countAddDriect", this_conversation);
             const date = new Date(Date.now());
             const time = `${date.getHours()}:${date.getMinutes()}`
-            const user = this_conversation.participants.find((elm) => elm._id.toString() !== user_id);
-            const lastMessage = this_conversation.messages[this_conversation.messages.length - 1]?.text || "No messages";
+            let user;
+            let lastMessage;
+
+            user = this_conversation?.participants.find((elm) => elm._id.toString() !== user_id);
+            lastMessage = this_conversation?.messages[this_conversation.messages.length - 1]?.text || "No messages";
 
             state.direct_chat.conversations.push({
-                id: this_conversation._id,
+                id: this_conversation?._id,
                 user_id: user?._id,
                 name: `${user?.firstName} ${user?.lastName}`,
                 img: faker.animal.cat(),
                 msg: lastMessage,
                 time: time,
-                unread: 9,
+                unread: 1,
                 pinned: false,
             })
+
         },
         setCurrentConversation(state, action) {
             // const this_conversation = action.payload.current_conversation;
             console.log("set current =======================================")
             console.log(action.payload.conversation);
             state.direct_chat.current_conversation = action.payload.conversation;
-
-
-
-
-
 
         },
         fetchCurrentMessages(state, action) {

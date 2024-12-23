@@ -20,7 +20,7 @@ const Chats = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const dispatch = useDispatch();
     const { room_id } = useSelector((state) => state.app);
-    const { friendsRequest } = useSelector((state) => state.app);
+    const { friendsRequest, this_users } = useSelector((state) => state.app);
 
     const theme = useTheme();
     const { conversations = [], current_messages = [] } = useSelector((state) => state.conversation?.direct_chat || {});
@@ -34,19 +34,33 @@ const Chats = () => {
                 dispatch(RemoveAllDirectMessage());
             }
         }
+
         socket.emit("get_direct_conversations", { user_id }, (data) => {
             // data => list of conversations
             console.log('API Response:', data);
+            const delettion = data?.map((el) => { return el.delettion });
+            console.log(delettion)
+            const fromValues = data
+                .map((item) =>
+                    item.delettion?.map((del) => del.from) || [] // Kiểm tra `delettion` trước
+                )
+                .flat();
 
-
+            console.log(fromValues);
+            console.log(user_id);
             const messasge = data?.map((el) => { return el.messages.length });
             console.log(messasge)
-            if (data.length === 0 || messasge.length === 0) {
-                dispatch(fetchDirectConversationsAction({ conversations: data }));
-                // if (messasge.length !== 0) {
-                // dispatch(fetchDirectConversationsAction({ conversations: data }));
 
-                // }
+            if (fromValues === user_id) {
+                dispatch(RemoveAllDirectMessage);
+                console.log("clean")
+            } else {
+                if (data.length === 0 || messasge.length === 0) {
+                    console.log("notclean")
+
+                    dispatch(fetchDirectConversationsAction({ conversations: data }));
+                   
+                }
             }
         });
     }, [dispatch]);
@@ -61,7 +75,7 @@ const Chats = () => {
             console.log("idneeeeeeeeeeeee", roomid);
             if (room_id === null) {
 
-                dispatch(UpdateRoomId({ roomid }));
+                dispatch(UpdateRoomId(roomid));
             }
             const current = conversations.find((el) => el?.id === room_id);
             console.log("cuuruurrurururururur", conversations);
@@ -89,8 +103,36 @@ const Chats = () => {
             }
         })
     }, [dispatch]);
+    // useEffect(() => {
+    //     socket.on("delete_chat_success", () => {
+    //         // if (conversations.length === 0) {
+    //         //     dispatch(ResetRoomId());
+    //         //     dispatch(RemoveAllDirectMessage());
+    //         // }
+    //         const roomid = conversations.map((el) => { return el.id });
+    //         console.log("idneeeeeeeeeeeee", roomid);
+    //         if (room_id === null) {
+
+    //             dispatch(UpdateRoomId({ roomid }));
+    //         }
+    //         const current = conversations.find((el) => el?.id === room_id);
+    //         console.log("cuuruurrurururururur", conversations);
 
 
+
+    //         socket.emit("get_direct_conversations", { user_id }, (data) => {
+    //             // data => list of conversations
+    //             console.log('API Response:', data);
+    //             dispatch(fetchDirectConversationsAction({ conversations: data }));
+    //             // dispatch(FetchUnreadConversation({ conversation: current }));
+
+    //             dispatch(UpdateDirectConversations({ conversation: current }));
+
+
+    //         });
+
+    //     })
+    // }, [dispatch]);
 
     const handleCloseDialog = () => {
         setOpenDialog(false);
@@ -111,8 +153,13 @@ const Chats = () => {
                 <Stack p={3} spacing={2} sx={{ height: "100vh" }}>
 
                     <Stack direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
-                        <Typography variant="h5">
-                            Chats
+                        <Typography variant="h8" noWrap
+                            style={{
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                            }}>
+                            {this_users?.firstName} {this_users?.lastName}
                         </Typography>
                         <Stack direction="row" spacing={1} alignItems={"center"} >
                             <IconButton onClick={() => {
@@ -121,7 +168,7 @@ const Chats = () => {
                                 <Badge anchorOrigin={{
                                     vertical: 'top',
                                     horizontal: 'right',
-                                }} badgeContent={friendsRequest.length} color="primary">
+                                }} badgeContent={friendsRequest?.length} color="primary">
                                     <Users color="action" />
                                 </Badge>
                                 <Users />

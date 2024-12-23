@@ -30,7 +30,7 @@ const SharredMessages = () => {
             backgroundColor:
               theme.palette.mode === "Light"
                 ? "#F8FAFF"
-                : theme.palette.background,
+                : theme.palette.background.paper,
           }}
         >
           <Stack
