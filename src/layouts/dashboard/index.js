@@ -25,6 +25,7 @@ const DashboardLayout = () => {
 
   const handleCloseAudioDialog = () => {
     dispatch(UpdateAudioCallDialog({ state: false }));
+
   }
   // const handleCloseVideoDialog = () => {
   //   dispatch(UpdateVideoCallDialog({ state: false }));
@@ -55,6 +56,8 @@ const DashboardLayout = () => {
         console.log(data)
         // TODO => dispatch an action to add this in call_queue
         dispatch(PushToAudioCallQueue(data));
+
+        // dispatch(ResetAudioCallQueue());
       });
 
       socket.on("video_call_notification", (data) => {

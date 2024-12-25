@@ -49,7 +49,7 @@ const Msg = (menu) => {
 
 
         });
-        console.log("current conversation ==================", current)
+        // console.log("current conversation ==================", current)
         dispatch(SetCurrentConversation({ conversation: current }));
     }, [room_id, current_conversation, conversations, dispatch, user_id]);
 
