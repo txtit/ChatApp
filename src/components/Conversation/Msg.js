@@ -187,18 +187,18 @@ const Msg = (menu) => {
                     {current_messages.map((el, idx) => {
                         switch (el.type) {
 
+                            // case "msg":
+                            //     switch (el.subtype) {
+
+                            //     }
+                            //Timeline
+
                             case "msg":
                                 switch (el.subtype) {
                                     case "divider":
                                         return <Timeline key={idx} el={el} />
                                     case "time":
                                         return <Timeline2 key={idx} el={el} />
-                                }
-                            //Timeline
-
-                            case "msg":
-                                switch (el.subtype) {
-
                                     case "img":
                                         //img msg
                                         return <MediaMsg key={idx} el={el} menu={menu} />
@@ -206,7 +206,7 @@ const Msg = (menu) => {
                                         //Doc msg
                                         return <DocMsg key={idx} el={el} menu={menu} />
 
-                                    case "link":
+                                    case "Link":
                                         //Link msg
                                         return <LinkMsg key={idx} el={el} menu={menu} />
 

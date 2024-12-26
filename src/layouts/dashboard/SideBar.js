@@ -47,7 +47,7 @@ const getMenuPath = (index) => {
 
 const SideBar = () => {
     const dispatch = useDispatch();
-
+    const { this_users } = useSelector((state) => state.app);
     const { isLoading } = useSelector((state) => state.auth);
     const navigate = useNavigate()
     const theme = useTheme();
@@ -64,7 +64,7 @@ const SideBar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    
+
     return (
 
         <Box
@@ -173,7 +173,7 @@ const SideBar = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                         onClick={handleClick}
-                        src={faker.image.cats()} />
+                        src={this_users?.avatar} />
                     <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}

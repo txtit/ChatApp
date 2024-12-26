@@ -91,7 +91,7 @@ const Header = () => {
 
 
     const current = conversations.find((el) => el?.id === room_id);
-    // console.log("teennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", current?.user_id);
+    // console.log("teennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn", current);
     const dispatch = useDispatch();
 
     const [openBlock, setOpenBlock] = useState(false);
@@ -131,6 +131,7 @@ const Header = () => {
     };
 
 
+
     return (
         <Box
             p={2}
@@ -146,7 +147,7 @@ const Header = () => {
                     <Box>
                         <StyledBadge overlap="circular" anchorOrigin={{ vertical: "bottom", horizontal: "right" }} variant="dot">
 
-                            <Avatar src={faker.image.cats()} />
+                            <Avatar src={current?.img} />
                         </StyledBadge>
 
                     </Box>

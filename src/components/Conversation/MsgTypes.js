@@ -39,28 +39,62 @@ const LinkMsg = ({ el, menu }) => {
     const theme = useTheme();
     const validColors = ['primary', 'secondary', 'error', 'info', 'success', 'warning', 'textPrimary', 'textSecondary'];
     const color = validColors.includes(el.color) ? el.color : 'textPrimary';
-
-
+    // Hàm để trích xuất URL từ HTML
+    const extractTextFromHTML = (html) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        return doc.body.textContent || ""; // Lấy nội dung văn bản
+    };
+    const plainText = extractTextFromHTML(el.message);
+    console.log(el);
     return (
         <Stack direction={"row"} justifyContent={el.incoming ? "start" : "end"}>
+
             <Box p={1.5} sx={{
                 backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5,
                 width: "max-content",
             }}>
                 <Stack spacing={2}>
                     <Stack p={2} spacing={3} alignItems={"center"} sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 1 }}>
-                        <img src={el.preview} alt={el.message} style={{ maxHeight: 210, borderRadius: "10px" }} />
+                        <img src={el.preview}
+                            alt={plainText}
+                            style={{ maxHeight: 310, borderRadius: "10px" }} />
                         <Stack spacing={2}>
-                            <Typography variant="subtitle2">
-                                Creating Chat App
+                            <Typography variant="subtitle2" style={{ textAlign: "center" }}>
+                                Link
                             </Typography>
-                            <Typography variant="subtitle2" component={Link} to="//https://www.youtube.com">
-                                www.youtube.com
+                            <Typography variant="subtitle2" component={Link} to={plainText} style={{
+                                textDecoration: "none",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                                display: "block", // Bắt buộc với textOverflow
+                                maxWidth: "400px", // Tùy chỉnh chiều rộng phù hợp
+                            }}>
+                                Bài viết được chia sẻ
                             </Typography>
                         </Stack>
-                        <Typography variant="body2" color={color}>
-                            {el.message}
+                        <Typography
+                            variant="subtitle2"
+                            component="a"
+                            href={plainText}
+                            target="_blank"
+                            rel="noopener noreferrer"
+
+                            style={{
+                                textDecoration: "none",
+                                overflow: "hidden",
+                                textAlign: "center",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap",
+                                display: "block", // Bắt buộc với textOverflow
+                                maxWidth: "600px", // Tùy chỉnh chiều rộng phù hợp
+                                minWidth: "400px", // Tùy chỉnh chiều rộng phù hợp
+                            }}
+                        >
+                            {plainText}
                         </Typography>
+
                     </Stack>
                 </Stack>
             </Box>
@@ -70,6 +104,7 @@ const LinkMsg = ({ el, menu }) => {
 
     )
 }
+
 
 
 const ReplyMsg = ({ el }) => {

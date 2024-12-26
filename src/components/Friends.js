@@ -16,7 +16,7 @@ const StyledChatBox = styled(Box)(({ theme }) => ({
     },
 }));
 const user_id = window.localStorage.getItem("user_id");
-const UserComponent = ({ firstName, lastName, _id, online, img }) => {
+const UserComponent = ({ firstName, lastName, _id, online, avatar }) => {
     const theme = useTheme();
     const dispatch = useDispatch();
     const sent = useSelector((state) => state.app.sent);
@@ -77,10 +77,10 @@ const UserComponent = ({ firstName, lastName, _id, online, img }) => {
                             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                             variant="dot"
                         >
-                            <Avatar alt={`${firstName} ${lastName}`} src={img} />
+                            <Avatar alt={`${firstName} ${lastName}`} src={avatar} />
                         </StyledBadge>
                     ) : (
-                        <Avatar alt={`${firstName} ${lastName}`} src={img} />
+                        <Avatar alt={`${firstName} ${lastName}`} src={avatar} />
                     )}
                     <Stack spacing={0.3}>
                         <Typography variant="subtitle2">{`${firstName} ${lastName}`}</Typography>
@@ -218,10 +218,9 @@ const UserComponent = ({ firstName, lastName, _id, online, img }) => {
 //         </StyledChatBox>
 //     )
 // }
-const FriendComponent = ({ firstName, lastName, _id, online, img }) => {
+const FriendComponent = ({ firstName, lastName, _id, online, avatar }) => {
     const theme = useTheme();
     const name = `${firstName} ${lastName}`;
-
     return (
         <StyledChatBox
             sx={{
@@ -244,11 +243,11 @@ const FriendComponent = ({ firstName, lastName, _id, online, img }) => {
                             anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                             variant="dot"
                         >
-                            <Avatar alt={name} src={img} />
+                            <Avatar alt={name} src={avatar} />
 
                         </StyledBadge>
                     ) : (
-                        <Avatar alt={name} src={img} />
+                        <Avatar alt={name} src={avatar} />
                     )}
                     <Stack spacing={0.3}>
                         <Typography variant="subtitle2">{name}</Typography>

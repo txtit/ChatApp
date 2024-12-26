@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, updateSidebarType } from "../redux/slices/app";
 import { faker } from "@faker-js/faker";
 import {
@@ -79,7 +79,12 @@ const DeleteDialog = ({ open, handleClose }) => {
 const Contact = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+  const { conversations = [] } = useSelector((state) => state.conversation?.direct_chat || {});
+  const { room_id } = useSelector((state) => state.app);
+  // dispatch(RemoveAllDirectMessage());
 
+
+  const current = conversations.find((el) => el?.id === room_id);
   const [openBlock, setOpenBlock] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
 
@@ -135,13 +140,13 @@ const Contact = () => {
           >
             <Stack alignItems={"center"} direction={"row"} spacing={2}>
               <Avatar
-                src={faker.image.avatar()}
-                alt={faker.name.firstName()}
+                src={current?.img}
+                alt={current?.name}
                 sx={{ height: 64, width: 64 }}
               />
               <Stack spacing={0.5}>
                 <Typography variant="article" fontWeight={600}>
-                  {faker.name.fullName()}
+                  {current?.name}
                 </Typography>
                 <Typography variant="body2" fontWeight={600}>
                   {"+0398481719"}

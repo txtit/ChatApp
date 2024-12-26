@@ -105,6 +105,21 @@ const slice = createSlice({
                 }
 
                 const lastMessage = el.messages[el.messages.length - 1];
+                const isLink = (message) => {
+                    const urlPattern = /https?:\/\/[^\s]+/; // Nhận diện link bắt đầu bằng http hoặc https
+                    return urlPattern.test(message); // Trả về true nếu là link
+                };
+
+                const extractTextFromHTML = (html) => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    return doc.body.textContent || ""; // Lấy nội dung văn bản
+                };
+
+                let plaintext = lastMessage.text || "No message";
+                if (isLink(lastMessage.text)) {
+                    plaintext = extractTextFromHTML(lastMessage.text);
+                }
                 console.log("last", el.messages?.length);
                 const date = new Date(lastMessage?.created_at);
                 const time = !isNaN(date.getTime())
@@ -116,8 +131,8 @@ const slice = createSlice({
                     user_id: this_user._id,
                     name: `${this_user.firstName} ${this_user.lastName}`,
                     online: this_user.status === "Online",
-                    img: faker.animal.cat(),
-                    msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
+                    img: this_user?.avatar,
+                    msg: `${address ? "You : " : ""}${plaintext || "No message"}`,
                     time: time,
                     unread: !address ? 0 : this_conversation?.unread || 0,
                     iso: lastMessage?.created_at,
@@ -131,12 +146,14 @@ const slice = createSlice({
         },
         fetchUnreadConversation(state, action) {
             console.log("unread ===================================");
-            console.log("id", action.payload.conversation_id);
             const id = action.payload.conversation_id;
-            console.log("unread", action.payload.unread);
-            const unreadCount = action.payload.unread
+            const unreadCount = action.payload.unread;
+
+            console.log("ID:", id);
+            console.log("Unread:", unreadCount);
+
             const this_conversation = action.payload.conversations.find((el) => el._id === id);
-            console.log(this_conversation);
+
             if (!this_conversation) {
                 console.log("Không tìm thấy cuộc trò chuyện với ID:", id);
                 return;
@@ -145,49 +162,90 @@ const slice = createSlice({
             const this_user = this_conversation.participants.find((elm) => elm._id.toString() !== user_id);
 
             if (!this_user) {
-                console.log(`Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${this_conversation._id}`);
+                console.log(
+                    `Không tìm thấy người dùng khác trong participants cho cuộc trò chuyện với ID: ${this_conversation._id}`
+                );
                 return;
             }
 
-            const lastMessage = this_conversation.messages[this_conversation.messages.length - 1];
-            console.log("last", this_conversation.messages?.length);
+            const lastMessage = this_conversation.messages?.[this_conversation.messages.length - 1];
+
+            if (!lastMessage) {
+                console.log("Cuộc trò chuyện không có tin nhắn nào.");
+                return;
+            }
+
+            // Hàm kiểm tra link và trích xuất text
+            const isLink = (message) => {
+                const urlPattern = /https?:\/\/[^\s]+/; // Nhận diện link bắt đầu bằng http hoặc https
+                return urlPattern.test(message); // Trả về true nếu là link
+            };
+
+            const extractTextFromHTML = (html) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                return doc.body.textContent || ""; // Lấy nội dung văn bản
+            };
+
+            let plaintext = lastMessage.text || "No message";
+            if (isLink(lastMessage.text)) {
+                plaintext = extractTextFromHTML(lastMessage.text);
+            }
+
+            console.log("Last message length:", this_conversation.messages?.length);
+
             const date = new Date(Date.parse(lastMessage?.created_at));
             const time = !isNaN(date.getTime())
-                ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                : "Invalid Date"; // xử lý trường hợp không hợp lệ
-            const address = lastMessage?.to !== user_id;
-            // if(lastMessage)
-            // if (!address) {
-            //     unreadCount = unreadCount + 1;
-            // }
+                ? date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+                : "Invalid Date"; // Xử lý trường hợp ngày không hợp lệ
+            const address = lastMessage?.to === user_id; // Kiểm tra tin nhắn gửi đến chính người dùng
+
+            // Tạo object cập nhật cuộc trò chuyện
             const updatedConversation = {
                 id: this_conversation._id,
                 user_id: this_user._id,
                 name: `${this_user.firstName} ${this_user.lastName}`,
                 online: this_user.status === "Online",
-                img: faker.animal.cat(),
-                msg: `${address ? "You : " : ""}${lastMessage?.text || "No message"}`,
+                img: this_user?.avatar,
+                msg: `${address ? "You: " : ""}${plaintext}`,
                 time: time,
-                unread: address ? 0 : unreadCount + 1,
+                unread: address ? unreadCount + 1 : 0, // Tăng số tin chưa đọc nếu không phải của chính người dùng
                 pinned: false,
             };
 
             const conversationIndex = state.direct_chat.conversations.findIndex((eln) => eln.id === id);
             if (conversationIndex !== -1) {
                 state.direct_chat.conversations[conversationIndex] = updatedConversation;
-                console.log('neeeeeeeeeeeeeeeeeeeee', state.direct_chat.conversations[conversationIndex]);
-
+                console.log("Updated conversation:", state.direct_chat.conversations[conversationIndex]);
+            } else {
+                console.log("Không tìm thấy chỉ mục cuộc trò chuyện để cập nhật.");
             }
         },
+
 
         updateDirectConversation(state, action) {
 
             console.log("update=============================")
             const this_conversation = action.payload.conversation;
             const this_cur_mes = action.payload.message;
-            console.log('neeeeeeeeeeeeeeeeeeeee', this_conversation);
-            console.log('userneeeeeeeeeeeeeeeee', this_conversation?.unread);
+            const isLink = (message) => {
+                const urlPattern = /https?:\/\/[^\s]+/; // Nhận diện link bắt đầu bằng http hoặc https
+                return urlPattern.test(message); // Trả về true nếu là link
+            };
+            const extractTextFromHTML = (html) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                return doc.body.textContent || ""; // Lấy nội dung văn bản
+            };
 
+            // console.log('neeeeeeeeeeeeeeeeeeeee', this_conversation);
+            // console.log('userneeeeeeeeeeeeeeeee', this_conversation?.unread);
+            const plainText = this_cur_mes?.text;
+
+            if (isLink(this_cur_mes?.text)) {
+                plainText = extractTextFromHTML(this_cur_mes?.text);
+
+            }
             const address = this_cur_mes?.from === user_id;
             console.log("addresss", address);
             const date = new Date(this_cur_mes?.created_at);
@@ -208,8 +266,8 @@ const slice = createSlice({
                             ...el, // Tạo bản sao mới
                             name: `${user?.firstName} ${user?.lastName}`,
                             online: user?.status === "Online",
-                            img: faker.animal.cat(),
-                            msg: `${address ? "You:" : ""}${this_cur_mes?.text || "No new message"}`,
+                            img: user?.avatar,
+                            msg: `${address ? "You:" : ""}${plainText || "No new message"}`,
                             time: time,
                             unread: 6,
                             pinned: false,
@@ -261,7 +319,7 @@ const slice = createSlice({
                 id: this_conversation?._id,
                 user_id: user?._id,
                 name: `${user?.firstName} ${user?.lastName}`,
-                img: faker.animal.cat(),
+                img: user?.avatar,
                 msg: lastMessage,
                 time: time,
                 unread: 1,
@@ -284,6 +342,7 @@ const slice = createSlice({
                 type: "msg",
                 subtype: el.type,
                 message: el.text,
+                preview: el.preview,
                 incoming: el.from !== user_id,
                 outgoing: el.from === user_id,
             }));
@@ -447,4 +506,3 @@ export const RemoveAllDirectMessage = () => {
         dispatch(slice.actions.removeMessage());
     }
 }
-

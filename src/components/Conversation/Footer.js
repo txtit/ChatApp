@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Box, Fab, IconButton, InputAdornment, Stack, TextField, Tooltip } from "@mui/material";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, IconButton, InputAdornment, Stack, TextField, Tooltip } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles"
 import { Camera, File, Image, LinkSimple, Smiley, Sticker, TelegramLogo, User } from "phosphor-react";
 import data from '@emoji-mart/data'
@@ -9,6 +9,7 @@ import { socket } from "../../socket";
 import { AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, UpdateDirectConversations } from "../../redux/slices/coversation";
 import { SelectConversation } from "../../redux/slices/app";
 import DOMPurify from "dompurify";
+// import './DialogStyle.css'; // Import file CSS
 
 const Actions = [
   {
@@ -52,6 +53,58 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 }));
 const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handleSendMessage }) => {
   const [openActions, setOpenActions] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false); // Trạng thái mở dialog
+  const [selectedImages, setSelectedImages] = useState([]);
+  const handleFabClick = (title) => {
+    if (title === "Photo/Video") {
+      setOpenDialog(true); // Mở dialog khi người dùng chọn Photo/Video
+    } else {
+      setOpenActions(prev => !prev); // Toggle hành động cho các mục khác
+    }
+  };
+
+  const handleFileChange = (event) => {
+    const files = Array.from(event.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setSelectedImages((prevImages) => [...prevImages, ...newImages]);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false); // Đóng dialog
+  };
+  const handleDeleteImage = (index) => {
+    setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
+  };
+  const handleSubmit = () => {
+    console.log("Hình ảnh được gửi:", selectedImages);
+
+    // Kiểm tra xem có hình ảnh nào được chọn không
+    if (selectedImages.length > 0) {
+      // Chuẩn bị dữ liệu để gửi qua socket
+      const formData = new FormData();
+      selectedImages.forEach((image, index) => {
+        formData.append(`image_${index}`, image);
+      });
+
+      // Gọi socket.emit để gửi file
+      //   socket.emit('file_message', formData, (response) => {
+      //     console.log('Upload thành công:', response.message);
+
+      //     if (response.success) {
+      //       console.log('Upload thành công:', response.message);
+      //       handleCloseDialog(); // Đóng dialog sau khi xử lý
+
+      //     } else {
+      //       console.error('Lỗi khi upload hình ảnh:', response.error);
+      //     }
+      //   });
+      // } else {
+      //   console.error("Không có hình ảnh nào được chọn.");
+    }
+
+  }
+
+
   return (
     <StyledInput
       inputRef={inputRef}
@@ -78,25 +131,77 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
               {Actions.map((el, idx) => (
                 <Tooltip key={idx} placement="right" title={el.title}>
                   <Fab
-                    onClick={() => {
-                      setOpenActions(!openActions);
-                    }}
+                    onClick={() => handleFabClick(el.title)}
                     sx={{
                       position: "absolute",
-                      top: -el.y,
-                      backgroundColor: el.color
+                      top: `${-el.y}px`, // Định vị vị trí Fab
+                      backgroundColor: el.color,
                     }}
-                    aria-label="add"
+                    aria-label={el.title}
                   >
                     {el.icon}
                   </Fab>
                 </Tooltip>
               ))}
+
+              {/* Dialog chọn hình ảnh */}
+              <Dialog open={openDialog} onClose={handleCloseDialog} className="dialog-container">
+                <DialogTitle className="dialog-title">Chọn ảnh từ thiết bị</DialogTitle>
+                <DialogContent className="dialog-content" sx={{ width: 600 }}>
+                  <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <input
+                      accept="image/*"
+                      type="file"
+                      multiple
+                      onChange={handleFileChange}
+                      style={{ display: 'none' }}
+                      id="file-input"
+                    />
+                    <label htmlFor="file-input">
+                      <Button variant="contained" component="span">
+                        Chọn hình ảnh
+                      </Button>
+                    </label>
+                    <div className="image-list">
+                      {selectedImages.map((image, index) => (
+                        <div key={index} className="image-container" style={{ position: 'relative', display: 'inline-block', margin: '10px' }}>
+                          <img
+                            src={image}
+                            alt={`Selected ${index}`}
+                            className="selected-image"
+                          />
+                          <button
+                            className="delete-button"
+                            onClick={() => handleDeleteImage(index)}
+                          >
+                            Xóa
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </DialogContent>
+
+                <DialogActions className="dialog-actions">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleCloseDialog}
+                    disabled={selectedImages.length === 0}
+                  >
+                    Gửi
+                  </Button>
+                  <Button variant="outlined" onClick={handleCloseDialog}>
+                    Hủy
+                  </Button>
+                </DialogActions>
+              </Dialog>
             </Stack>
 
             <InputAdornment position="start">
               <IconButton onClick={() => {
                 setOpenActions((prev) => !prev);
+
               }}>
                 <LinkSimple />
               </IconButton>
@@ -187,7 +292,7 @@ const Footer = () => {
       dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
       // socket.emit("start_conversations", { to: current?.user_id, from: user_id });
     });
-    console.log("to", newMessage);
+    // console.log("to", newMessage);
 
     setValue("")
   }

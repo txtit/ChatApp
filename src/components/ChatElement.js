@@ -80,7 +80,13 @@ const ChatElement = ({ img, name, msg, time, unread, online, id }) => {
                         <BoldTypography variant="subtitle2"  >
                             {name}
                         </BoldTypography>
-                        <BoldTypography variant="caption" >
+                        <BoldTypography variant="caption" style={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            display: "block", // Bắt buộc với textOverflow
+                            maxWidth: "128px", // Tùy chỉnh chiều rộng phù hợp
+                        }}>
                             {typeof msg === "string" ? msg : JSON.stringify(msg)}
                         </BoldTypography>
                     </Stack>

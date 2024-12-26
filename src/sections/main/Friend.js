@@ -90,7 +90,7 @@ const RequestFriendsList = () => {
                         _id={el._id}
                         firstName={el.sender.firstName}
                         lastName={el.sender.lastName}
-                        img={el.sender.img}
+                        img={el.sender.avatar}
                         online={el.sender.online}
                         fetchRequest={handleFetchRequest}
                     />
