@@ -177,7 +177,7 @@ const Footer = () => {
       conversation_id: room_id,
       from: user_id,
       to: current?.user_id,
-      type: containsUrl(value) ? "link" : "msg",
+      type: containsUrl(value) ? "Link" : "Text",
       // subtype: containsUrl(value) ? "link" : null,
     };
 
