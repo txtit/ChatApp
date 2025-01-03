@@ -343,6 +343,7 @@ const slice = createSlice({
                 subtype: el.type,
                 message: el.text,
                 preview: el.preview,
+                imageUrl: el.imageUrl,
                 incoming: el.from !== user_id,
                 outgoing: el.from === user_id,
             }));

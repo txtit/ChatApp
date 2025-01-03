@@ -79,7 +79,7 @@ const DeleteDialog = ({ open, handleClose }) => {
 const Contact = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const { conversations = [] } = useSelector((state) => state.conversation?.direct_chat || {});
+  const { conversations = [], current_messages = [] } = useSelector((state) => state.conversation?.direct_chat || {});
   const { room_id } = useSelector((state) => state.app);
   // dispatch(RemoveAllDirectMessage());
 
@@ -87,7 +87,8 @@ const Contact = () => {
   const current = conversations.find((el) => el?.id === room_id);
   const [openBlock, setOpenBlock] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-
+  const filteredMessages = current_messages.filter(message => message.subtype === "Media");
+  console.log(filteredMessages)
   const handleCloseBlock = () => {
     setOpenBlock(false);
   };
@@ -195,9 +196,9 @@ const Contact = () => {
               </Button>
             </Stack>
             <Stack direction={"row"} spacing={2} alignItems={"center"}>
-              {[1, 2, 3].map((el) => (
-                <Box>
-                  <img src={faker.image.food()} alt={faker.name.fullName()} />
+              {filteredMessages?.slice(0, 3).map((el) => (
+                <Box key={el._id}>
+                  <img src={el.imageUrl} alt={faker.name.fullName()} />
                 </Box>
               ))}
             </Stack>

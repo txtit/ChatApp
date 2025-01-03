@@ -1,12 +1,39 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, IconButton, InputAdornment, Stack, TextField, Tooltip } from "@mui/material";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Fab,
+  IconButton,
+  InputAdornment,
+  Stack,
+  TextField, Tooltip
+} from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles"
-import { Camera, File, Image, LinkSimple, Smiley, Sticker, TelegramLogo, User } from "phosphor-react";
+import {
+  Camera,
+  File,
+  Image,
+  LinkSimple,
+  Smiley,
+  Sticker,
+  TelegramLogo,
+  User
+} from "phosphor-react";
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../socket";
-import { AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, UpdateDirectConversations } from "../../redux/slices/coversation";
+import {
+  AddDirectMessage,
+  FetchCurrentMessages,
+  fetchDirectConversationsAction,
+  FetchUnreadConversation,
+  UpdateDirectConversations
+} from "../../redux/slices/coversation";
 import { SelectConversation } from "../../redux/slices/app";
 import DOMPurify from "dompurify";
 // import './DialogStyle.css'; // Import file CSS
@@ -54,7 +81,15 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handleSendMessage }) => {
   const [openActions, setOpenActions] = useState(false);
   const [openDialog, setOpenDialog] = useState(false); // Trạng thái mở dialog
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]); // Lưu các file hình ảnh chọn
+
+  const { conversations = [] } = useSelector((state) => state.conversation.direct_chat);
+
+  const user_id = window.localStorage.getItem("user_id");
+
+  // const isMobile = useResponsive("between", "md", "xs", "sm");
+
+  const { sidebar, room_id } = useSelector((state) => state.app);
   const handleFabClick = (title) => {
     if (title === "Photo/Video") {
       setOpenDialog(true); // Mở dialog khi người dùng chọn Photo/Video
@@ -65,45 +100,77 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
 
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
-    const newImages = files.map((file) => URL.createObjectURL(file));
-    setSelectedImages((prevImages) => [...prevImages, ...newImages]);
+    setSelectedImages((prevImages) => [...prevImages, ...files]); // Lưu các file vào state
   };
 
   const handleCloseDialog = () => {
     setOpenDialog(false); // Đóng dialog
   };
-  const handleDeleteImage = (index) => {
-    setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
-  };
-  const handleSubmit = () => {
-    console.log("Hình ảnh được gửi:", selectedImages);
 
-    // Kiểm tra xem có hình ảnh nào được chọn không
-    if (selectedImages.length > 0) {
-      // Chuẩn bị dữ liệu để gửi qua socket
-      const formData = new FormData();
-      selectedImages.forEach((image, index) => {
-        formData.append(`image_${index}`, image);
+  const handleDeleteImage = (index) => {
+    setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index)); // Xóa ảnh
+  };
+
+  const [loading, setLoading] = useState(false);  // State để theo dõi trạng thái loading
+  const [uploadSuccess, setUploadSuccess] = useState(false);  // State để theo dõi trạng thái tải thành công
+
+  const handleImageSend = async () => {
+    setLoading(true);  // Bắt đầu quá trình tải ảnh
+    setUploadSuccess(false);  // Reset trạng thái thành công
+
+    const formData = new FormData();
+
+    // Thêm tất cả các file hình ảnh vào formData
+    selectedImages.forEach((image) => {
+      formData.append("images", image); // Append file gốc vào FormData
+    });
+
+    try {
+      // Gửi yêu cầu POST để tải ảnh lên backend
+      const response = await fetch("http://localhost:3000/post/upload-images-mes", {
+        method: "POST",
+        body: formData,  // Gửi formData chứa các file
+        headers: {
+          "Accept": "application/json",
+        },
+        credentials: "include",
       });
 
-      // Gọi socket.emit để gửi file
-      //   socket.emit('file_message', formData, (response) => {
-      //     console.log('Upload thành công:', response.message);
+      const data = await response.json();
 
-      //     if (response.success) {
-      //       console.log('Upload thành công:', response.message);
-      //       handleCloseDialog(); // Đóng dialog sau khi xử lý
+      if (data.success) {
+        // Lấy URL hình ảnh sau khi upload thành công từ server
+        const imageUrls = data.images;  // Giả sử server trả về URL của hình ảnh
+        const current = conversations.find((el) => el?.id === room_id);
+        const imageUrlsString = imageUrls.join(', ');
+        const newMessage = {
+          message: linkify(value),
+          conversation_id: room_id,
+          from: user_id,
+          to: current?.user_id,
+          type: "Media",
+          imageUrl: imageUrlsString
+          // subtype: containsUrl(value) ? "link" : null,
+        };
 
-      //     } else {
-      //       console.error('Lỗi khi upload hình ảnh:', response.error);
-      //     }
-      //   });
-      // } else {
-      //   console.error("Không có hình ảnh nào được chọn.");
+        socket.emit("text_message", newMessage, (response) => {
+          console.log("server response", response);
+          dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
+        });
+
+        setUploadSuccess(true);
+        setTimeout(() => {
+          handleCloseDialog();
+        }, 500);// Đặt trạng thái thành công khi tải lên xong
+      } else {
+        console.error("Tải ảnh lên thất bại", data.message);
+      }
+    } catch (error) {
+      console.error("Lỗi tải ảnh lên:", error);
+    } finally {
+      setLoading(false);  // Kết thúc quá trình tải ảnh
     }
-
-  }
-
+  };
 
   return (
     <StyledInput
@@ -148,6 +215,7 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
               <Dialog open={openDialog} onClose={handleCloseDialog} className="dialog-container">
                 <DialogTitle className="dialog-title">Chọn ảnh từ thiết bị</DialogTitle>
                 <DialogContent className="dialog-content" sx={{ width: 600 }}>
+
                   <div style={{ position: 'relative', display: 'inline-block' }}>
                     <input
                       accept="image/*"
@@ -166,7 +234,7 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
                       {selectedImages.map((image, index) => (
                         <div key={index} className="image-container" style={{ position: 'relative', display: 'inline-block', margin: '10px' }}>
                           <img
-                            src={image}
+                            src={URL.createObjectURL(image)}  // Tạo URL tạm cho mỗi ảnh
                             alt={`Selected ${index}`}
                             className="selected-image"
                           />
@@ -180,15 +248,18 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
                       ))}
                     </div>
                   </div>
+                  {loading && <div>Đang tải...</div>} {/* Hiển thị thông báo loading */}
+                  {uploadSuccess && <div>Tải ảnh thành công!</div>} {/* Hiển thị thông báo thành công */}
                 </DialogContent>
 
                 <DialogActions className="dialog-actions">
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleCloseDialog}
+                    onClick={handleImageSend}
                     disabled={selectedImages.length === 0}
                   >
+
                     Gửi
                   </Button>
                   <Button variant="outlined" onClick={handleCloseDialog}>
@@ -201,7 +272,6 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
             <InputAdornment position="start">
               <IconButton onClick={() => {
                 setOpenActions((prev) => !prev);
-
               }}>
                 <LinkSimple />
               </IconButton>
@@ -214,11 +284,12 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
           }}>
             <Smiley />
           </IconButton>
-        </InputAdornment>
+        </InputAdornment>,
+      }}
+    />
+  );
+};
 
-      }} />
-  )
-}
 function linkify(text) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.replace(

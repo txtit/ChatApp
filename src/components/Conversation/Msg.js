@@ -199,7 +199,7 @@ const Msg = (menu) => {
                                         return <Timeline key={idx} el={el} />
                                     case "time":
                                         return <Timeline2 key={idx} el={el} />
-                                    case "img":
+                                    case "Media":
                                         //img msg
                                         return <MediaMsg key={idx} el={el} menu={menu} />
                                     case "doc":

@@ -2,8 +2,10 @@ import { Box, IconButton, Stack, Typography } from '@mui/material'
 import { CaretLeft } from 'phosphor-react'
 import React from 'react'
 import ProfileForm from '../../sections/settings/ProfileForm'
+import { useSelector } from 'react-redux'
 
 const Profile = () => {
+   
     return (
         <>
             <Stack
@@ -16,20 +18,20 @@ const Profile = () => {
                         width: 320,
                         boxShadow: '0px 0px 2px rgba(0,0,0,0.25)'
                     }}>
-                        <Stack p={4} spacing={5}>
-                            {/* header */}
-                            <Stack direction={'row'} alignContent={'center'} spacing={3}>
-                                <IconButton>
-                                    <CaretLeft size={24} color='4B4B4B'/>
-                                </IconButton>
-                                <Typography variant='h5'>
-                                    Profile
-                                </Typography>
-                            </Stack>
-                            {/* Profile form */}
-                            <ProfileForm/>
+                    <Stack p={4} spacing={5}>
+                        {/* header */}
+                        <Stack direction={'row'} alignContent={'center'} spacing={3}>
+                            <IconButton>
+                                <CaretLeft size={24} color='4B4B4B' />
+                            </IconButton>
+                            <Typography variant='h5'>
+                                Profile
+                            </Typography>
                         </Stack>
-                    </Box>
+                        {/* Profile form */}
+                        <ProfileForm />
+                    </Stack>
+                </Box>
             </Stack>
         </>
     )
