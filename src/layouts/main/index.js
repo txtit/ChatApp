@@ -16,7 +16,7 @@ const MainLayout = () => {
       // Mở tab mới trên FE 5173
       window.open(`http://localhost:5173/#loaded/${user_id}`, "_blank");
       // window.location.href = `http://localhost:5173/#loaded/${user_id}`;
-      return <Navigate to={'/app'} />;
+      // return <Navigate to={'/app'} />;
 
     }
 
