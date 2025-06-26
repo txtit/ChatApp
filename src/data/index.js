@@ -1,5 +1,9 @@
 import { faker } from "@faker-js/faker";
+import { Book, Gamepad, GamepadSharp, MenuBook, Quiz, School } from "@mui/icons-material";
 import {
+  BellRinging,
+  BellSimpleRinging,
+  BellSlash,
   ChatCircleDots,
   Gear,
   GearSix,
@@ -27,15 +31,19 @@ const Profile_Menu = [
 const Nav_Buttons = [
   {
     index: 0,
-    icon: <ChatCircleDots />,
+    icon: <MenuBook />,
   },
   {
     index: 1,
-    icon: <Users />,
+    icon: <School />,
   },
   {
     index: 2,
-    icon: <Phone />,
+    icon: <GamepadSharp />,
+  },
+  {
+    index: 3,
+    icon: <BellSimpleRinging />,
   },
 ];
 

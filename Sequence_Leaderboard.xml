@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-15T11:15:00.000Z" agent="5.0" etag="xyz" version="22.1.16">
+  <diagram name="Leaderboard" id="sequence-leaderboard">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- ===== TIÊU ĐỀ ===== -->
+        <mxCell id="title" value="🏆 Sơ đồ Sequence: Bảng Xếp Hạng (Leaderboard)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1300" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== CÁC ACTOR/ENTITY ===== -->
+        <mxCell id="student" value="👦 Học sinh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="leaderboard-ui" value="🏆 Leaderboard UI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ranking-service" value="📊 Ranking Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="score-calculator" value="🧮 Score Calculator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database" value="🗄️ Database" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cache-redis" value="⚡ Redis Cache" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="realtime-sync" value="🔄 Realtime Sync" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffd966;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="990" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="achievement" value="🎖️ Achievement" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== LIFELINES ===== -->
+        <mxCell id="student-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="120" as="sourcePoint" />
+            <mxPoint x="150" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="ui-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="305" y="120" as="sourcePoint" />
+            <mxPoint x="305" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="ranking-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="120" as="sourcePoint" />
+            <mxPoint x="465" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="calculator-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="120" as="sourcePoint" />
+            <mxPoint x="625" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="database-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="770" y="120" as="sourcePoint" />
+            <mxPoint x="770" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="cache-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="905" y="120" as="sourcePoint" />
+            <mxPoint x="905" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="sync-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="120" as="sourcePoint" />
+            <mxPoint x="1050" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="achievement-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1195" y="120" as="sourcePoint" />
+            <mxPoint x="1195" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== MESSAGES/INTERACTIONS ===== -->
+        
+        <!-- ===== PHẦN 1: TẢI BẢNG XẾP HẠNG ===== -->
+        <mxCell id="section1" value="📊 1. TẢI BẢNG XẾP HẠNG" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffcc;strokeColor=#ffcc00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="1200" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- 1. Mở leaderboard -->
+        <mxCell id="msg1" value="1. Xem bảng xếp hạng" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="180" as="sourcePoint" />
+            <mxPoint x="305" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 2. Yêu cầu lấy rankings -->
+        <mxCell id="msg2" value="2. getRankings(filter, period)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="305" y="210" as="sourcePoint" />
+            <mxPoint x="465" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ALT Frame: Kiểm tra cache -->
+        <mxCell id="alt-frame" value="alt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="1210" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="alt-condition" value="[Nếu có data trong cache và chưa hết hạn]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="250" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 3. Lấy từ cache -->
+        <mxCell id="msg3" value="3. GET cached_rankings" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="290" as="sourcePoint" />
+            <mxPoint x="905" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 4. Trả về cache data -->
+        <mxCell id="msg4" value="4. cachedRankings" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="905" y="320" as="sourcePoint" />
+            <mxPoint x="465" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ELSE: Tính toán lại rankings -->
+        <mxCell id="else-condition" value="[Else: Tính toán lại rankings]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffeeee;strokeColor=#cc0000;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="250" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 5. Lấy điểm số từ DB -->
+        <mxCell id="msg5" value="5. SELECT user_scores, achievements" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="380" as="sourcePoint" />
+            <mxPoint x="770" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 6. Tính toán rankings -->
+        <mxCell id="msg6" value="6. calculateRankings()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="410" as="sourcePoint" />
+            <mxPoint x="625" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 7. Lưu vào cache -->
+        <mxCell id="msg7" value="7. SET rankings_cache" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="440" as="sourcePoint" />
+            <mxPoint x="905" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 8. Trả về rankings -->
+        <mxCell id="msg8" value="8. newRankings[]" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="480" as="sourcePoint" />
+            <mxPoint x="305" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 9. Hiển thị bảng xếp hạng -->
+        <mxCell id="msg9" value="9. Hiển thị bảng xếp hạng với animation" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="305" y="510" as="sourcePoint" />
+            <mxPoint x="150" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== PHẦN 2: CẬP NHẬT REALTIME ===== -->
+        <mxCell id="section2" value="🔄 2. CẬP NHẬT REALTIME" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#00cc00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="550" width="1200" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- 10. Học sinh đạt điểm mới -->
+        <mxCell id="msg10" value="10. Đạt điểm mới từ quiz/lesson" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="590" as="sourcePoint" />
+            <mxPoint x="625" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 11. Cập nhật điểm và ranking -->
+        <mxCell id="msg11" value="11. updateScore() & recalculateRank()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="620" as="sourcePoint" />
+            <mxPoint x="770" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 12. Invalidate cache -->
+        <mxCell id="msg12" value="12. INVALIDATE cache" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="650" as="sourcePoint" />
+            <mxPoint x="905" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 13. Broadcast update -->
+        <mxCell id="msg13" value="13. broadcastRankingUpdate()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="680" as="sourcePoint" />
+            <mxPoint x="1050" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 14. Update UI realtime -->
+        <mxCell id="msg14" value="14. Update leaderboard realtime" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="710" as="sourcePoint" />
+            <mxPoint x="305" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- OPT Frame: Nếu ranking thay đổi đáng kể -->
+        <mxCell id="opt-frame" value="opt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeffee;strokeColor=#009900;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="1210" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="opt-condition" value="[Nếu lên/xuống hạng nhiều hoặc đạt top 3]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#009900;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="750" width="250" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 15. Mở khóa thành tích -->
+        <mxCell id="msg15" value="15. unlockRankingAchievement()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffcccc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="790" as="sourcePoint" />
+            <mxPoint x="1195" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 16. Hiển thị celebration -->
+        <mxCell id="msg16" value="16. Celebration animation 🎉" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#ffcccc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1195" y="820" as="sourcePoint" />
+            <mxPoint x="150" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== NOTES ===== -->
+        <mxCell id="notes" value="📝 GHI CHÚ:&#xa;• Leaderboard có nhiều filter: tuần/tháng/toàn trường/lớp&#xa;• Redis cache với TTL để optimize performance&#xa;• WebSocket cho realtime updates&#xa;• Anti-cheat mechanisms để ngăn gaming hệ thống&#xa;• Privacy settings: ẩn/hiện trong leaderboard&#xa;• Seasonal events với special leaderboards&#xa;• Parent/teacher dashboard với class rankings" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d6d6d6;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="860" width="500" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== RANKING FACTORS ===== -->
+        <mxCell id="ranking-factors" value="🧮 YẾU TỐ XẾP HẠNG:&#xa;• XP Points (70%): Từ bài học, quiz, video&#xa;• Quiz Accuracy (15%): Tỷ lệ đúng trung bình&#xa;• Learning Streak (10%): Chuỗi ngày học liên tục&#xa;• Time Spent (5%): Thời gian học hiệu quả&#xa;• Bonus: Perfect scores, helping friends&#xa;• Penalties: Inactivity, poor behavior" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6f3ff;strokeColor=#0066cc;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="580" y="860" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== LEADERBOARD TYPES ===== -->
+        <mxCell id="leaderboard-types" value="🏆 LOẠI BẢNG XẾP HẠNG:&#xa;• Global: Toàn hệ thống&#xa;• School: Trong trường&#xa;• Class: Trong lớp&#xa;• Friends: Bạn bè&#xa;• Weekly/Monthly: Theo thời gian&#xa;• Subject: Theo môn học&#xa;• Age Group: Theo độ tuổi" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff0e6;strokeColor=#cc6600;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="910" y="860" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

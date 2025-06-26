@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" version="24.7.17" etag="daily-quest" type="device">
+  <diagram name="Daily Quest System" id="daily-quest-flowchart">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Start Node -->
+        <mxCell id="start" value="Bắt đầu ngày mới" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Check Time -->
+        <mxCell id="check-time" value="Kiểm tra thời gian&#xa;(00:00 mỗi ngày)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Generate Daily Quests -->
+        <mxCell id="generate-quests" value="Tạo nhiệm vụ hàng ngày&#xa;dựa trên cấp độ học sinh" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="260" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Quest Types -->
+        <mxCell id="quest-types" value="Phân loại nhiệm vụ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="380" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Learning Quest -->
+        <mxCell id="learning-quest" value="Nhiệm vụ học tập&#xa;(Hoàn thành bài học)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Quiz Quest -->
+        <mxCell id="quiz-quest" value="Nhiệm vụ quiz&#xa;(Làm bài kiểm tra)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="260" y="520" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Social Quest -->
+        <mxCell id="social-quest" value="Nhiệm vụ xã hội&#xa;(Chat với bạn bè)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="440" y="520" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Challenge Quest -->
+        <mxCell id="challenge-quest" value="Nhiệm vụ thử thách&#xa;(Đạt điểm cao)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="140" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- User Checks Quests -->
+        <mxCell id="user-check-quests" value="Học sinh xem&#xa;nhiệm vụ hàng ngày" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="620" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Complete Quest -->
+        <mxCell id="complete-quest" value="Thực hiện và hoàn thành&#xa;nhiệm vụ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="340" y="720" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Validate Progress -->
+        <mxCell id="validate-progress" value="Xác thực tiến độ&#xa;hoàn thành nhiệm vụ" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="820" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Calculate Rewards -->
+        <mxCell id="calculate-rewards" value="Tính toán phần thưởng&#xa;(Điểm, xu, huy hiệu)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="340" y="940" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Award Rewards -->
+        <mxCell id="award-rewards" value="Trao phần thưởng&#xa;và cập nhật tiến độ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1060" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Update Streak -->
+        <mxCell id="update-streak" value="Cập nhật chuỗi học&#xa;liên tiếp (streak)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1160" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Generate Next Day -->
+        <mxCell id="generate-next-day" value="Chuẩn bị nhiệm vụ&#xa;cho ngày tiếp theo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1260" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Quest Not Completed -->
+        <mxCell id="quest-not-completed" value="Nhiệm vụ chưa hoàn thành&#xa;(Giữ nguyên cho ngày sau)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="580" y="840" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Check Bonus -->
+        <mxCell id="check-bonus" value="Kiểm tra điều kiện&#xa;phần thưởng đặc biệt?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1060" width="160" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Bonus Reward -->
+        <mxCell id="bonus-reward" value="Trao phần thưởng&#xa;đặc biệt (all quests)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1180" width="160" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- End Node -->
+        <mxCell id="end" value="Kết thúc" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="360" y="1380" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Wait for Next Day -->
+        <mxCell id="wait-next-day" value="Chờ đến ngày tiếp theo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="580" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="start-to-time" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="start" target="check-time">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="time-to-generate-yes" value="Đúng giờ reset" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="check-time" target="generate-quests">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="time-to-wait" value="Chưa đến giờ" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="check-time" target="wait-next-day">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="generate-to-types" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="generate-quests" target="quest-types">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="types-to-learning" value="Học tập" style="endArrow=classic;html=1;exitX=0;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="quest-types" target="learning-quest">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="types-to-quiz" value="Quiz" style="endArrow=classic;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="quest-types" target="quiz-quest">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="types-to-social" value="Xã hội" style="endArrow=classic;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="quest-types" target="social-quest">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="types-to-challenge" value="Thử thách" style="endArrow=classic;html=1;exitX=1;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="quest-types" target="challenge-quest">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="all-to-user-check" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="learning-quest" target="user-check-quests">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-to-user-check" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="quiz-quest" target="user-check-quests">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="social-to-user-check" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="social-quest" target="user-check-quests">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="challenge-to-user-check" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="challenge-quest" target="user-check-quests">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="user-check-to-complete" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="user-check-quests" target="complete-quest">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="complete-to-validate" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="complete-quest" target="validate-progress">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validate-to-calculate-yes" value="Hoàn thành" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="validate-progress" target="calculate-rewards">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="validate-to-not-completed" value="Chưa hoàn thành" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="validate-progress" target="quest-not-completed">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="calculate-to-award" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="calculate-rewards" target="award-rewards">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="calculate-to-bonus" value="Kiểm tra bonus" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="calculate-rewards" target="check-bonus">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bonus-to-bonus-reward-yes" value="Hoàn thành tất cả" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="check-bonus" target="bonus-reward">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="award-to-streak" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="award-rewards" target="update-streak">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="bonus-to-streak" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="bonus-reward" target="update-streak">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="streak-to-next-day" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="update-streak" target="generate-next-day">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="next-day-to-end" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="generate-next-day" target="end">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="not-completed-to-end" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="quest-not-completed" target="end">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="wait-to-end" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0;" edge="1" parent="1" source="wait-next-day" target="end">
+          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

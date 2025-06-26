@@ -6,21 +6,21 @@ import { DocMsg, LinkMsg, MediaMsg, ReplyMsg, TextMsg, Timeline, Timeline2 } fro
 import { SimpleBarStyle } from "../Scrollbar";
 import { useDispatch, useSelector } from "react-redux";
 import { socket } from "../../socket";
-import { AddDirectConversationsAction, AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, RemoveAllDirectMessage, SetCurrentConversation, UpdateDirectConversations } from "../../redux/slices/coversation";
+import { AddDirectConversationsAction, AddDirectMessage, FetchCurrentMessages, fetchDirectConversationsAction, FetchUnreadConversation, RemoveAllDirectMessage, SetCurrentConversation, UpdateDirectConversations, ResetScrollFlags, SaveScrollPosition } from "../../redux/slices/coversation";
 import { ResetRoomId, UpdateRoomId } from "../../redux/slices/app";
 
 const Msg = (menu) => {
 
     const theme = useTheme();
     const dispatch = useDispatch();
-    const { conversations = [], current_messages = [], current_conversation } = useSelector((state) => state.conversation.direct_chat);
+    const { conversations = [], current_messages = [], current_conversation, shouldMaintainScrollPosition, lastScrollPosition, deletedMessageIndex } = useSelector((state) => state.conversation.direct_chat);
     const { room_id } = useSelector((state) => state.app);
     const user_id = window.localStorage.getItem("user_id");
     const lastTime = conversations.map((el) => {
         return el.time;
     });
-    console.log("heokodjeohfishfisdfsdfsd", lastTime);
-    const messagesEndRef = useRef(null);
+    console.log("heokodjeohfishfisdfsdfsd", lastTime);    const messagesEndRef = useRef(null);
+    const messagesContainerRef = useRef(null);
 
 
     console.log("id", room_id);
@@ -135,14 +135,38 @@ const Msg = (menu) => {
         return () => {
             socket.off("new message");  // Đảm bảo rằng bạn ngừng lắng nghe khi component bị hủy
         };
-    }, [room_id, conversations, current_messages, dispatch, user_id]);
-
-
-    useEffect(() => {
-        if (messagesEndRef.current) {
+    }, [room_id, conversations, current_messages, dispatch, user_id]);    useEffect(() => {
+        if (shouldMaintainScrollPosition && lastScrollPosition !== null) {
+            // Giữ nguyên vị trí scroll sau khi xóa tin nhắn
+            let scrollElement = null;
+            
+            // Thử sử dụng ref trước
+            if (messagesContainerRef.current && messagesContainerRef.current.getScrollElement) {
+                scrollElement = messagesContainerRef.current.getScrollElement();
+            }
+            
+            // Fallback với querySelector
+            if (!scrollElement) {
+                scrollElement = document.querySelector('.simplebar-content-wrapper') || 
+                               document.querySelector('.simplebar-content') ||
+                               document.querySelector('[data-simplebar]');
+            }
+            
+            if (scrollElement) {
+                console.log("Restoring scroll position:", lastScrollPosition);
+                setTimeout(() => {
+                    scrollElement.scrollTop = lastScrollPosition;
+                    dispatch(ResetScrollFlags());
+                }, 50); // Giảm delay để responsive hơn
+            } else {
+                console.warn("Scroll element not found for restoration");
+                dispatch(ResetScrollFlags()); // Reset flags nếu không tìm thấy element
+            }
+        } else if (messagesEndRef.current && !shouldMaintainScrollPosition) {
+            // Scroll xuống cuối như bình thường khi có tin nhắn mới
             messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
         }
-    }, [current_messages]);
+    }, [current_messages, shouldMaintainScrollPosition, lastScrollPosition, dispatch]);
 
 
 
@@ -178,10 +202,8 @@ const Msg = (menu) => {
 
 
     return (
-        <Box p={3} width={"100%"} sx={{ flexGrow: 1, backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper }}>
-
-            {/* hidden scroll */}
-            <SimpleBarStyle timeout={500}>
+        <Box p={3} width={"100%"} sx={{ flexGrow: 1, backgroundColor: theme.palette.mode === "light" ? "#F8FAFF" : theme.palette.background.paper }}>            {/* hidden scroll */}
+            <SimpleBarStyle ref={messagesContainerRef} timeout={500}>
 
                 <Stack spacing={3}>
                     {current_messages.map((el, idx) => {

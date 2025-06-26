@@ -6,6 +6,8 @@ import authReducer from "./slices/auth"
 import audioCallReducer from "./slices/audioCall"
 import videoCallReducer from "./slices/videoCall"
 import conversationReducer from "./slices/coversation"
+import progressReducer from "./slices/progress"
+import slideReducer from "./slices/progessV2"
 // slices
 
 const rootPeristConfig = {
@@ -21,6 +23,8 @@ const rootReducer = combineReducers({
     conversation: conversationReducer,
     audioCall: audioCallReducer,
     videoCall: videoCallReducer,
+    progress: progressReducer,
+    slide: slideReducer,
 });
 
 export { rootPeristConfig, rootReducer };

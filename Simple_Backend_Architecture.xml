@@ -1,0 +1,185 @@
+<mxfile host="app.diagrams.net" modified="2024-12-22T00:00:00.000Z" agent="5.0" version="24.7.17" etag="simple-backend" type="device">
+  <diagram name="Simple Backend Architecture" id="simple-arch">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="KIẾN TRÚC BACKEND - HỆ THỐNG HỌC TẬP TRẺ EM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="720" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Client Layer -->
+        <mxCell id="client-layer" value="CLIENT LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="720" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Web App -->
+        <mxCell id="web-app" value="React Web App&#xa;• Slideshow&#xa;• Quiz Interface&#xa;• Progress Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="70" y="130" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Mobile App -->
+        <mxCell id="mobile-app" value="React Native App&#xa;• Mobile Learning&#xa;• Offline Mode&#xa;• Push Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="230" y="130" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Admin Dashboard -->
+        <mxCell id="admin-dashboard" value="Admin Dashboard&#xa;• Content Management&#xa;• User Management&#xa;• Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="390" y="130" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- API Gateway -->
+        <mxCell id="api-gateway" value="API Gateway&#xa;• Load Balancer&#xa;• Authentication&#xa;• Rate Limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="550" y="130" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- API Layer -->
+        <mxCell id="api-layer" value="API LAYER - MICROSERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="720" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Auth Service -->
+        <mxCell id="auth-service" value="Auth Service&#xa;• JWT Auth&#xa;• Role-based Access&#xa;• OAuth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="70" y="290" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Learning Service -->
+        <mxCell id="learning-service" value="Learning Service&#xa;• Lesson Management&#xa;• Quiz Engine&#xa;• Progress Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="210" y="290" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Content Service -->
+        <mxCell id="content-service" value="Content Service&#xa;• Media Upload&#xa;• Content Moderation&#xa;• File Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="350" y="290" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Chat Service -->
+        <mxCell id="chat-service" value="Chat Service&#xa;• Real-time Messaging&#xa;• Message Moderation&#xa;• Socket.io" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="490" y="290" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Gamification Service -->
+        <mxCell id="gamification-service" value="Gamification&#xa;• Badge System&#xa;• XP Calculation&#xa;• Leaderboards" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="630" y="290" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Data Layer -->
+        <mxCell id="data-layer" value="DATA ACCESS LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="720" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- MongoDB -->
+        <mxCell id="mongodb" value="MongoDB&#xa;• User Data&#xa;• Lesson Content&#xa;• Progress Records" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="70" y="440" width="140" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Redis Cache -->
+        <mxCell id="redis" value="Redis Cache&#xa;• Session Storage&#xa;• Leaderboards&#xa;• Real-time Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="230" y="440" width="140" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Cloud Storage -->
+        <mxCell id="storage" value="Cloud Storage&#xa;• Images & Videos&#xa;• Audio Files&#xa;• Documents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="390" y="440" width="140" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Message Queue -->
+        <mxCell id="queue" value="Message Queue&#xa;• Email Queue&#xa;• Notifications&#xa;• Background Jobs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="550" y="440" width="140" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- External Services -->
+        <mxCell id="external-layer" value="EXTERNAL SERVICES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="540" width="720" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Email Service -->
+        <mxCell id="email" value="Email Service&#xa;• Notifications&#xa;• Progress Reports&#xa;• Welcome Emails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="70" y="590" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- AI Services -->
+        <mxCell id="ai" value="AI Services&#xa;• Content Generation&#xa;• Speech Recognition&#xa;• Content Safety" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="210" y="590" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Push Notifications -->
+        <mxCell id="push" value="Push Notifications&#xa;• Mobile Alerts&#xa;• Achievement Alerts&#xa;• Reminders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="350" y="590" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Video Processing -->
+        <mxCell id="video" value="Video Processing&#xa;• Video Encoding&#xa;• Streaming&#xa;• Thumbnails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="490" y="590" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- CDN -->
+        <mxCell id="cdn" value="CDN&#xa;• Global Distribution&#xa;• Static Assets&#xa;• Performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="630" y="590" width="120" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Infrastructure -->
+        <mxCell id="infra-layer" value="INFRASTRUCTURE LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=14;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="690" width="720" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Docker -->
+        <mxCell id="docker" value="Docker&#xa;• Containerization&#xa;• Microservices&#xa;• Isolation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="70" y="740" width="110" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Kubernetes -->
+        <mxCell id="k8s" value="Kubernetes&#xa;• Orchestration&#xa;• Auto Scaling&#xa;• Load Balancing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="740" width="110" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- AWS Cloud -->
+        <mxCell id="aws" value="AWS Cloud&#xa;• EC2 Instances&#xa;• Load Balancer&#xa;• Auto Scaling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="330" y="740" width="110" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- CI/CD -->
+        <mxCell id="cicd" value="CI/CD Pipeline&#xa;• GitHub Actions&#xa;• Auto Testing&#xa;• Deployment" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="460" y="740" width="110" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Monitoring -->
+        <mxCell id="monitoring" value="Monitoring&#xa;• Performance&#xa;• Error Tracking&#xa;• Alerts" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="590" y="740" width="110" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#7EA6E0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="220" as="sourcePoint"/>
+            <mxPoint x="410" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#D6B656;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="370" as="sourcePoint"/>
+            <mxPoint x="410" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#B85450;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="520" as="sourcePoint"/>
+            <mxPoint x="410" y="540" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#82B366;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="670" as="sourcePoint"/>
+            <mxPoint x="410" y="690" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

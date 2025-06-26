@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:45:00.000Z" agent="5.0" etag="xyz" version="22.1.16">
+  <diagram name="Video Lesson" id="sequence-video-lesson">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- ===== TIÊU ĐỀ ===== -->
+        <mxCell id="title" value="🎥 Sơ đồ Sequence: Video Lesson" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1300" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== CÁC ACTOR/ENTITY ===== -->
+        <mxCell id="student" value="👦 Học sinh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="video-player" value="🎬 Video Player" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="video-controls" value="⏯️ Video Controls" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-tracker" value="📊 Progress Tracker" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="video-api" value="🌐 Video API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quiz-overlay" value="❓ Quiz Overlay" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffd966;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="analytics" value="📈 Analytics" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notification" value="🔔 Notification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== LIFELINES ===== -->
+        <mxCell id="student-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="120" as="sourcePoint" />
+            <mxPoint x="150" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="player-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="120" as="sourcePoint" />
+            <mxPoint x="300" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="controls-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="120" as="sourcePoint" />
+            <mxPoint x="455" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="tracker-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="120" as="sourcePoint" />
+            <mxPoint x="615" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="120" as="sourcePoint" />
+            <mxPoint x="760" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="quiz-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="895" y="120" as="sourcePoint" />
+            <mxPoint x="895" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="analytics-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="120" as="sourcePoint" />
+            <mxPoint x="1030" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="notification-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1165" y="120" as="sourcePoint" />
+            <mxPoint x="1165" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== MESSAGES/INTERACTIONS ===== -->
+        
+        <!-- 1. Chọn video lesson -->
+        <mxCell id="msg1" value="1. Chọn video lesson" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="160" as="sourcePoint" />
+            <mxPoint x="300" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 2. Lấy thông tin video -->
+        <mxCell id="msg2" value="2. GET /videos/:lessonId" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="190" as="sourcePoint" />
+            <mxPoint x="760" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 3. Trả về video metadata -->
+        <mxCell id="msg3" value="3. videoMetadata + URL" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="220" as="sourcePoint" />
+            <mxPoint x="300" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 4. Khởi tạo video controls -->
+        <mxCell id="msg4" value="4. Khởi tạo video controls" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="250" as="sourcePoint" />
+            <mxPoint x="455" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 5. Khởi tạo progress tracking -->
+        <mxCell id="msg5" value="5. Khởi tạo progress tracking" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="280" as="sourcePoint" />
+            <mxPoint x="615" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 6. Hiển thị video player -->
+        <mxCell id="msg6" value="6. Hiển thị video player" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="310" as="sourcePoint" />
+            <mxPoint x="150" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 7. Bắt đầu phát video -->
+        <mxCell id="msg7" value="7. Play video ▶️" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="350" as="sourcePoint" />
+            <mxPoint x="455" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 8. Bắt đầu tracking -->
+        <mxCell id="msg8" value="8. startWatchTime()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="380" as="sourcePoint" />
+            <mxPoint x="615" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- LOOP Frame: Phát video và tracking -->
+        <mxCell id="loop-frame" value="loop" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="1180" height="220" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="loop-condition" value="[Trong quá trình xem video]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="180" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 9. Update progress -->
+        <mxCell id="msg9" value="9. updateProgress(currentTime)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="460" as="sourcePoint" />
+            <mxPoint x="615" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 10. Log analytics -->
+        <mxCell id="msg10" value="10. logVideoEvent()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="490" as="sourcePoint" />
+            <mxPoint x="1030" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ALT Frame: Nếu có quiz point -->
+        <mxCell id="alt-frame" value="alt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffee;strokeColor=#cccc00;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="520" width="1140" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="alt-condition" value="[Nếu đến điểm quiz trong video]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="530" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 11. Pause và hiển thị quiz -->
+        <mxCell id="msg11" value="11. pauseVideo() & showQuiz()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="570" as="sourcePoint" />
+            <mxPoint x="895" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 12. Học sinh tương tác với controls -->
+        <mxCell id="msg12" value="12. Tương tác (pause/seek/volume)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="600" as="sourcePoint" />
+            <mxPoint x="455" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 13. Hoàn thành video -->
+        <mxCell id="msg13" value="13. Video hoàn thành 100% 🎉" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="650" as="sourcePoint" />
+            <mxPoint x="615" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 14. Lưu completion -->
+        <mxCell id="msg14" value="14. markVideoCompleted()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="680" as="sourcePoint" />
+            <mxPoint x="760" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- OPT Frame: Quiz cuối video -->
+        <mxCell id="opt-frame" value="opt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeffee;strokeColor=#009900;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="710" width="1180" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="opt-condition" value="[Nếu có quiz cuối video]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#009900;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="720" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 15. Hiển thị quiz -->
+        <mxCell id="msg15" value="15. Hiển thị quiz cuối video" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="760" as="sourcePoint" />
+            <mxPoint x="895" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 16. Hiển thị recommendations -->
+        <mxCell id="msg16" value="16. Hiển thị video tiếp theo" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="810" as="sourcePoint" />
+            <mxPoint x="150" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 17. Thông báo thành tích -->
+        <mxCell id="msg17" value="17. Nhận XP + badge 🏆" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="840" as="sourcePoint" />
+            <mxPoint x="1165" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== NOTES ===== -->
+        <mxCell id="notes" value="📝 GHI CHÚ:&#xa;• Video player tùy chỉnh với controls thân thiện trẻ em&#xa;• Tracking xem video chi tiết: thời gian, tốc độ, tua lại&#xa;• Interactive quiz points trong video&#xa;• Auto-pause khi học sinh không tập trung (tab inactive)&#xa;• Hỗ trợ closed captions và multiple playback speeds&#xa;• Bookmark các đoạn video quan trọng&#xa;• Analytics: engagement rate, completion rate, rewatch segments" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d6d6d6;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="880" width="700" height="120" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

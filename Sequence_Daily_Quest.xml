@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-15T11:00:00.000Z" agent="5.0" etag="xyz" version="22.1.16">
+  <diagram name="Daily Quest" id="sequence-daily-quest">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- ===== TIÊU ĐỀ ===== -->
+        <mxCell id="title" value="🎯 Sơ đồ Sequence: Daily Quest - Nhiệm vụ hàng ngày" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1300" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== CÁC ACTOR/ENTITY ===== -->
+        <mxCell id="student" value="👦 Học sinh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quest-ui" value="🎯 Quest UI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="quest-manager" value="📋 Quest Manager" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-system" value="📊 Progress System" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="reward-system" value="🏆 Reward System" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffd966;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="backend" value="🌐 Backend API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="830" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="scheduler" value="⏰ Quest Scheduler" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notification" value="🔔 Notification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== LIFELINES ===== -->
+        <mxCell id="student-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="120" as="sourcePoint" />
+            <mxPoint x="150" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="ui-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="120" as="sourcePoint" />
+            <mxPoint x="290" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="manager-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="120" as="sourcePoint" />
+            <mxPoint x="430" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="progress-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="585" y="120" as="sourcePoint" />
+            <mxPoint x="585" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="reward-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="120" as="sourcePoint" />
+            <mxPoint x="740" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="backend-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="885" y="120" as="sourcePoint" />
+            <mxPoint x="885" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="scheduler-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="120" as="sourcePoint" />
+            <mxPoint x="1030" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="notification-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1175" y="120" as="sourcePoint" />
+            <mxPoint x="1175" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== MESSAGES/INTERACTIONS ===== -->
+        
+        <!-- ===== PHẦN 1: KHỞI TẠO DAILY QUEST ===== -->
+        <mxCell id="section1" value="🌅 1. KHỞI TẠO DAILY QUEST" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffcc;strokeColor=#ffcc00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="140" width="1180" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- 1. Mở Daily Quest -->
+        <mxCell id="msg1" value="1. Mở Daily Quest" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="180" as="sourcePoint" />
+            <mxPoint x="290" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 2. Lấy quest hôm nay -->
+        <mxCell id="msg2" value="2. getTodayQuests(userId)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="210" as="sourcePoint" />
+            <mxPoint x="430" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ALT Frame: Nếu chưa có quest hôm nay -->
+        <mxCell id="alt-frame" value="alt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="1190" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="alt-condition" value="[Nếu chưa có quest hôm nay hoặc reset hàng ngày]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="280" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 3. Generate quest mới -->
+        <mxCell id="msg3" value="3. generateDailyQuests()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="290" as="sourcePoint" />
+            <mxPoint x="1030" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 4. Lưu quest vào DB -->
+        <mxCell id="msg4" value="4. POST /quests/daily" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="320" as="sourcePoint" />
+            <mxPoint x="885" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 5. Trả về danh sách quest -->
+        <mxCell id="msg5" value="5. todayQuests[]" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="380" as="sourcePoint" />
+            <mxPoint x="290" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 6. Hiển thị danh sách quest -->
+        <mxCell id="msg6" value="6. Hiển thị danh sách nhiệm vụ" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="410" as="sourcePoint" />
+            <mxPoint x="150" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== PHẦN 2: THỰC HIỆN QUEST ===== -->
+        <mxCell id="section2" value="🎮 2. THỰC HIỆN QUEST" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#00cc00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="1180" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- LOOP Frame: Thực hiện từng quest -->
+        <mxCell id="loop-frame" value="loop" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="490" width="1190" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="loop-condition" value="[Đối với mỗi hoạt động học tập của học sinh]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="500" width="280" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 7. Học sinh thực hiện hoạt động -->
+        <mxCell id="msg7" value="7. Thực hiện hoạt động (học bài/quiz/video)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="540" as="sourcePoint" />
+            <mxPoint x="585" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 8. Kiểm tra progress quest -->
+        <mxCell id="msg8" value="8. checkQuestProgress(activity)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="585" y="570" as="sourcePoint" />
+            <mxPoint x="430" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 9. Update quest progress -->
+        <mxCell id="msg9" value="9. updateQuestProgress()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="600" as="sourcePoint" />
+            <mxPoint x="885" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 10. Cập nhật UI realtime -->
+        <mxCell id="msg10" value="10. Update UI real-time" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="630" as="sourcePoint" />
+            <mxPoint x="290" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== PHẦN 3: HOÀN THÀNH QUEST ===== -->
+        <mxCell id="section3" value="🏆 3. HOÀN THÀNH QUEST & NHẬN THƯỞNG" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#cc0000;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="690" width="1180" height="25" as="geometry" />
+        </mxCell>
+        
+        <!-- 11. Quest hoàn thành -->
+        <mxCell id="msg11" value="11. Quest hoàn thành! 🎯" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="730" as="sourcePoint" />
+            <mxPoint x="740" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 12. Tính toán phần thưởng -->
+        <mxCell id="msg12" value="12. calculateRewards()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="760" as="sourcePoint" />
+            <mxPoint x="885" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 13. Cấp phần thưởng -->
+        <mxCell id="msg13" value="13. grantRewards(XP, coins, items)" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="790" as="sourcePoint" />
+            <mxPoint x="585" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 14. Hiển thị thông báo -->
+        <mxCell id="msg14" value="14. Chúc mừng! Nhận thưởng 🎁" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffcccc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="820" as="sourcePoint" />
+            <mxPoint x="1175" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 15. Hiển thị popup thưởng -->
+        <mxCell id="msg15" value="15. Popup hiển thị phần thưởng" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#ffcccc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1175" y="850" as="sourcePoint" />
+            <mxPoint x="150" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== NOTES ===== -->
+        <mxCell id="notes" value="📝 GHI CHÚ:&#xa;• Quest tự động reset hàng ngày lúc 00:00&#xa;• Các loại quest: Học X bài, Xem Y video, Đạt Z điểm quiz, v.v.&#xa;• Difficulty tăng dần theo level của học sinh&#xa;• Bonus reward cho streak (hoàn thành liên tục nhiều ngày)&#xa;• UI hiển thị progress bar với hiệu ứng động&#xa;• Push notification nhắc nhở khi gần hết ngày&#xa;• Weekly/Monthly quest với phần thưởng lớn hơn" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d6d6d6;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="790" y="880" width="450" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== QUEST TYPES ===== -->
+        <mxCell id="quest-types" value="🎯 CÁC LOẠI QUEST:&#xa;• Học bài: Hoàn thành X slide/bài học&#xa;• Video: Xem Y phút video lesson&#xa;• Quiz: Đạt Z% điểm số trung bình&#xa;• Streak: Học liên tục X ngày&#xa;• Social: Giúp đỡ bạn bè&#xa;• Time: Học ít nhất X phút&#xa;• Perfect: Hoàn thành bài không sai" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e6f3ff;strokeColor=#0066cc;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="880" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== REWARDS ===== -->
+        <mxCell id="rewards" value="🏆 PHẦN THƯỞNG:&#xa;• XP Points: Tăng level&#xa;• Coins: Mua items trong store&#xa;• Badges: Huy hiệu thành tích&#xa;• Stickers: Trang trí profile&#xa;• Avatars: Avatar mới&#xa;• Themes: Giao diện mới&#xa;• Unlock: Mở khóa nội dung mới" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff0e6;strokeColor=#cc6600;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="380" y="880" width="300" height="120" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

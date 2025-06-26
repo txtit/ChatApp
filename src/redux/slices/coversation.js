@@ -8,6 +8,9 @@ const initialState = {
         conversations: [],
         current_conversation: null,
         current_messages: [],
+        shouldMaintainScrollPosition: false,
+        lastScrollPosition: null,
+        deletedMessageIndex: null,
     },
     group_chats: {},
 };
@@ -411,15 +414,105 @@ const slice = createSlice({
         //             pinned: false,
         //             messages: [message],
         //         };
-        //         state.direct_chat.conversations.push(newRecipientConversation);
-        //     }
+        //         state.direct_chat.conversations.push(newRecipientConversation);        //     }
         // },
-
 
         removeMessage(state, action) {
             state.direct_chat.current_messages = [];
             state.direct_chat.conversations = [];
             state.direct_chat.current_conversation = null;
+        },        // Xử lý xóa tin nhắn
+        deleteMessage(state, action) {
+            console.log("deleteMessage reducer called", action.payload);
+            const { message_id, updated_chat } = action.payload;
+            
+            // Xóa tin nhắn khỏi current_messages và đánh dấu để giữ vị trí scroll
+            const messageIndex = state.direct_chat.current_messages.findIndex(
+                (msg) => msg.id === message_id
+            );
+            
+            if (messageIndex !== -1) {
+                // Xóa tin nhắn
+                state.direct_chat.current_messages = state.direct_chat.current_messages.filter(
+                    (msg) => msg.id !== message_id
+                );
+                
+                // Thêm flag để component biết cần giữ scroll position
+                state.direct_chat.shouldMaintainScrollPosition = true;
+                // Không override lastScrollPosition nếu đã được set trước đó
+                if (state.direct_chat.lastScrollPosition === null) {
+                    state.direct_chat.lastScrollPosition = 0;
+                }
+                state.direct_chat.deletedMessageIndex = messageIndex;
+            }
+            
+            // Cập nhật cuộc trò chuyện với dữ liệu mới từ server
+            if (updated_chat) {
+                const conversationIndex = state.direct_chat.conversations.findIndex(
+                    (conv) => conv.id === updated_chat._id
+                );
+                
+                if (conversationIndex !== -1) {
+                    const this_user = updated_chat.participants.find(
+                        (elm) => elm._id.toString() !== user_id
+                    );
+                    
+                    if (this_user) {
+                        const lastMessage = updated_chat.messages[updated_chat.messages.length - 1];
+                        
+                        // Helper functions
+                        const isLink = (message) => {
+                            const urlPattern = /https?:\/\/[^\s]+/;
+                            return urlPattern.test(message);
+                        };
+                        
+                        const extractTextFromHTML = (html) => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, "text/html");
+                            return doc.body.textContent || "";
+                        };
+                        
+                        let plaintext = "No messages";
+                        let time = "00:00";
+                        let address = false;
+                        
+                        if (lastMessage) {
+                            plaintext = lastMessage.text || "No message";
+                            if (isLink(lastMessage.text)) {
+                                plaintext = extractTextFromHTML(lastMessage.text);
+                            }
+                            
+                            const date = new Date(lastMessage.created_at);
+                            time = !isNaN(date.getTime())
+                                ? date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                                : "Invalid Date";
+                            address = lastMessage.from === user_id;
+                        }
+                        
+                        // Cập nhật cuộc trò chuyện
+                        state.direct_chat.conversations[conversationIndex] = {
+                            ...state.direct_chat.conversations[conversationIndex],
+                            name: `${this_user.firstName} ${this_user.lastName}`,
+                            online: this_user.status === "Online",
+                            img: this_user.avatar,
+                            msg: `${address ? "You: " : ""}${plaintext}`,
+                            time: time,
+                            iso: lastMessage?.created_at,
+                        };
+                    }
+                }
+            }
+        },        // Thêm reducer để reset scroll flags
+        resetScrollFlags(state, action) {
+            state.direct_chat.shouldMaintainScrollPosition = false;
+            state.direct_chat.lastScrollPosition = null;
+            state.direct_chat.deletedMessageIndex = null;
+        },
+
+        // Thêm reducer để save scroll position trước khi xóa tin nhắn
+        saveScrollPosition(state, action) {
+            const { scrollPosition } = action.payload;
+            state.direct_chat.lastScrollPosition = scrollPosition;
         }
     },
 });
@@ -505,5 +598,24 @@ export const SetCurrentConversation = ({ conversation }) => {
 export const RemoveAllDirectMessage = () => {
     return async (dispatch) => {
         dispatch(slice.actions.removeMessage());
+    }
+}
+
+export const DeleteMessage = ({ message_id, updated_chat }) => {
+    return async (dispatch) => {
+        console.log("DeleteMessage action called", { message_id, updated_chat });
+        dispatch(slice.actions.deleteMessage({ message_id, updated_chat }));
+    }
+}
+
+export const ResetScrollFlags = () => {
+    return async (dispatch) => {
+        dispatch(slice.actions.resetScrollFlags());
+    }
+}
+
+export const SaveScrollPosition = ({ scrollPosition }) => {
+    return async (dispatch) => {
+        dispatch(slice.actions.saveScrollPosition({ scrollPosition }));
     }
 }

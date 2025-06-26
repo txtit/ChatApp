@@ -1,0 +1,210 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Database Schema - Kids Learning Website" id="db-schema">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="LUOC DO CO SO DU LIEU - WEBSITE HOC TAP TRE EM 6-10 TUOI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="1700" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- USERS Table -->
+        <mxCell id="users-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="300" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="users-header" value="📋 USERS (Bảng người dùng)" style="text;strokeColor=none;fillColor=#82b366;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="users-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="users-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi người dùng&#xa;   - Index: PRIMARY&#xa;&#xa;📝 firstName: VARCHAR(50) (NOT NULL)&#xa;   - Tên của trẻ em&#xa;   - Index: INDEX&#xa;&#xa;📝 lastName: VARCHAR(50) (NOT NULL)&#xa;   - Họ của trẻ em&#xa;   - Index: INDEX&#xa;&#xa;👤 username: VARCHAR(30) (UNIQUE, NOT NULL)&#xa;   - Tên đăng nhập duy nhất&#xa;   - Index: UNIQUE&#xa;&#xa;📧 email: VARCHAR(100) (UNIQUE, NOT NULL)&#xa;   - Email đăng ký tài khoản&#xa;   - Index: UNIQUE&#xa;&#xa;🔒 password: VARCHAR(255) (NOT NULL)&#xa;   - Mật khẩu đã được mã hóa (bcrypt)&#xa;&#xa;🖼️ avatar: VARCHAR(255)&#xa;   - URL ảnh đại diện&#xa;&#xa;🎂 age: INT(2)&#xa;   - Tuổi của trẻ (6-10)&#xa;   - CHECK: age BETWEEN 6 AND 10&#xa;&#xa;👨‍👩‍👧‍👦 parentEmail: VARCHAR(100)&#xa;   - Email phụ huynh để giám sát&#xa;&#xa;📚 learningLevel: ENUM('beginner','intermediate','advanced')&#xa;   - Mức độ học tập hiện tại&#xa;   - DEFAULT: 'beginner'&#xa;&#xa;⭐ totalXP: INT DEFAULT 0&#xa;   - Tổng điểm kinh nghiệm tích lũy&#xa;   - Index: INDEX&#xa;&#xa;🔥 currentStreak: INT DEFAULT 0&#xa;   - Chuỗi ngày học liên tiếp&#xa;&#xa;✅ verified: BOOLEAN DEFAULT FALSE&#xa;   - Trạng thái xác thực email&#xa;&#xa;🟢 status: ENUM('active','inactive','suspended')&#xa;   - Trạng thái tài khoản&#xa;   - DEFAULT: 'active'&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="users-table">
+          <mxGeometry y="55" width="300" height="345" as="geometry"/>
+        </mxCell>
+        
+        <!-- SUBJECTS Table -->
+        <mxCell id="subjects-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="300" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="subjects-header" value="📚 SUBJECTS (Bảng môn học)" style="text;strokeColor=none;fillColor=#d6b656;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="subjects-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="subjects-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi môn học&#xa;   - Index: PRIMARY&#xa;&#xa;📖 name: VARCHAR(100) (NOT NULL)&#xa;   - Tên môn học (Toán, Tiếng Việt, v.v.)&#xa;   - Index: INDEX&#xa;&#xa;📝 description: TEXT&#xa;   - Mô tả chi tiết về môn học&#xa;&#xa;🎨 color: VARCHAR(7)&#xa;   - Mã màu hex cho giao diện (#FF5722)&#xa;   - DEFAULT: '#2196F3'&#xa;&#xa;🎯 icon: VARCHAR(50)&#xa;   - Tên icon đại diện môn học&#xa;&#xa;🎓 gradeLevel: ENUM('1','2','3','4','5')&#xa;   - Lớp học phù hợp&#xa;   - DEFAULT: '1'&#xa;&#xa;📊 order: INT&#xa;   - Thứ tự hiển thị môn học&#xa;   - Index: INDEX&#xa;&#xa;✅ isActive: BOOLEAN DEFAULT TRUE&#xa;   - Trạng thái hoạt động của môn học&#xa;&#xa;👤 createdBy: ObjectId (FOREIGN KEY)&#xa;   - Người tạo môn học&#xa;   - REFERENCES users(id)&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="subjects-table">
+          <mxGeometry y="55" width="300" height="225" as="geometry"/>
+        </mxCell>
+        
+        <!-- LESSONS Table -->
+        <mxCell id="lessons-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="750" y="80" width="300" height="320" as="geometry"/>
+        </mxCell>
+        <mxCell id="lessons-header" value="📖 LESSONS (Bảng bài học)" style="text;strokeColor=none;fillColor=#d79b00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="lessons-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="lessons-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi bài học&#xa;   - Index: PRIMARY&#xa;&#xa;📚 subjectId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng subjects&#xa;   - REFERENCES subjects(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;📝 title: VARCHAR(200) (NOT NULL)&#xa;   - Tiêu đề bài học&#xa;   - Index: INDEX&#xa;&#xa;📄 description: TEXT&#xa;   - Mô tả chi tiết bài học&#xa;&#xa;🎯 objectives: JSON&#xa;   - Mục tiêu học tập (dạng array)&#xa;&#xa;⭐ difficulty: ENUM('easy','medium','hard')&#xa;   - Độ khó của bài học&#xa;   - DEFAULT: 'easy'&#xa;&#xa;⏰ estimatedDuration: INT&#xa;   - Thời gian ước tính (phút)&#xa;   - DEFAULT: 30&#xa;&#xa;🖼️ thumbnailUrl: VARCHAR(255)&#xa;   - URL ảnh thumbnail bài học&#xa;&#xa;📊 lessonOrder: INT (NOT NULL)&#xa;   - Thứ tự bài học trong môn&#xa;   - Index: INDEX&#xa;&#xa;📢 isPublished: BOOLEAN DEFAULT FALSE&#xa;   - Trạng thái xuất bản&#xa;&#xa;👤 createdBy: ObjectId (FOREIGN KEY)&#xa;   - Người tạo bài học&#xa;   - REFERENCES users(id)&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="lessons-table">
+          <mxGeometry y="55" width="300" height="265" as="geometry"/>
+        </mxCell>
+        
+        <!-- SLIDES Table -->
+        <mxCell id="slides-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="80" width="300" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="slides-header" value="🎞️ SLIDES (Bảng slide bài học)" style="text;strokeColor=none;fillColor=#b85450;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="slides-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="slides-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi slide&#xa;   - Index: PRIMARY&#xa;&#xa;📖 lessonId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng lessons&#xa;   - REFERENCES lessons(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;📝 title: VARCHAR(200)&#xa;   - Tiêu đề slide&#xa;&#xa;📄 content: TEXT&#xa;   - Nội dung văn bản của slide&#xa;&#xa;🎭 slideType: ENUM('intro','content','exercise','summary')&#xa;   - Loại slide&#xa;   - DEFAULT: 'content'&#xa;&#xa;📊 slideOrder: INT (NOT NULL)&#xa;   - Thứ tự slide trong bài học&#xa;   - Index: INDEX&#xa;&#xa;🖼️ imageUrl: VARCHAR(255)&#xa;   - URL hình ảnh minh họa&#xa;&#xa;🔊 audioUrl: VARCHAR(255)&#xa;   - URL file âm thanh&#xa;&#xa;🎥 videoUrl: VARCHAR(255)&#xa;   - URL video giảng dạy&#xa;&#xa;⏱️ duration: INT DEFAULT 60&#xa;   - Thời gian hiển thị slide (giây)&#xa;&#xa;❗ isRequired: BOOLEAN DEFAULT TRUE&#xa;   - Slide bắt buộc xem hết&#xa;&#xa;📐 layoutType: ENUM('text','image','video','interactive')&#xa;   - Kiểu bố cục slide&#xa;   - DEFAULT: 'text'&#xa;&#xa;🎮 interactionType: ENUM('none','click','drag','voice')&#xa;   - Loại tương tác&#xa;   - DEFAULT: 'none'&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="slides-table">
+          <mxGeometry y="55" width="300" height="305" as="geometry"/>
+        </mxCell>
+        
+        <!-- QUIZZES Table -->
+        <mxCell id="quizzes-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="80" width="300" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="quizzes-header" value="❓ QUIZZES (Bảng câu hỏi)" style="text;strokeColor=none;fillColor=#9673a6;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="quizzes-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="quizzes-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi câu hỏi&#xa;   - Index: PRIMARY&#xa;&#xa;📖 lessonId: ObjectId (FOREIGN KEY)&#xa;   - Liên kết với bảng lessons&#xa;   - REFERENCES lessons(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;🎞️ slideId: ObjectId (FOREIGN KEY)&#xa;   - Liên kết với slide cụ thể&#xa;   - REFERENCES slides(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;❓ question: TEXT (NOT NULL)&#xa;   - Nội dung câu hỏi&#xa;&#xa;🎭 questionType: ENUM('multiple_choice','true_false','fill_blank','matching')&#xa;   - Loại câu hỏi&#xa;   - DEFAULT: 'multiple_choice'&#xa;&#xa;📝 options: JSON&#xa;   - Các lựa chọn trả lời (dạng array)&#xa;&#xa;✅ correctAnswer: VARCHAR(500) (NOT NULL)&#xa;   - Đáp án đúng&#xa;&#xa;💡 explanation: TEXT&#xa;   - Giải thích đáp án&#xa;&#xa;⭐ points: INT DEFAULT 10&#xa;   - Điểm số cho câu hỏi&#xa;&#xa;📊 difficulty: ENUM('easy','medium','hard')&#xa;   - Độ khó câu hỏi&#xa;   - DEFAULT: 'easy'&#xa;&#xa;⏰ timeLimit: INT DEFAULT 30&#xa;   - Thời gian giới hạn (giây)&#xa;&#xa;🖼️ questionImage: VARCHAR(255)&#xa;   - URL hình ảnh đi kèm câu hỏi&#xa;&#xa;🔊 questionAudio: VARCHAR(255)&#xa;   - URL âm thanh đi kèm câu hỏi&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="quizzes-table">
+          <mxGeometry y="55" width="300" height="305" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER_PROGRESS Table -->
+        <mxCell id="progress-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="520" width="300" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="progress-header" value="📈 USER_PROGRESS (Bảng tiến độ học)" style="text;strokeColor=none;fillColor=#6c8ebf;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="progress-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="progress-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất&#xa;   - Index: PRIMARY&#xa;&#xa;👤 userId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng users&#xa;   - REFERENCES users(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;📖 lessonId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng lessons&#xa;   - REFERENCES lessons(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;📄 currentSlide: INT DEFAULT 1&#xa;   - Slide hiện tại đang học&#xa;&#xa;📍 lastSlidePosition: INT DEFAULT 0&#xa;   - Vị trí cuối cùng trong slide (giây)&#xa;&#xa;✅ completedSlides: JSON&#xa;   - Danh sách slide đã hoàn thành&#xa;&#xa;📊 progressPercentage: DECIMAL(5,2) DEFAULT 0.00&#xa;   - Phần trăm tiến độ (0.00-100.00)&#xa;   - CHECK: progressPercentage BETWEEN 0 AND 100&#xa;&#xa;⏱️ timeSpent: INT DEFAULT 0&#xa;   - Tổng thời gian học (giây)&#xa;&#xa;🎯 exerciseScores: JSON&#xa;   - Điểm các bài tập (dạng array)&#xa;&#xa;❓ quizScores: JSON&#xa;   - Điểm các câu hỏi (dạng array)&#xa;&#xa;✅ isCompleted: BOOLEAN DEFAULT FALSE&#xa;   - Trạng thái hoàn thành bài học&#xa;&#xa;🏁 completedAt: TIMESTAMP NULL&#xa;   - Thời gian hoàn thành&#xa;&#xa;👁️ lastAccessedAt: TIMESTAMP DEFAULT NOW()&#xa;   - Lần truy cập cuối&#xa;&#xa;🔄 attempts: INT DEFAULT 1&#xa;   - Số lần thử làm bài&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()&#xa;&#xa;UNIQUE KEY unique_user_lesson (userId, lessonId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="progress-table">
+          <mxGeometry y="55" width="300" height="325" as="geometry"/>
+        </mxCell>
+        
+        <!-- BADGES Table -->
+        <mxCell id="badges-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="400" y="520" width="300" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="badges-header" value="🏆 BADGES (Bảng huy hiệu)" style="text;strokeColor=none;fillColor=#82b366;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="badges-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="badges-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi huy hiệu&#xa;   - Index: PRIMARY&#xa;&#xa;🏷️ name: VARCHAR(100) (NOT NULL)&#xa;   - Tên huy hiệu&#xa;   - Index: INDEX&#xa;&#xa;📝 description: TEXT&#xa;   - Mô tả huy hiệu&#xa;&#xa;🎨 iconUrl: VARCHAR(255)&#xa;   - URL icon huy hiệu&#xa;&#xa;🎭 badgeType: ENUM('achievement','milestone','streak','special')&#xa;   - Loại huy hiệu&#xa;   - DEFAULT: 'achievement'&#xa;&#xa;📋 requirements: JSON&#xa;   - Điều kiện để đạt huy hiệu&#xa;&#xa;⭐ xpReward: INT DEFAULT 0&#xa;   - Điểm thưởng khi đạt huy hiệu&#xa;&#xa;💎 rarity: ENUM('common','uncommon','rare','epic','legendary')&#xa;   - Độ hiếm của huy hiệu&#xa;   - DEFAULT: 'common'&#xa;&#xa;✅ isActive: BOOLEAN DEFAULT TRUE&#xa;   - Trạng thái hoạt động&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="badges-table">
+          <mxGeometry y="55" width="300" height="225" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER_BADGES Table -->
+        <mxCell id="user-badges-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="750" y="520" width="300" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-badges-header" value="🎖️ USER_BADGES (Bảng huy hiệu người dùng)" style="text;strokeColor=none;fillColor=#d6b656;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="user-badges-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-badges-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất&#xa;   - Index: PRIMARY&#xa;&#xa;👤 userId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng users&#xa;   - REFERENCES users(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;🏆 badgeId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng badges&#xa;   - REFERENCES badges(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;🎉 earnedAt: TIMESTAMP DEFAULT NOW()&#xa;   - Thời gian đạt được huy hiệu&#xa;&#xa;📋 earnedFor: JSON&#xa;   - Thông tin về thành tích đạt được&#xa;&#xa;👁️ isDisplayed: BOOLEAN DEFAULT TRUE&#xa;   - Hiển thị trên profile&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;&#xa;UNIQUE KEY unique_user_badge (userId, badgeId)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="user-badges-table">
+          <mxGeometry y="55" width="300" height="145" as="geometry"/>
+        </mxCell>
+        
+        <!-- CHATS Table -->
+        <mxCell id="chats-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="520" width="300" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="chats-header" value="💬 CHATS (Bảng cuộc trò chuyện)" style="text;strokeColor=none;fillColor=#d79b00;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="chats-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="chats-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi cuộc chat&#xa;   - Index: PRIMARY&#xa;&#xa;👥 participants: JSON (NOT NULL)&#xa;   - Danh sách ID người tham gia&#xa;   - Index: INDEX&#xa;&#xa;🏷️ chatName: VARCHAR(100)&#xa;   - Tên cuộc trò chuyện&#xa;&#xa;🖼️ chatAvatar: VARCHAR(255)&#xa;   - URL ảnh đại diện nhóm chat&#xa;&#xa;👮 isModerated: BOOLEAN DEFAULT TRUE&#xa;   - Chat có được kiểm duyệt không&#xa;&#xa;🎭 chatType: ENUM('private','group','study_group','class')&#xa;   - Loại cuộc trò chuyện&#xa;   - DEFAULT: 'private'&#xa;&#xa;📚 relatedSubject: ObjectId (FOREIGN KEY)&#xa;   - Môn học liên quan (nếu có)&#xa;   - REFERENCES subjects(id)&#xa;&#xa;💌 lastMessage: ObjectId (FOREIGN KEY)&#xa;   - Tin nhắn cuối cùng&#xa;   - REFERENCES messages(id)&#xa;&#xa;📊 messageCount: INT DEFAULT 0&#xa;   - Tổng số tin nhắn&#xa;&#xa;👤 createdBy: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Người tạo cuộc chat&#xa;   - REFERENCES users(id)&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="chats-table">
+          <mxGeometry y="55" width="300" height="205" as="geometry"/>
+        </mxCell>
+        
+        <!-- MESSAGES Table -->
+        <mxCell id="messages-table" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="520" width="300" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="messages-header" value="💌 MESSAGES (Bảng tin nhắn)" style="text;strokeColor=none;fillColor=#b85450;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;fontColor=#ffffff;" vertex="1" parent="messages-table">
+          <mxGeometry y="30" width="300" height="25" as="geometry"/>
+        </mxCell>
+        <mxCell id="messages-schema" value="🔑 id: ObjectId (PRIMARY KEY, NOT NULL)&#xa;   - Khóa chính duy nhất cho mỗi tin nhắn&#xa;   - Index: PRIMARY&#xa;&#xa;💬 chatId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Liên kết với bảng chats&#xa;   - REFERENCES chats(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;👤 senderId: ObjectId (FOREIGN KEY, NOT NULL)&#xa;   - Người gửi tin nhắn&#xa;   - REFERENCES users(id) ON DELETE CASCADE&#xa;   - Index: INDEX&#xa;&#xa;📝 content: TEXT (NOT NULL)&#xa;   - Nội dung tin nhắn&#xa;&#xa;🎭 messageType: ENUM('text','image','audio','video','file','emoji')&#xa;   - Loại tin nhắn&#xa;   - DEFAULT: 'text'&#xa;&#xa;📎 attachments: JSON&#xa;   - File đính kèm (dạng array)&#xa;&#xa;↩️ replyTo: ObjectId (FOREIGN KEY)&#xa;   - Trả lời tin nhắn nào&#xa;   - REFERENCES messages(id)&#xa;&#xa;😊 reactions: JSON&#xa;   - Biểu cảm phản hồi&#xa;&#xa;✅ isApproved: BOOLEAN DEFAULT TRUE&#xa;   - Tin nhắn đã được duyệt&#xa;&#xa;🗑️ isDeleted: BOOLEAN DEFAULT FALSE&#xa;   - Tin nhắn đã bị xóa&#xa;&#xa;📅 createdAt: TIMESTAMP DEFAULT NOW()&#xa;📅 updatedAt: TIMESTAMP DEFAULT NOW() ON UPDATE NOW()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=10;" vertex="1" parent="messages-table">
+          <mxGeometry y="55" width="300" height="225" as="geometry"/>
+        </mxCell>
+        
+        <!-- RELATIONSHIPS -->
+        
+        <!-- subjects -> lessons -->
+        <mxCell id="rel1" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d79b00;strokeWidth=3;" edge="1" parent="1" source="subjects-table" target="lessons-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="220" as="sourcePoint"/>
+            <mxPoint x="750" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel1-label" value="1:N&#xa;One subject has many lessons" style="text;html=1;strokeColor=none;fillColor=#FFE6CC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="210" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- lessons -> slides -->
+        <mxCell id="rel2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#b85450;strokeWidth=3;" edge="1" parent="1" source="lessons-table" target="slides-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="240" as="sourcePoint"/>
+            <mxPoint x="1100" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2-label" value="1:N&#xa;One lesson has many slides" style="text;html=1;strokeColor=none;fillColor=#F8CECC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="230" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- lessons -> quizzes -->
+        <mxCell id="rel3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9673a6;strokeWidth=3;" edge="1" parent="1" source="lessons-table" target="quizzes-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="144" as="sourcePoint"/>
+            <mxPoint x="1450" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label" value="1:N&#xa;One lesson has many quizzes" style="text;html=1;strokeColor=none;fillColor=#E1D5E7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="170" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- users -> user_progress -->
+        <mxCell id="rel4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=3;" edge="1" parent="1" source="users-table" target="progress-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="480" as="sourcePoint"/>
+            <mxPoint x="200" y="520" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" value="1:N&#xa;One user has many progress records" style="text;html=1;strokeColor=none;fillColor=#DAE8FC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="490" width="170" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- users -> user_badges -->
+        <mxCell id="rel5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d6b656;strokeWidth=3;" edge="1" parent="1" source="users-table" target="user-badges-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="480" as="sourcePoint"/>
+            <mxPoint x="750" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel5-label" value="1:N&#xa;One user has many badges" style="text;html=1;strokeColor=none;fillColor=#FFF2CC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="570" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- badges -> user_badges -->
+        <mxCell id="rel6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#82b366;strokeWidth=3;" edge="1" parent="1" source="badges-table" target="user-badges-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="660" as="sourcePoint"/>
+            <mxPoint x="750" y="620" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel6-label" value="1:N&#xa;One badge can be earned by many users" style="text;html=1;strokeColor=none;fillColor=#D5E8D4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="600" width="180" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- chats -> messages -->
+        <mxCell id="rel7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d79b00;strokeWidth=3;" edge="1" parent="1" source="chats-table" target="messages-table">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1400" y="650" as="sourcePoint"/>
+            <mxPoint x="1450" y="660" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel7-label" value="1:N&#xa;One chat has many messages" style="text;html=1;strokeColor=none;fillColor=#FFE6CC;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="630" width="140" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Constraints & Indexes Info -->
+        <mxCell id="constraints-info" value="📊 RANG BUOC VA CHI MUC QUAN TRONG:&#xa;&#xa;🔐 PRIMARY KEYS: Mỗi bảng có khóa chính ObjectId duy nhất&#xa;🔗 FOREIGN KEYS: Đảm bảo tính toàn vẹn tham chiếu giữa các bảng&#xa;🚫 NOT NULL: Các trường bắt buộc không được để trống&#xa;✅ UNIQUE: Username, email phải duy nhất trong hệ thống&#xa;📈 INDEXES: Tối ưu hóa truy vấn cho các trường thường xuyên tìm kiếm&#xa;🔄 CASCADE: Xóa tự động dữ liệu liên quan khi xóa bản ghi cha&#xa;📋 CHECK CONSTRAINTS: Kiểm tra giá trị hợp lệ (tuổi 6-10, phần trăm 0-100)&#xa;🕐 TIMESTAMPS: Tự động cập nhật thời gian tạo và sửa đổi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="50" y="940" width="1700" height="120" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

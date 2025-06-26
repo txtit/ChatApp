@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-12-22T10:00:00.000Z" agent="Mozilla/5.0" version="24.7.17" etag="frontend-architecture-fixed" type="device">
+  <diagram id="frontend-architecture" name="Frontend Architecture">
+    <mxGraphModel dx="1422" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="2" value="KIẾN TRÚC FRONTEND - HỆ THỐNG HỌC TẬP TRẺ EM" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER LAYER -->
+        <mxCell id="3" value="USER LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="1500" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Users -->
+        <mxCell id="4" value="👧👦 Học sinh (6-10 tuổi)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="140" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="5" value="👨‍👩‍👧‍👦 Phụ huynh" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="6" value="👩‍🏫 Giáo viên" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="300" y="140" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="7" value="⚙️ Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="400" y="140" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- PRESENTATION LAYER -->
+        <mxCell id="8" value="PRESENTATION LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="1500" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Student Portal -->
+        <mxCell id="9" value="🎮 Student Portal&lt;br&gt;• Game-based Learning&lt;br&gt;• Interactive Lessons&lt;br&gt;• Quiz Interface&lt;br&gt;• Progress Dashboard&lt;br&gt;• Reward System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="300" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Parent Portal -->
+        <mxCell id="10" value="👨‍👩‍👧‍👦 Parent Portal&lt;br&gt;• Child Progress&lt;br&gt;• Activity Reports&lt;br&gt;• Safety Settings&lt;br&gt;• Communication&lt;br&gt;• Time Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="300" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Teacher Portal -->
+        <mxCell id="11" value="👩‍🏫 Teacher Portal&lt;br&gt;• Lesson Creation&lt;br&gt;• Student Management&lt;br&gt;• Assignment Grading&lt;br&gt;• Analytics Dashboard&lt;br&gt;• Resource Library" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="300" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Admin Portal -->
+        <mxCell id="12" value="⚙️ Admin Portal&lt;br&gt;• User Management&lt;br&gt;• Content Moderation&lt;br&gt;• System Configuration&lt;br&gt;• Reports &amp; Analytics&lt;br&gt;• Platform Maintenance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="300" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- COMPONENT LAYER -->
+        <mxCell id="13" value="COMPONENT LAYER (React)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="1500" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Shared Components -->
+        <mxCell id="14" value="🔧 Shared Components&lt;br&gt;• Header/Navigation&lt;br&gt;• Footer&lt;br&gt;• Modal System&lt;br&gt;• Loading Screens&lt;br&gt;• Error Boundaries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="480" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Game Components -->
+        <mxCell id="15" value="🎮 Game Components&lt;br&gt;• Game Canvas&lt;br&gt;• Character System&lt;br&gt;• Animation Engine&lt;br&gt;• Sound Manager&lt;br&gt;• Input Handler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="480" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Learning Components -->
+        <mxCell id="16" value="📚 Learning Components&lt;br&gt;• Lesson Viewer&lt;br&gt;• Quiz Engine&lt;br&gt;• Progress Tracker&lt;br&gt;• Achievement System&lt;br&gt;• Content Reader" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="480" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Chat Components -->
+        <mxCell id="17" value="💬 Chat Components&lt;br&gt;• Message Interface&lt;br&gt;• Emoji System&lt;br&gt;• File Sharing&lt;br&gt;• Video Call UI&lt;br&gt;• Safety Filters" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="480" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- STATE MANAGEMENT LAYER -->
+        <mxCell id="18" value="STATE MANAGEMENT LAYER (Redux)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="600" width="1500" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Redux Store -->
+        <mxCell id="19" value="🗃️ Redux Store&lt;br&gt;• User State&lt;br&gt;• Learning Progress&lt;br&gt;• Game State&lt;br&gt;• Chat Messages&lt;br&gt;• UI State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="660" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Actions -->
+        <mxCell id="20" value="⚡ Actions&lt;br&gt;• User Actions&lt;br&gt;• Learning Actions&lt;br&gt;• Game Actions&lt;br&gt;• Chat Actions&lt;br&gt;• API Actions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="660" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Reducers -->
+        <mxCell id="21" value="🔄 Reducers&lt;br&gt;• User Reducer&lt;br&gt;• Learning Reducer&lt;br&gt;• Game Reducer&lt;br&gt;• Chat Reducer&lt;br&gt;• UI Reducer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="660" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Middleware -->
+        <mxCell id="22" value="⚙️ Middleware&lt;br&gt;• Redux Thunk&lt;br&gt;• Redux Saga&lt;br&gt;• Logger&lt;br&gt;• Error Handler&lt;br&gt;• Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="660" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- SERVICE LAYER -->
+        <mxCell id="23" value="SERVICE LAYER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="780" width="1500" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- API Services -->
+        <mxCell id="24" value="🌐 API Services&lt;br&gt;• Authentication API&lt;br&gt;• Learning API&lt;br&gt;• Game API&lt;br&gt;• Chat API&lt;br&gt;• Media API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="840" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Real-time Services -->
+        <mxCell id="25" value="⚡ Real-time Services&lt;br&gt;• WebSocket Manager&lt;br&gt;• Live Chat&lt;br&gt;• Game Synchronization&lt;br&gt;• Progress Updates&lt;br&gt;• Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="240" y="840" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Security Services -->
+        <mxCell id="26" value="🔒 Security Services&lt;br&gt;• Authentication&lt;br&gt;• Authorization&lt;br&gt;• Data Encryption&lt;br&gt;• Content Filtering&lt;br&gt;• Privacy Protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="840" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Storage Services -->
+        <mxCell id="27" value="💾 Storage Services&lt;br&gt;• Local Storage&lt;br&gt;• Session Storage&lt;br&gt;• IndexedDB&lt;br&gt;• Cache Manager&lt;br&gt;• Offline Support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="560" y="840" width="140" height="90" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="28" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="440" as="sourcePoint"/>
+            <mxPoint x="780" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="29" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="440" as="sourcePoint"/>
+            <mxPoint x="780" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="30" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="440" as="sourcePoint"/>
+            <mxPoint x="780" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="31" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="440" as="sourcePoint"/>
+            <mxPoint x="780" y="390" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="32" value="LEGEND" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="300" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="33" value="👧👦 Học sinh - Giao diện học tập" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="340" width="200" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="34" value="👨‍👩‍👧‍👦 Phụ huynh - Giám sát con em" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="370" width="200" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="35" value="👩‍🏫 Giáo viên - Quản lý lớp học" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="400" width="200" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="36" value="⚙️ Admin - Quản trị hệ thống" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="430" width="200" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="37" value="🎮 Tính năng game và tương tác" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="460" width="200" height="20" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

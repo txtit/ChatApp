@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" version="24.7.17" etag="quiz-exercise" type="device">
+  <diagram name="Quiz & Exercise Flow" id="quiz-flow">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="❓ SƠ ĐỒ LUỒNG QUIZ VÀ BÀI TẬP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="1100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Start Quiz -->
+        <mxCell id="start-quiz" value="🚀 BẮT ĐẦU QUIZ&#xa;Từ slide hoặc cuối bài" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Load Quiz Data -->
+        <mxCell id="load-quiz" value="📋 TẢI DỮ LIỆU QUIZ&#xa;- Câu hỏi theo lesson/slide&#xa;- Trộn thứ tự câu hỏi&#xa;- Khởi tạo timer" style="rect;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="160" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Show Question -->
+        <mxCell id="show-question" value="❓ HIỂN THỊ CÂU HỎI&#xa;- Nội dung câu hỏi&#xa;- Hình ảnh/âm thanh (nếu có)&#xa;- Các lựa chọn trả lời&#xa;- Bộ đếm thời gian" style="rect;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="320" width="160" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Question Type -->
+        <mxCell id="question-type" value="🎭 LOẠI CÂU HỎI?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="480" width="160" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Multiple Choice -->
+        <mxCell id="multiple-choice" value="🔘 TRẮC NGHIỆM&#xa;- Hiển thị các option&#xa;- Chọn 1 đáp án&#xa;- Highlight khi chọn" style="rect;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="600" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- True/False -->
+        <mxCell id="true-false" value="✅❌ ĐÚNG/SAI&#xa;- 2 lựa chọn&#xa;- Đúng hoặc Sai" style="rect;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="600" width="120" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Fill Blank -->
+        <mxCell id="fill-blank" value="📝 ĐIỀN KHUYẾT&#xa;- Input text box&#xa;- Gợi ý (hint)&#xa;- Kiểm tra chính tả" style="rect;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="600" width="120" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Matching -->
+        <mxCell id="matching" value="🔗 NỐI ĐÔI&#xa;- Kéo thả&#xa;- Ghép cặp&#xa;- Hiệu ứng visual" style="rect;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="600" width="120" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Voice Answer -->
+        <mxCell id="voice-answer" value="🎤 TRẢ LỜI BẰNG GIỌNG NÓI&#xa;- Ghi âm&#xa;- Nhận dạng giọng nói&#xa;- So sánh đáp án" style="rect;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="820" y="600" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Submit Answer -->
+        <mxCell id="submit-answer" value="📤 NỘP ĐÁP ÁN&#xa;- Kiểm tra đã chọn/điền&#xa;- Xác nhận submit" style="rect;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="720" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Check Answer -->
+        <mxCell id="check-answer" value="✅ KIỂM TRA ĐÁP ÁN&#xa;- So sánh với đáp án đúng&#xa;- Tính điểm&#xa;- Ghi nhận thời gian" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="820" width="280" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Correct Answer -->
+        <mxCell id="correct-answer" value="🎉 ĐÚNG!&#xa;- Hiện thông báo chúc mừng&#xa;- Cộng điểm&#xa;- Hiệu ứng tích cực" style="rect;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="940" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Wrong Answer -->
+        <mxCell id="wrong-answer" value="❌ SAI!&#xa;- Hiện đáp án đúng&#xa;- Giải thích&#xa;- Không cộng điểm" style="rect;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff6666;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="940" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Show Explanation -->
+        <mxCell id="show-explanation" value="💡 HIỂN THỊ GIẢI THÍCH&#xa;- Lý do đáp án đúng&#xa;- Kiến thức bổ sung&#xa;- Gợi ý học thêm" style="rect;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="940" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- More Questions -->
+        <mxCell id="more-questions" value="❓ CÒN CÂU HỎI?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="940" width="140" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Next Question -->
+        <mxCell id="next-question" value="➡️ CÂU TIẾP THEO&#xa;- Tăng counter&#xa;- Reset timer&#xa;- Lưu progress" style="rect;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="820" width="120" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Quiz Complete -->
+        <mxCell id="quiz-complete" value="🏁 HOÀN THÀNH QUIZ&#xa;- Tính tổng điểm&#xa;- Hiển thị kết quả&#xa;- Cập nhật XP&#xa;- Kiểm tra badges" style="rect;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="800" y="1060" width="140" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Performance Analysis -->
+        <mxCell id="performance" value="📊 PHÂN TÍCH KẾT QUẢ&#xa;- % đúng/sai&#xa;- Thời gian trung bình&#xa;- Điểm mạnh/yếu&#xa;- Gợi ý cải thiện" style="rect;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1060" width="140" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Time Out -->
+        <mxCell id="timeout" value="⏰ HẾT THỜI GIAN&#xa;- Tự động submit&#xa;- Đánh dấu sai&#xa;- Hiện đáp án đúng" style="rect;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff6666;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="750" y="720" width="120" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="start-quiz" target="load-quiz">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="200" as="sourcePoint"/>
+            <mxPoint x="650" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="load-quiz" target="show-question">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="340" as="sourcePoint"/>
+            <mxPoint x="650" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="show-question" target="question-type">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="500" as="sourcePoint"/>
+            <mxPoint x="650" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow4" value="Trắc nghiệm" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#b85450;fontStyle=1;" edge="1" parent="1" source="question-type" target="multiple-choice">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="650" as="sourcePoint"/>
+            <mxPoint x="450" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow5" value="Đúng/Sai" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#6c8ebf;fontStyle=1;" edge="1" parent="1" source="question-type" target="true-false">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="650" as="sourcePoint"/>
+            <mxPoint x="500" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow6" value="Điền khuyết" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#82b366;fontStyle=1;" edge="1" parent="1" source="question-type" target="fill-blank">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="650" as="sourcePoint"/>
+            <mxPoint x="630" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow7" value="Nối đôi" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#d6b656;fontStyle=1;" edge="1" parent="1" source="question-type" target="matching">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="650" as="sourcePoint"/>
+            <mxPoint x="700" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow8" value="Giọng nói" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#d79b00;fontStyle=1;" edge="1" parent="1" source="question-type" target="voice-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="650" as="sourcePoint"/>
+            <mxPoint x="850" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Converge to submit -->
+        <mxCell id="arrow9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="multiple-choice" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="750" as="sourcePoint"/>
+            <mxPoint x="400" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="true-false" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="430" y="750" as="sourcePoint"/>
+            <mxPoint x="480" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="fill-blank" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="750" as="sourcePoint"/>
+            <mxPoint x="630" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow12" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="matching" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="750" as="sourcePoint"/>
+            <mxPoint x="780" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="voice-answer" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="820" y="750" as="sourcePoint"/>
+            <mxPoint x="870" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Timeout arrow -->
+        <mxCell id="arrow14" value="Hết giờ" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;dashed=1;" edge="1" parent="1" source="show-question" target="timeout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="750" as="sourcePoint"/>
+            <mxPoint x="800" y="700" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow15" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="timeout" target="submit-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="800" as="sourcePoint"/>
+            <mxPoint x="770" y="750" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="submit-answer" target="check-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="850" as="sourcePoint"/>
+            <mxPoint x="650" y="800" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow17" value="Đúng" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#82b366;fontStyle=1;" edge="1" parent="1" source="check-answer" target="correct-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="950" as="sourcePoint"/>
+            <mxPoint x="350" y="900" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow18" value="Sai" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;" edge="1" parent="1" source="check-answer" target="wrong-answer">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="900" as="sourcePoint"/>
+            <mxPoint x="450" y="850" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="check-answer" target="show-explanation">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="950" as="sourcePoint"/>
+            <mxPoint x="650" y="900" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow20" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="show-explanation" target="more-questions">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="750" y="980" as="sourcePoint"/>
+            <mxPoint x="800" y="930" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow21" value="Còn" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#6c8ebf;fontStyle=1;" edge="1" parent="1" source="more-questions" target="next-question">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1000" y="900" as="sourcePoint"/>
+            <mxPoint x="1050" y="850" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow22" value="Hết" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#82b366;fontStyle=1;" edge="1" parent="1" source="more-questions" target="quiz-complete">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="1100" as="sourcePoint"/>
+            <mxPoint x="920" y="1050" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow23" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;dashed=1;" edge="1" parent="1" source="next-question" target="show-question">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1100" y="400" as="sourcePoint"/>
+            <mxPoint x="1150" y="350" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="1150" y="860"/>
+              <mxPoint x="1150" y="380"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow24" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="quiz-complete" target="performance">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="1110" as="sourcePoint"/>
+            <mxPoint x="1000" y="1060" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

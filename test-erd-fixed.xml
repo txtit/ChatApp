@@ -1,0 +1,210 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD Kids Learning Website" id="erd-diagram">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="ERD - WEBSITE HOC TAP TRE EM 6-10 TUOI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="200" y="10" width="1200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- USERS Entity -->
+        <mxCell id="users" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="250" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="users-title" value="USERS" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="users">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="users-fields" value="id: ObjectId [PK]&#xa;firstName: String [NN]&#xa;lastName: String [NN]&#xa;username: String [UQ]&#xa;email: String [NN, UQ]&#xa;password: String [NN]&#xa;avatar: String&#xa;age: Number&#xa;parentEmail: String&#xa;learningLevel: String&#xa;totalXP: Number&#xa;currentStreak: Number&#xa;verified: Boolean&#xa;status: String&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="46" width="250" height="234" as="geometry"/>
+        </mxCell>
+        
+        <!-- SUBJECTS Entity -->
+        <mxCell id="subjects" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="250" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="subjects-title" value="SUBJECTS" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="subjects">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="subjects-fields" value="id: ObjectId [PK]&#xa;name: String [NN]&#xa;description: String&#xa;color: String&#xa;icon: String&#xa;gradeLevel: String&#xa;order: Number&#xa;isActive: Boolean&#xa;createdBy: ObjectId [FK]&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="subjects">
+          <mxGeometry y="46" width="250" height="134" as="geometry"/>
+        </mxCell>
+        
+        <!-- LESSONS Entity -->
+        <mxCell id="lessons" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="650" y="80" width="250" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="lessons-title" value="LESSONS" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="lessons">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lessons-fields" value="id: ObjectId [PK]&#xa;title: String [NN]&#xa;subjectId: ObjectId [FK]&#xa;description: String&#xa;objectives: Array&#xa;difficulty: String&#xa;estimatedDuration: Number&#xa;thumbnailUrl: String&#xa;lessonOrder: Number&#xa;isPublished: Boolean&#xa;createdBy: ObjectId [FK]&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="lessons">
+          <mxGeometry y="46" width="250" height="174" as="geometry"/>
+        </mxCell>
+        
+        <!-- SLIDES Entity -->
+        <mxCell id="slides" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="950" y="80" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="slides-title" value="SLIDES" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="slides">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="slides-fields" value="id: ObjectId [PK]&#xa;lessonId: ObjectId [FK]&#xa;title: String&#xa;content: String&#xa;slideType: String&#xa;slideOrder: Number&#xa;imageUrl: String&#xa;audioUrl: String&#xa;videoUrl: String&#xa;duration: Number&#xa;isRequired: Boolean&#xa;layoutType: String&#xa;interactionType: String&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="slides">
+          <mxGeometry y="46" width="250" height="194" as="geometry"/>
+        </mxCell>
+        
+        <!-- QUIZZES Entity -->
+        <mxCell id="quizzes" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="80" width="250" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="quizzes-title" value="QUIZZES" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="quizzes">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="quizzes-fields" value="id: ObjectId [PK]&#xa;lessonId: ObjectId [FK]&#xa;slideId: ObjectId [FK]&#xa;question: String [NN]&#xa;questionType: String&#xa;options: Array&#xa;correctAnswer: String&#xa;explanation: String&#xa;points: Number&#xa;difficulty: String&#xa;timeLimit: Number&#xa;questionImage: String&#xa;questionAudio: String&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="quizzes">
+          <mxGeometry y="46" width="250" height="194" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER_PROGRESS Entity -->
+        <mxCell id="progress" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="400" width="250" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="progress-title" value="USER_PROGRESS" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="progress">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="progress-fields" value="id: ObjectId [PK]&#xa;userId: ObjectId [FK]&#xa;lessonId: ObjectId [FK]&#xa;currentSlide: Number&#xa;lastSlidePosition: Number&#xa;completedSlides: Array&#xa;progressPercentage: Number&#xa;timeSpent: Number&#xa;exerciseScores: Array&#xa;quizScores: Array&#xa;isCompleted: Boolean&#xa;completedAt: Date&#xa;lastAccessedAt: Date&#xa;attempts: Number&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="progress">
+          <mxGeometry y="46" width="250" height="214" as="geometry"/>
+        </mxCell>
+        
+        <!-- BADGES Entity -->
+        <mxCell id="badges" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="350" y="400" width="250" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="badges-title" value="BADGES" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="badges">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="badges-fields" value="id: ObjectId [PK]&#xa;name: String [NN]&#xa;description: String&#xa;iconUrl: String&#xa;badgeType: String&#xa;requirements: Object&#xa;xpReward: Number&#xa;rarity: String&#xa;isActive: Boolean&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="badges">
+          <mxGeometry y="46" width="250" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER_BADGES Entity -->
+        <mxCell id="user-badges" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="650" y="400" width="250" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-badges-title" value="USER_BADGES" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="user-badges">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="user-badges-fields" value="id: ObjectId [PK]&#xa;userId: ObjectId [FK]&#xa;badgeId: ObjectId [FK]&#xa;earnedAt: Date&#xa;earnedFor: Object&#xa;isDisplayed: Boolean&#xa;createdAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="user-badges">
+          <mxGeometry y="46" width="250" height="114" as="geometry"/>
+        </mxCell>
+        
+        <!-- CHATS Entity -->
+        <mxCell id="chats" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="950" y="400" width="250" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="chats-title" value="CHATS" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="chats">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="chats-fields" value="id: ObjectId [PK]&#xa;participants: Array [FK]&#xa;chatName: String&#xa;chatAvatar: String&#xa;isModerated: Boolean&#xa;chatType: String&#xa;relatedSubject: ObjectId [FK]&#xa;lastMessage: ObjectId [FK]&#xa;messageCount: Number&#xa;createdBy: ObjectId [FK]&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="chats">
+          <mxGeometry y="46" width="250" height="134" as="geometry"/>
+        </mxCell>
+        
+        <!-- MESSAGES Entity -->
+        <mxCell id="messages" value="" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="400" width="250" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="messages-title" value="MESSAGES" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="messages">
+          <mxGeometry y="26" width="250" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="messages-fields" value="id: ObjectId [PK]&#xa;chatId: ObjectId [FK]&#xa;senderId: ObjectId [FK]&#xa;content: String [NN]&#xa;messageType: String&#xa;attachments: Array&#xa;replyTo: ObjectId [FK]&#xa;reactions: Array&#xa;isApproved: Boolean&#xa;isDeleted: Boolean&#xa;createdAt: Date&#xa;updatedAt: Date" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="messages">
+          <mxGeometry y="46" width="250" height="154" as="geometry"/>
+        </mxCell>
+        
+        <!-- RELATIONSHIPS -->
+        
+        <!-- SUBJECTS -> LESSONS -->
+        <mxCell id="rel1" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d79b00;strokeWidth=2;" edge="1" parent="1" source="subjects" target="lessons">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="170" as="sourcePoint"/>
+            <mxPoint x="650" y="190" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel1-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="615" y="160" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- LESSONS -> SLIDES -->
+        <mxCell id="rel2" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="lessons" target="slides">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="190" as="sourcePoint"/>
+            <mxPoint x="950" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="915" y="180" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- LESSONS -> QUIZZES -->
+        <mxCell id="rel3" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.2;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#9673a6;strokeWidth=2;" edge="1" parent="1" source="lessons" target="quizzes">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="124" as="sourcePoint"/>
+            <mxPoint x="1250" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="150" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- USERS -> USER_PROGRESS -->
+        <mxCell id="rel4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" parent="1" source="users" target="progress">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="175" y="360" as="sourcePoint"/>
+            <mxPoint x="175" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="370" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- USERS -> USER_BADGES -->
+        <mxCell id="rel5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d6b656;strokeWidth=2;" edge="1" parent="1" source="users" target="user-badges">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="360" as="sourcePoint"/>
+            <mxPoint x="650" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel5-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="475" y="430" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- BADGES -> USER_BADGES -->
+        <mxCell id="rel6" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#82b366;strokeWidth=2;" edge="1" parent="1" source="badges" target="user-badges">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="500" as="sourcePoint"/>
+            <mxPoint x="650" y="480" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel6-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="615" y="490" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- CHATS -> MESSAGES -->
+        <mxCell id="rel7" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#d79b00;strokeWidth=2;" edge="1" parent="1" source="chats" target="messages">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1200" y="490" as="sourcePoint"/>
+            <mxPoint x="1250" y="500" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel7-label" value="1:N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1215" y="480" width="30" height="20" as="geometry"/>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="CHU THICH: PK = Primary Key | FK = Foreign Key | NN = Not Null | UQ = Unique&#xa;MOI QUAN HE: 1:1 = Mot-mot | 1:N = Mot-nhieu | N:M = Nhieu-nhieu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="700" width="1450" height="60" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

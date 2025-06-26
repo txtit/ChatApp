@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:30:00.000Z" agent="5.0" etag="xyz" version="22.1.16">
+  <diagram name="Progress Tracking" id="sequence-progress-tracking">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- ===== TIÊU ĐỀ ===== -->
+        <mxCell id="title" value="📊 Sơ đồ Sequence: Theo dõi Tiến độ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1300" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== CÁC ACTOR/ENTITY ===== -->
+        <mxCell id="student" value="👦 Học sinh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-dashboard" value="📈 Progress Dashboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="90" width="150" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="progress-hook" value="🎯 useProgress Hook" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="redux-store" value="🔄 Redux Store" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="analytics" value="📊 Analytics API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="database" value="🗄️ Database" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0cee2;strokeColor=#56517e;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="notification" value="🔔 Achievement" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffd966;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="90" width="110" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="parent" value="👩‍👧‍👦 Phụ huynh" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- ===== LIFELINES ===== -->
+        <mxCell id="student-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="120" as="sourcePoint" />
+            <mxPoint x="130" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="dashboard-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="295" y="120" as="sourcePoint" />
+            <mxPoint x="295" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="hook-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="120" as="sourcePoint" />
+            <mxPoint x="465" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="redux-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="120" as="sourcePoint" />
+            <mxPoint x="615" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="analytics-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="120" as="sourcePoint" />
+            <mxPoint x="760" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="database-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="900" y="120" as="sourcePoint" />
+            <mxPoint x="900" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="achievement-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1035" y="120" as="sourcePoint" />
+            <mxPoint x="1035" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="parent-lifeline" value="" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1170" y="120" as="sourcePoint" />
+            <mxPoint x="1170" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== MESSAGES/INTERACTIONS ===== -->
+        
+        <!-- 1. Mở dashboard tiến độ -->
+        <mxCell id="msg1" value="1. Xem tiến độ học tập" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="160" as="sourcePoint" />
+            <mxPoint x="295" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 2. Khởi tạo hook -->
+        <mxCell id="msg2" value="2. Khởi tạo useProgress()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="295" y="190" as="sourcePoint" />
+            <mxPoint x="465" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 3. Lấy dữ liệu từ Redux -->
+        <mxCell id="msg3" value="3. getCurrentProgress()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="220" as="sourcePoint" />
+            <mxPoint x="615" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 4. Trả về progress state -->
+        <mxCell id="msg4" value="4. progressState" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="615" y="250" as="sourcePoint" />
+            <mxPoint x="465" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ALT Frame: Nếu cần lấy dữ liệu chi tiết -->
+        <mxCell id="alt-frame" value="alt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="1180" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="alt-condition" value="[Nếu cần dữ liệu chi tiết từ server]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="290" width="200" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 5. Gọi API analytics -->
+        <mxCell id="msg5" value="5. GET /analytics/progress/:userId" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="330" as="sourcePoint" />
+            <mxPoint x="760" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 6. Lấy dữ liệu từ DB -->
+        <mxCell id="msg6" value="6. SELECT progress_data" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="360" as="sourcePoint" />
+            <mxPoint x="900" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 7. Trả về dữ liệu -->
+        <mxCell id="msg7" value="7. detailedProgressData" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="380" as="sourcePoint" />
+            <mxPoint x="465" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 8. Hiển thị dashboard -->
+        <mxCell id="msg8" value="8. Hiển thị dashboard với charts" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="295" y="430" as="sourcePoint" />
+            <mxPoint x="130" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- LOOP Frame: Tự động cập nhật tiến độ -->
+        <mxCell id="loop-frame" value="loop" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8f8f8;strokeColor=#666666;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="460" width="1180" height="200" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="loop-condition" value="[Tự động cập nhật mỗi khi có hoạt động học tập]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="470" width="280" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 9. Học sinh hoàn thành hoạt động -->
+        <mxCell id="msg9" value="9. Hoàn thành bài học/quiz" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="510" as="sourcePoint" />
+            <mxPoint x="465" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 10. Cập nhật tiến độ -->
+        <mxCell id="msg10" value="10. updateProgressDetails()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="540" as="sourcePoint" />
+            <mxPoint x="615" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 11. Tính toán stats -->
+        <mxCell id="msg11" value="11. calculateStats()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="570" as="sourcePoint" />
+            <mxPoint x="760" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 12. Lưu vào database -->
+        <mxCell id="msg12" value="12. Auto-save progress" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#d0cee2;strokeColor=#56517e;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="600" as="sourcePoint" />
+            <mxPoint x="900" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 13. Update UI real-time -->
+        <mxCell id="msg13" value="13. Update UI real-time" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="630" as="sourcePoint" />
+            <mxPoint x="295" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- OPT Frame: Kiểm tra milestone -->
+        <mxCell id="opt-frame" value="opt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeffee;strokeColor=#009900;dashed=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="1180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="opt-condition" value="[Nếu đạt được milestone mới]" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccffcc;strokeColor=#009900;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="690" width="170" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 14. Mở khóa thành tích -->
+        <mxCell id="msg14" value="14. unlockAchievement()" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="465" y="730" as="sourcePoint" />
+            <mxPoint x="1035" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 15. Thông báo phụ huynh -->
+        <mxCell id="msg15" value="15. Gửi báo cáo tiến độ" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffcccc;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1035" y="760" as="sourcePoint" />
+            <mxPoint x="1170" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- 16. Hiển thị thành tích -->
+        <mxCell id="msg16" value="16. Hiển thị thành tích mới 🏆" style="endArrow=classic;html=1;rounded=0;dashed=1;strokeWidth=2;fillColor=#ffd966;strokeColor=#d6b656;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1035" y="800" as="sourcePoint" />
+            <mxPoint x="130" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- ===== NOTES ===== -->
+        <mxCell id="notes" value="📝 GHI CHÚ:&#xa;• Real-time updates với WebSocket hoặc polling&#xa;• Dashboard hiển thị: tiến độ bài học, điểm số, thời gian học, streak&#xa;• Biểu đồ trực quan: bar chart, line chart, circular progress&#xa;• Mục tiêu hàng ngày/tuần và tracking hoàn thành&#xa;• Comparison với bạn bè và lớp học&#xa;• Export báo cáo cho phụ huynh/giáo viên&#xa;• Gamification: XP, levels, badges, leaderboard" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#d6d6d6;align=left;verticalAlign=top;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="820" width="700" height="120" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -37,6 +37,7 @@ import {
 import { SelectConversation } from "../../redux/slices/app";
 import DOMPurify from "dompurify";
 // import './DialogStyle.css'; // Import file CSS
+import { moderateComment } from "../../utils/gemini";
 
 const Actions = [
   {
@@ -155,7 +156,7 @@ const ChatInput = ({ openPicker, setOpenPicker, setValue, value, inputRef, handl
 
         socket.emit("text_message", newMessage, (response) => {
           console.log("server response", response);
-          dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
+          // dispatch(UpdateDirectConversations({ conversation: current, message: newMessage }));
         });
 
         setUploadSuccess(true);
@@ -347,7 +348,7 @@ const Footer = () => {
   }
 
   const current = conversations.find((el) => el?.id === room_id);
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const newMessage = {
       message: linkify(value),
       conversation_id: room_id,
@@ -356,7 +357,14 @@ const Footer = () => {
       type: containsUrl(value) ? "Link" : "Text",
       // subtype: containsUrl(value) ? "link" : null,
     };
-
+    const isViolent = await moderateComment(value);
+    if (isViolent) {
+      alert("Bình luận này có thể chứa nội dung bạo lực/toxic!");
+      console.log(isViolent);
+      return;
+    } else {
+      alert("Bình luận an toàn.");
+    }
     socket.emit("text_message", newMessage, (response) => {
       console.log("server response", response);
       // dispatch(AddDirectMessage({ message: newMessage }));

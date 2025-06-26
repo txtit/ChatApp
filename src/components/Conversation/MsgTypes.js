@@ -292,13 +292,13 @@ const MessageOption = (id) => {
     const dispatch = useDispatch();
     // Hàm xử lý sự kiện "Delete Message"
     const handleDeleteMessage = () => {
-        console.log(id);
-        // Ở đây bạn có thể gọi API xóa tin nhắn hoặc thực hiện các thao tác cần thiết
+        console.log(id.id);
+
         // Gửi sự kiện delete_message qua socket
         socket.emit('delete_message', {
             to: current?.user_id,
             from: user_id,
-            id: id,
+            id: id.id,
         });
 
         dispatch(UpdateDirectConversations({ conversation: current }));
@@ -347,8 +347,7 @@ const MessageOption = (id) => {
                 <Stack spacing={1} px={1}>
                     {Message_options.map((el, idx) => (
                         <MenuItem
-                            key={idx}
-                            onClick={() => {
+                            key={idx} onClick={() => {
                                 handleClose(); // Đóng menu khi chọn mục
                                 if (el.title === "Delete Message") {
                                     handleDeleteMessage(); // Gọi hàm xóa tin nhắn nếu là "Delete Message"

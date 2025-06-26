@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import { connectSocket, socket } from "../../socket";
 import { fecthFriends, fecthRequest, fecthUsers, ResetRoomId, ResetSent, SelectConversation, showSnackBar, UpdateRoomId, UpdateSent } from "../../redux/slices/app";
-import { AddDirectConversationsAction, fetchDirectConversationsAction, RemoveAllDirectMessage, UpdateDirectConversations } from "../../redux/slices/coversation";
+import { AddDirectConversationsAction, fetchDirectConversationsAction, RemoveAllDirectMessage, UpdateDirectConversations, DeleteMessage } from "../../redux/slices/coversation";
 import { PushToAudioCallQueue, ResetAudioCallQueue, UpdateAudioCallDialog } from "../../redux/slices/audioCall";
 import AudioCallDialog from "../../sections/Audio/CallDialog";
 import AudioCallNotification from "../../sections/Audio/CallNotification";
@@ -108,7 +108,6 @@ const DashboardLayout = () => {
       })
       socket.on("start_chat", (data) => {
 
-        console.log("hehehhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh", data);
         // add / update to conversation list
         const existing_conversation = conversations.find((el) => el?.id === data._id);
 
@@ -123,10 +122,10 @@ const DashboardLayout = () => {
 
         dispatch(SelectConversation({ room_id: data._id }))
       })
-      socket.on("delete_chat_success", () => {
-        dispatch(RemoveAllDirectMessage());
-        dispatch(ResetRoomId());
-      })
+      // socket.on("delete_chat_success", () => {
+      //   dispatch(RemoveAllDirectMessage());
+      //   dispatch(ResetRoomId());
+      // })
 
       socket.on("new message", (data) => {
         console.log("datanek", data)
@@ -148,25 +147,46 @@ const DashboardLayout = () => {
         }
 
         dispatch(fetchDirectConversationsAction({ conversations: data?.new_chat }));
-        dispatch(UpdateDirectConversations({ conversation: existing_conversation }));
-
-
-        // Chọn cuộc trò chuyện nếu cần
+        dispatch(UpdateDirectConversations({ conversation: existing_conversation }));        // Chọn cuộc trò chuyện nếu cần
         if (room_id === data.new_chat._id) {
           dispatch(SelectConversation({ room_id: data._id }));
         }
       });
 
+      // Lắng nghe event xóa tin nhắn
+      socket.on("message_deleted", (data) => {
+        console.log("Message deleted event received:", data);
+        const { message_id, updated_chat } = data;
+        
+        // Dispatch action để cập nhật Redux state
+        dispatch(DeleteMessage({ message_id, updated_chat }));
+        
+        // Hiển thị thông báo
+        dispatch(showSnackBar({ 
+          severity: "info", 
+          message: "Tin nhắn đã được xóa" 
+        }));
+      });
+
+      // Lắng nghe lỗi xóa tin nhắn
+      socket.on("delete_message_error", (error) => {
+        console.error("Delete message error:", error);
+        dispatch(showSnackBar({ 
+          severity: "error", 
+          message: error.message || "Không thể xóa tin nhắn" 
+        }));
+      });
+
     }
     return () => {
-      socket.off("delete_chat_success");
+      // socket.off("delete_chat_success");
 
-      socket.off("new_friend_request");
-      socket.off("request_accepted");
-      socket.off("request_sent");
-      socket.off("start_chat");
-      socket.off("new message");
-      socket?.off("audio_call_notification");
+      // socket.off("new_friend_request");
+      // socket.off("request_accepted");
+      // socket.off("request_sent");
+      // socket.off("start_chat");
+      // socket.off("new message");
+      // socket?.off("audio_call_notification");
     }
   }, [isLoggedIn, socket, conversations, dispatch, user_id])
   if (!isLoggedIn) {

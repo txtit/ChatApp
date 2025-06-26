@@ -17,14 +17,20 @@ const slice = createSlice({
         updateIsLoading(state, action) {
             state.error = action.payload.error;
             state.isLoading = action.payload.isLoading;
-        },
-        logIn(state, action) {
+        },        logIn(state, action) {
             state.isLoggedIn = action.payload.isLoggedIn;
             state.token = action.payload.token;
-        },
-        logOut(state, action) {
+            
+            // Lưu token vào localStorage để ParentAPI có thể sử dụng
+            if (action.payload.token) {
+                window.localStorage.setItem("authToken", action.payload.token);
+            }
+        },        logOut(state, action) {
             state.isLoggedIn = false;
             state.token = "";
+            
+            // Xóa token khỏi localStorage
+            window.localStorage.removeItem("authToken");
         },
         registerUser(state, action) {
             state.email = action.payload.email;
@@ -65,10 +71,10 @@ export function LoginUser(formValues) {
                     isLoggedIn: true,
                     token: response.data.token,
                 })
-            );
-            dispatch(fecthUsers());
+            );            dispatch(fecthUsers());
             window.localStorage.setItem("isLoggin", true);
             window.localStorage.setItem("user_id", response.data.user_id);
+            // authToken đã được lưu trong reducer logIn
 
             dispatch(showSnackBar({ severity: "success", message: response.data.message }))
             dispatch(
@@ -200,12 +206,12 @@ export function VerifyEmail(formValues) {
                 "Content-Type": "application/json",
             }
         }).then((response) => {
-            console.log(response);
-            dispatch(slice.actions.logIn({
+            console.log(response);            dispatch(slice.actions.logIn({
                 isLoggedIn: true,
                 token: response.data.token,
             }));
             window.localStorage.setItem("user_id", response.data.user_id);
+            // authToken đã được lưu trong reducer logIn
         }).catch((error) => {
             console.log(error);
         })

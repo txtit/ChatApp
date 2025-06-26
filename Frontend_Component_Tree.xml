@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" modified="2024-12-22T10:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" version="24.7.17" etag="component-tree" type="device">
+  <diagram id="component-tree" name="React Component Tree">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="REACT COMPONENT TREE - HỆ THỐNG HỌC TẬP TRẺ EM" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1000" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Root App -->
+        <mxCell id="app" value="📱 App.js&#xa;• Router Setup&#xa;• Theme Provider&#xa;• Auth Provider&#xa;• Global State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="70" width="140" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Main Layout Components -->
+        <mxCell id="student-layout" value="👧👦 StudentLayout&#xa;• Kid Navigation&#xa;• Safety Header&#xa;• Colorful Sidebar&#xa;• Progress Footer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="parent-layout" value="👨‍👩‍👧‍👦 ParentLayout&#xa;• Dashboard Nav&#xa;• Monitoring Panel&#xa;• Settings Menu&#xa;• Reports Section" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="teacher-layout" value="👩‍🏫 TeacherLayout&#xa;• Class Management&#xa;• Lesson Tools&#xa;• Student Monitor&#xa;• Analytics Panel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="500" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="admin-layout" value="⚙️ AdminLayout&#xa;• System Dashboard&#xa;• User Management&#xa;• Content Control&#xa;• Security Monitor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="650" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-layout" value="🔐 AuthLayout&#xa;• Login Form&#xa;• Register Form&#xa;• Password Reset&#xa;• Age Verification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="mobile-layout" value="📱 MobileLayout&#xa;• Touch Navigation&#xa;• Swipe Gestures&#xa;• Bottom Tab Bar&#xa;• Quick Actions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="180" width="130" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Student Pages/Components -->
+        <mxCell id="student-pages" value="STUDENT PAGES" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="290" width="280" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="home-page" value="🏠 HomePage&#xa;• Welcome Message&#xa;• Daily Quests&#xa;• Quick Access&#xa;• Achievements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="learning-page" value="📚 LearningPage&#xa;• Lesson List&#xa;• Progress Bar&#xa;• Bookmark&#xa;• Next Lesson" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="320" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="quiz-page" value="🎯 QuizPage&#xa;• Question Card&#xa;• Timer&#xa;• Score Display&#xa;• Results Modal" style="rounded=1;whiteStyle=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="320" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="game-page" value="🎮 GamePage&#xa;• Interactive Games&#xa;• Drag & Drop&#xa;• Memory Cards&#xa;• Puzzle Games" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="chat-page" value="💬 ChatPage&#xa;• Message List&#xa;• Emoji Panel&#xa;• Voice Record&#xa;• Video Call" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="390" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="profile-page" value="👤 ProfilePage&#xa;• Avatar Editor&#xa;• Achievements&#xa;• Statistics&#xa;• Settings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="390" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Learning Components -->
+        <mxCell id="learning-components-title" value="LEARNING COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="380" y="290" width="200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="lesson-viewer" value="📖 LessonViewer&#xa;• Slide Navigation&#xa;• Audio Narration&#xa;• Interactive Elements&#xa;• Progress Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="quiz-component" value="❓ QuizComponent&#xa;• Question Display&#xa;• Answer Options&#xa;• Feedback System&#xa;• Score Calculation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="485" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="progress-tracker" value="📊 ProgressTracker&#xa;• Visual Progress&#xa;• Statistics Charts&#xa;• Achievement Badges&#xa;• Time Tracking" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="reward-system" value="🏆 RewardSystem&#xa;• Badge Collection&#xa;• Point System&#xa;• Leaderboard&#xa;• Celebration UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="485" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Interactive Components -->
+        <mxCell id="interactive-title" value="INTERACTIVE COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="290" width="200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="drag-drop" value="🤏 DragDropGame&#xa;• Touch Support&#xa;• Visual Feedback&#xa;• Animation Effects&#xa;• Success Sounds" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="memory-card" value="🧠 MemoryCardGame&#xa;• Card Flip Animation&#xa;• Match Detection&#xa;• Difficulty Levels&#xa;• Timer Challenge" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="725" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="drawing-board" value="🎨 DrawingBoard&#xa;• Touch Drawing&#xa;• Color Palette&#xa;• Brush Sizes&#xa;• Save/Share" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="puzzle-game" value="🧩 PuzzleGame&#xa;• Piece Movement&#xa;• Snap Detection&#xa;• Hint System&#xa;• Completion Celebration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="725" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Communication Components -->
+        <mxCell id="communication-title" value="COMMUNICATION COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="860" y="290" width="220" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="chat-bubble" value="💭 ChatBubble&#xa;• Message Display&#xa;• Emoji Support&#xa;• Timestamp&#xa;• Read Status" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="emoji-picker" value="😊 EmojiPicker&#xa;• Emoji Categories&#xa;• Recent Emojis&#xa;• Search Function&#xa;• Kid-friendly Only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="965" y="320" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="voice-recorder" value="🎤 VoiceRecorder&#xa;• Record Audio&#xa;• Playback Control&#xa;• Waveform Display&#xa;• Send/Cancel" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="video-call" value="📹 VideoCallComponent&#xa;• Camera Control&#xa;• Screen Layout&#xa;• Audio/Video Toggle&#xa;• End Call Button" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="965" y="390" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- UI Components -->
+        <mxCell id="ui-components-title" value="UI COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="290" width="150" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="kid-button" value="🔘 KidButton&#xa;• Large Touch Area&#xa;• Colorful Design&#xa;• Sound Effects&#xa;• Animation Feedback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="320" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="progress-bar" value="📊 ProgressBar&#xa;• Animated Fill&#xa;• Percentage Display&#xa;• Color Gradient&#xa;• Achievement Icons" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="320" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="modal-dialog" value="📋 ModalDialog&#xa;• Overlay Background&#xa;• Close Button&#xa;• Animation Enter/Exit&#xa;• Responsive Size" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="390" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="loading-spinner" value="⏳ LoadingSpinner&#xa;• Fun Animation&#xa;• Kid-friendly Icon&#xa;• Loading Message&#xa;• Progress Indicator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="390" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Safety & Utility Components -->
+        <mxCell id="safety-title" value="SAFETY & UTILITY COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="50" y="490" width="300" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="content-filter" value="🛡️ ContentFilter&#xa;• Text Analysis&#xa;• Image Recognition&#xa;• Safe Content Only&#xa;• Parent Notification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="time-tracker" value="⏰ TimeTracker&#xa;• Usage Monitoring&#xa;• Break Reminders&#xa;• Daily Limits&#xa;• Parental Controls" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="150" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="age-gate" value="👶 AgeGate&#xa;• Age Verification&#xa;• Parental Consent&#xa;• Content Restriction&#xa;• Safe Mode Toggle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="250" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Media Components -->
+        <mxCell id="media-title" value="MEDIA COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="380" y="490" width="200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="video-player" value="📺 VideoPlayer&#xa;• Custom Controls&#xa;• Playback Speed&#xa;• Subtitles Support&#xa;• Full Screen Mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="380" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="audio-player" value="🎵 AudioPlayer&#xa;• Play/Pause Control&#xa;• Volume Slider&#xa;• Progress Bar&#xa;• Playlist Support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="480" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Form Components -->
+        <mxCell id="form-title" value="FORM COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="620" y="490" width="200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="kid-input" value="✏️ KidInput&#xa;• Large Font Size&#xa;• Simple Validation&#xa;• Visual Feedback&#xa;• Error Messages" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="image-uploader" value="📷 ImageUploader&#xa;• Drag & Drop&#xa;• Preview Image&#xa;• Resize Options&#xa;• Progress Indicator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="720" y="520" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Responsive Components -->
+        <mxCell id="responsive-title" value="RESPONSIVE COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="860" y="490" width="220" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="breakpoint-container" value="📱 BreakpointContainer&#xa;• Mobile First&#xa;• Tablet Optimization&#xa;• Desktop Layout&#xa;• Touch Friendly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="520" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="grid-system" value="📐 GridSystem&#xa;• Flexible Layout&#xa;• Auto Spacing&#xa;• Responsive Columns&#xa;• Alignment Control" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="965" y="520" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Accessibility Components -->
+        <mxCell id="accessibility-title" value="ACCESSIBILITY COMPONENTS" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="490" width="200" height="25" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="screen-reader" value="👁️ ScreenReaderSupport&#xa;• ARIA Labels&#xa;• Focus Management&#xa;• Keyboard Navigation&#xa;• Voice Description" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="520" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="high-contrast" value="🔆 HighContrastMode&#xa;• Color Adjustment&#xa;• Text Enhancement&#xa;• Border Emphasis&#xa;• Visual Clarity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1205" y="520" width="95" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#0066CC;strokeWidth=2;" edge="1" parent="1" source="app" target="student-layout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#0066CC;strokeWidth=2;" edge="1" parent="1" source="app" target="parent-layout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#0066CC;strokeWidth=2;" edge="1" parent="1" source="app" target="teacher-layout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#0066CC;strokeWidth=2;" edge="1" parent="1" source="app" target="admin-layout">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#009900;strokeWidth=2;" edge="1" parent="1" source="student-layout" target="home-page">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#009900;strokeWidth=2;" edge="1" parent="1" source="student-layout" target="learning-page">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="400" as="sourcePoint"/>
+            <mxPoint x="750" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Performance Note -->
+        <mxCell id="performance-note" value="🚀 PERFORMANCE OPTIMIZATION&#xa;• React.memo for components&#xa;• useMemo for expensive calculations&#xa;• useCallback for event handlers&#xa;• Code splitting with React.lazy&#xa;• Virtual scrolling for large lists&#xa;• Image lazy loading&#xa;• PWA caching strategies" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;size=20;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="50" y="620" width="250" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Security Note -->
+        <mxCell id="security-note" value="🛡️ SECURITY FEATURES&#xa;• Content Security Policy (CSP)&#xa;• XSS protection&#xa;• Input sanitization&#xa;• Safe external links&#xa;• Image content validation&#xa;• Parental control integration&#xa;• Age-appropriate content filtering" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#f8cecc;strokeColor=#b85450;size=20;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="320" y="620" width="250" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Accessibility Note -->
+        <mxCell id="accessibility-note" value="♿ ACCESSIBILITY STANDARDS&#xa;• WCAG 2.1 AA compliance&#xa;• Keyboard navigation support&#xa;• Screen reader compatibility&#xa;• High contrast mode&#xa;• Large touch targets (44px min)&#xa;• Clear focus indicators&#xa;• Alternative text for images" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="590" y="620" width="250" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Technology Note -->
+        <mxCell id="tech-note" value="⚙️ TECHNOLOGY STACK&#xa;• React 18+ with Hooks&#xa;• TypeScript for type safety&#xa;• Redux Toolkit for state management&#xa;• React Router v6 for navigation&#xa;• Material-UI + Custom components&#xa;• Socket.io for real-time features&#xa;• PWA with service workers" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;size=20;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="860" y="620" width="250" height="120" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

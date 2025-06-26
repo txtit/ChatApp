@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-12-19T10:00:00.000Z" agent="5.0" etag="Chat_Messaging_v1" version="24.7.17">
+  <diagram name="Chat_Messaging" id="Chat_Messaging_Sequence">
+    <mxGraphModel dx="1420" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="SEQUENCE DIAGRAM - CHAT MESSAGING" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="350" y="30" width="470" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Actors/Objects -->
+        <!-- User A (Sender) -->
+        <mxCell id="userA_box" value="User A&#xa;(Sender)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend App A -->
+        <mxCell id="frontendA_box" value="Frontend&#xa;App A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="220" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Socket.IO Server -->
+        <mxCell id="server_box" value="Socket.IO&#xa;Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#FF9800;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#E65100;" vertex="1" parent="1">
+          <mxGeometry x="360" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Database -->
+        <mxCell id="database_box" value="Database&#xa;(MongoDB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#E91E63;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#C2185B;" vertex="1" parent="1">
+          <mxGeometry x="500" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Frontend App B -->
+        <mxCell id="frontendB_box" value="Frontend&#xa;App B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#4CAF50;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#2E7D32;" vertex="1" parent="1">
+          <mxGeometry x="640" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- User B (Receiver) -->
+        <mxCell id="userB_box" value="User B&#xa;(Receiver)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#1976D2;" vertex="1" parent="1">
+          <mxGeometry x="780" y="90" width="90" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Lifelines -->
+        <mxCell id="userA_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="125" y="160" as="sourcePoint" />
+            <mxPoint x="125" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="frontendA_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="265" y="160" as="sourcePoint" />
+            <mxPoint x="265" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="server_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#FF9800;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="160" as="sourcePoint" />
+            <mxPoint x="405" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="database_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#E91E63;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="545" y="160" as="sourcePoint" />
+            <mxPoint x="545" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="frontendB_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="685" y="160" as="sourcePoint" />
+            <mxPoint x="685" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="userB_lifeline" value="" style="endArrow=none;dashed=1;html=1;strokeWidth=2;strokeColor=#1976D2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="825" y="160" as="sourcePoint" />
+            <mxPoint x="825" y="740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Messages/Interactions -->
+        
+        <!-- 1. User A types message -->
+        <mxCell id="arrow1" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#1976D2;fillColor=#1976D2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="125" y="200" as="sourcePoint" />
+            <mxPoint x="265" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label1" value="1. Type message in chat input" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#1976D2;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="175" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 2. Validate and emit message -->
+        <mxCell id="arrow2" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#4CAF50;fillColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="265" y="240" as="sourcePoint" />
+            <mxPoint x="405" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label2" value="2. socket.emit('text_message', messageData)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="215" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- ALT Frame - Message Validation -->
+        <mxCell id="alt_frame1" value="" style="shape=rect;html=1;whiteSpace=wrap;fillColor=none;strokeColor=#9E9E9E;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="280" width="830" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="alt_label1" value="ALT [Message Content Validation]" style="text;html=1;strokeColor=none;fillColor=#EEEEEE;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="50" y="285" width="200" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- 3a. Valid message - Save to database -->
+        <mxCell id="arrow3a" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#FF9800;fillColor=#FF9800;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="320" as="sourcePoint" />
+            <mxPoint x="545" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label3a" value="3a. Save message to conversation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#FF9800;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="295" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 3b. Database confirmation -->
+        <mxCell id="arrow3b" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#E91E63;fillColor=#E91E63;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="545" y="360" as="sourcePoint" />
+            <mxPoint x="405" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label3b" value="3b. Message saved successfully" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#E91E63;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="335" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 4. Broadcast to sender (confirmation) -->
+        <mxCell id="arrow4" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#FF9800;fillColor=#FF9800;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="440" as="sourcePoint" />
+            <mxPoint x="265" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label4" value="4. socket.on('new message') - Sender confirmation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#FF9800;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="415" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 5. Update sender UI -->
+        <mxCell id="arrow5" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#4CAF50;fillColor=#4CAF50;dashed=1;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="265" y="480" as="sourcePoint" />
+            <mxPoint x="125" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label5" value="5. Display message as 'sent'" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="455" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 6. Broadcast to receiver -->
+        <mxCell id="arrow6" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#FF9800;fillColor=#FF9800;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="405" y="520" as="sourcePoint" />
+            <mxPoint x="685" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label6" value="6. socket.emit('new message', messageData)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#FF9800;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="495" width="110" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- 7. Update receiver conversation list -->
+        <mxCell id="arrow7" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#4CAF50;fillColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="685" y="560" as="sourcePoint" />
+            <mxPoint x="825" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label7" value="7. Update conversation list" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="535" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- OPT Frame - If receiver is in chat -->
+        <mxCell id="opt_frame" value="" style="shape=rect;html=1;whiteSpace=wrap;fillColor=none;strokeColor=#9E9E9E;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="600" width="255" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="opt_label" value="OPT [Receiver is viewing conversation]" style="text;html=1;strokeColor=none;fillColor=#EEEEEE;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=1;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="625" y="605" width="220" height="15" as="geometry" />
+        </mxCell>
+        
+        <!-- 8. Display message instantly -->
+        <mxCell id="arrow8" value="" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#4CAF50;fillColor=#4CAF50;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="685" y="640" as="sourcePoint" />
+            <mxPoint x="825" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label8" value="8. Display new message" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#4CAF50;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="615" width="130" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Notes -->
+        <mxCell id="note1" value="Note: Socket.IO handles real-time&#xa;bidirectional communication&#xa;between client and server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;fontSize=10;fontColor=#E65100;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="920" y="200" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="note2" value="Note: Messages are persisted&#xa;in MongoDB for chat history&#xa;and offline message delivery" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;fontSize=10;fontColor=#E65100;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="920" y="300" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="note3" value="Note: Redux manages conversation&#xa;state and message updates&#xa;in the frontend applications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F57F17;strokeWidth=1;fontSize=10;fontColor=#E65100;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="920" y="400" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

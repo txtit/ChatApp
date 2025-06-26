@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2025-06-20T00:00:00.000Z" agent="5.0" etag="abc123" version="21.6.5" type="device">
+  <diagram name="Sequence-Học-Bài-Chi-Tiết" id="sequence-hoc-bai-chi-tiet">
+    <mxGraphModel dx="2400" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title-main" value="🔥 SƠ ĐỒ LUỒNG XÁC THỰC NGƯỜI DÙNG" style="text;html=1;strokeColor=#82B366;fillColor=#D5E8D4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="600" height="40" as="geometry" />
+        </mxCell>        
+        <!-- Actors and Systems - Simple boxes like the image -->
+        <mxCell id="actor-student" value="👤 Người Dùng" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="system-frontend" value="💻 Ứng Dụng React" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="system-redux" value="🗂️ Kho Redux" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="430" y="100" width="100" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="system-backend" value="⚙️ Máy Chủ API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="590" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="system-database" value="🗄️ Dịch Vụ Xác Thực" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="770" y="100" width="130" height="50" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="system-storage" value="💾 Cơ Sở Dữ Liệu" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=12;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="960" y="100" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Vertical dashed lines (lifelines) -->
+        <mxCell id="lifeline-student" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="125" y="180" width="10" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lifeline-frontend" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="305" y="180" width="10" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lifeline-redux" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="475" y="180" width="10" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lifeline-backend" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="645" y="180" width="10" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lifeline-auth" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="830" y="180" width="10" height="600" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lifeline-storage" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle=elbowEdgeStyle;dashed=1;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="180" width="10" height="600" as="geometry" />
+        </mxCell>        <!-- Sequence Messages - Properly spaced vertically -->
+        
+        <!-- 1. Nhập tài khoản mật khẩu -->
+        <mxCell id="msg1" value="1. Nhập tài khoản mật khẩu" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-student" target="lifeline-frontend">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="135" y="200" as="sourcePoint" />
+            <mxPoint x="295" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 2. Kiểm tra dữ liệu form -->
+        <mxCell id="msg2" value="2. Kiểm tra dữ liệu form" style="html=1;verticalAlign=bottom;endArrow=none;dashed=1;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="305" y="220" as="sourcePoint" />
+            <mxPoint x="405" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 3. Gửi thông tin đăng nhập -->
+        <mxCell id="msg3" value="3. Gửi thông tin đăng nhập" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-frontend" target="lifeline-backend">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="315" y="240" as="sourcePoint" />
+            <mxPoint x="635" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 4. POST api/auth/login -->
+        <mxCell id="msg4" value="4. POST api/auth/login" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-backend" target="lifeline-auth">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="655" y="260" as="sourcePoint" />
+            <mxPoint x="820" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 5. Kiểm tra thông tin yêu cầu -->
+        <mxCell id="msg5" value="5. Kiểm tra thông tin yêu cầu" style="html=1;verticalAlign=bottom;endArrow=none;dashed=1;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="830" y="280" as="sourcePoint" />
+            <mxPoint x="930" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 6. Xác thực người dùng trong hệ thống -->
+        <mxCell id="msg6" value="6. Xác thực người dùng trong hệ thống" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-auth" target="lifeline-storage">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="840" y="300" as="sourcePoint" />
+            <mxPoint x="1005" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 7. Tìm người dùng (tên đăng nhập) -->
+        <mxCell id="msg7" value="7. Tìm người dùng (tên đăng nhập)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-storage" target="lifeline-auth">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="1005" y="320" as="sourcePoint" />
+            <mxPoint x="840" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 8. Dữ liệu người dùng -->
+        <mxCell id="msg8" value="8. Dữ liệu người dùng" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;dashed=1;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-auth" target="lifeline-backend">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="820" y="340" as="sourcePoint" />
+            <mxPoint x="655" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 9. So sánh mật khẩu (bcrypt) -->
+        <mxCell id="msg9" value="9. So sánh mật khẩu (bcrypt)" style="html=1;verticalAlign=bottom;endArrow=none;dashed=1;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="645" y="360" as="sourcePoint" />
+            <mxPoint x="745" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 10. Tạo mã thông báo JWT -->
+        <mxCell id="msg10" value="10. Tạo mã thông báo JWT" style="html=1;verticalAlign=bottom;endArrow=none;dashed=1;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="645" y="380" as="sourcePoint" />
+            <mxPoint x="745" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 11. Gửi thông báo người dụng -->
+        <mxCell id="msg11" value="11. Gửi thông báo người dụng" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;dashed=1;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-backend" target="lifeline-frontend">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="635" y="400" as="sourcePoint" />
+            <mxPoint x="315" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 12. 200 OK (thông báo, người dụng) -->
+        <mxCell id="msg12" value="12. 200 OK (thông báo, người dụng)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;dashed=1;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-frontend" target="lifeline-student">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="295" y="420" as="sourcePoint" />
+            <mxPoint x="135" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 13. Lưu thông tin người dùng -->
+        <mxCell id="msg13" value="13. Lưu thông tin người dùng" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-frontend" target="lifeline-redux">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="315" y="440" as="sourcePoint" />
+            <mxPoint x="465" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 14. Lưu mã thông báo localStorage -->
+        <mxCell id="msg14" value="14. Lưu mã thông báo localStorage" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-frontend" target="lifeline-redux">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="315" y="460" as="sourcePoint" />
+            <mxPoint x="465" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 15. Cập nhật giao diện (chuyển trang) -->
+        <mxCell id="msg15" value="15. Cập nhật giao diện (chuyển trang)" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;dashed=1;strokeColor=#000000;fontSize=11;" edge="1" parent="1" source="lifeline-frontend" target="lifeline-student">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="295" y="480" as="sourcePoint" />
+            <mxPoint x="135" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>        
+        <!-- Frame for Invalid Login (moved down to avoid overlap) -->
+        <mxCell id="alt-frame" value="" style="shape=umlFrame;whiteSpace=wrap;html=1;width=100;height=25;boundedLbl=1;verticalAlign=middle;align=left;spacingLeft=5;fillColor=#FFF2CC;strokeColor=#D6B656;dashed=1;opacity=30;" vertex="1" parent="1">
+          <mxGeometry x="70" y="520" width="980" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="alt-label" value="[Thông tin đăng nhập không hợp lệ]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=2;fontColor=#666600;" vertex="1" parent="1">
+          <mxGeometry x="170" y="525" width="250" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Alternative flow messages -->
+        <mxCell id="alt1" value="401 Không được phép truy cập" style="html=1;verticalAlign=bottom;endArrow=block;rounded=0;strokeColor=#CC0000;fontSize=11;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="635" y="560" as="sourcePoint" />
+            <mxPoint x="315" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="alt2" value="Thay thế" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontStyle=1;fontColor=#FF6600;" vertex="1" parent="1">
+          <mxGeometry x="520" y="580" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Notes section moved down -->
+        <mxCell id="note-section" value="📝 Ghi Chú:&#10;• Mã JWT có hiệu lực trong 24 giờ&#10;• Mật khẩu được mã hóa bằng bcrypt (10 vòng)&#10;• Đối tượng: Đã thử nhiều trong 5 phút&#10;• Phiên được lưu trữ trong Redux + localStorage" style="text;html=1;strokeColor=#B85450;fillColor=#F8CECC;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="640" width="400" height="120" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

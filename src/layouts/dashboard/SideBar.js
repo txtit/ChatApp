@@ -7,22 +7,34 @@ import { Nav_Buttons, Profile_Menu } from "../../data";
 import { Gear } from "phosphor-react";
 import useSettings from "../../hooks/useSettings";
 import AntSwitch from "../../components/AntSwitch";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LogoutUser } from "../../redux/slices/auth";
 import LoadingScreen from "../../components/LoadingScreen";
 import Typography from "../../theme/overrides/Typography";
 
 
+// Hàm lấy index dựa trên pathname hiện tại
+const getIndexFromPath = (pathname) => {
+    if (pathname.startsWith('/learn')) return 0;
+    if (pathname.startsWith('/group')) return 1;
+    if (pathname.startsWith('/game')) return 2;
+    if (pathname.startsWith('/settings')) return 3;
+    if (pathname.startsWith('/profile')) return -1; // Profile không có nav button
+    return -1; // Không khớp với nav button nào
+}
+
 const getPath = (index) => {
     switch (index) {
         case 0:
             return '/app';
         case 1:
-            return '/group';
+            return '/chat';
         case 2:
-            return '/call';
+            return '/game';
         case 3:
+            return '/notification';
+        case 4:
             return '/settings';
         default:
             break;
@@ -49,10 +61,15 @@ const SideBar = () => {
     const dispatch = useDispatch();
     const { this_users } = useSelector((state) => state.app);
     const { isLoading } = useSelector((state) => state.auth);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
     const theme = useTheme();
-    // select item sidebar
-    const [selected, setSelected] = useState(0);
+
+    // Lấy index được chọn dựa trên URL hiện tại
+    const currentIndex = getIndexFromPath(location.pathname);
+
+    // state selected chỉ để fallback, ưu tiên currentIndex từ URL
+    const [selected, setSelected] = useState(currentIndex !== -1 ? currentIndex : 0);
     // dark/ light mode
     const { onToggleMode } = useSettings()
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -101,40 +118,38 @@ const SideBar = () => {
                         direction="column"
                         alignItems="center"
                         spacing={3}
-                    >
-                        {Nav_Buttons.map((el) =>
-                            el.index === selected ? (
-                                <Box
-                                    key={el.index}
-                                    p={1}
-                                    sx={{
-                                        backgroundColor: theme.palette.primary.main,
-                                        borderRadius: 1.5,
-                                    }}
-                                >
-                                    <IconButton
-                                        sx={{ width: "max-content", color: "#fff" }}
-                                        key={el.index}
-                                    >
-                                        {el.icon}
-                                    </IconButton>
-                                </Box>
-                            ) : (
+                    >                        {Nav_Buttons.map((el) =>
+                        el.index === currentIndex ? (
+                            <Box
+                                key={el.index}
+                                p={1}
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    borderRadius: 1.5,
+                                }}
+                            >
                                 <IconButton
-                                    onClick={() => {
-                                        // LoadingScreen
-                                        setSelected(el.index);
-                                        navigate(getPath(el.index));
-                                    }}
-                                    sx={{ width: "max-content", color: theme.palette.mode === 'dark' ? theme.palette.text.primary : "#000" }}
+                                    sx={{ width: "max-content", color: "#fff" }}
                                     key={el.index}
                                 >
                                     {el.icon}
                                 </IconButton>
-                            )
-                        )}
-                        <Divider sx={{ width: "48" }} />
-                        {selected === 3 ? (
+                            </Box>
+                        ) : (
+                            <IconButton
+                                onClick={() => {
+                                    // Cập nhật selected state và navigate
+                                    setSelected(el.index);
+                                    navigate(getPath(el.index));
+                                }}
+                                sx={{ width: "max-content", color: theme.palette.mode === 'dark' ? theme.palette.text.primary : "#000" }}
+                                key={el.index}
+                            >
+                                {el.icon}
+                            </IconButton>
+                        )
+                    )}                        <Divider sx={{ width: "48" }} />
+                        {currentIndex === 3 ? (
                             <Box
                                 key='gear-selected'
                                 p={1}
@@ -151,8 +166,8 @@ const SideBar = () => {
                             <IconButton
                                 key='gear-selected'
                                 onClick={() => {
-                                    navigate(getPath(3));
                                     setSelected(3);
+                                    navigate(getPath(3));
                                 }}
                                 sx={{ width: "max-content", color: theme.palette.mode === 'dark' ? theme.palette.text.primary : "#000" }}
                             >
@@ -192,34 +207,30 @@ const SideBar = () => {
 
                         }}
                     >
-                        <Stack spacing={1} px={1}>
-                            {Profile_Menu.map((el, idx) => (
-                                <MenuItem key={idx} onClick={() => {
-                                    handleClick();
+                        <Stack spacing={1} px={1}>                            {Profile_Menu.map((el, idx) => (
+                            <MenuItem key={idx} onClick={(e) => {
+                                e.stopPropagation(); // Ngăn event bubbling
+                                handleClose(); // Đóng menu
+                                // if index is 2 dispatch logout
+                                if (idx === 2) {
+                                    dispatch(LogoutUser());
+                                } else {
+                                    navigate(getMenuPath(idx));
+                                }
+                            }}>
+                                <Stack
+                                    sx={{ width: 100 }}
+                                    direction={"row"}
+                                    alignItems={"center"}
+                                    justifyContent={"space-between"}>
+                                    <span>
+                                        {el.title}
+                                    </span>
+                                    {el.icon}
+                                </Stack>{" "}
+                            </MenuItem>
 
-                                }}>
-                                    <Stack
-                                        onClick={() => {
-                                            // if index is 2 dispatch logout
-                                            if (idx === 2) {
-                                                dispatch(LogoutUser());
-                                            } else {
-                                                navigate(getMenuPath(idx));
-
-                                            }
-                                        }}
-                                        sx={{ width: 100 }}
-                                        direction={"row"}
-                                        alignItems={"center"}
-                                        justifyContent={"space-between"}>
-                                        <span>
-                                            {el.title}
-                                        </span>
-                                        {el.icon}
-                                    </Stack>{" "}
-                                </MenuItem>
-
-                            ))}
+                        ))}
                         </Stack>
 
                     </Menu>

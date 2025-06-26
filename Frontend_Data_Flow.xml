@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Electron" modified="2024-12-22T10:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" version="24.7.17" etag="frontend-data-flow" type="device">
+  <diagram id="frontend-data-flow" name="Frontend Data Flow">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="FRONTEND DATA FLOW - HỆ THỐNG HỌC TẬP TRẺ EM" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="1000" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- USER ACTIONS -->
+        <mxCell id="user-actions-title" value="👤 USER ACTIONS" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="50" y="70" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="user-click" value="🖱️ User Click&#xa;Button/Link" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="user-input" value="⌨️ User Input&#xa;Form Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="140" y="110" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="user-navigation" value="🧭 Navigation&#xa;Route Change" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="user-realtime" value="💨 Real-time&#xa;Socket Events" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="140" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- COMPONENT LAYER -->
+        <mxCell id="component-layer-title" value="⚛️ COMPONENT LAYER" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="300" y="70" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="event-handlers" value="🎯 Event Handlers&#xa;• onClick&#xa;• onChange&#xa;• onSubmit&#xa;• onFocus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="component-state" value="📊 Component State&#xa;• useState&#xa;• Local State&#xa;• Form State&#xa;• UI State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="410" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="effects" value="⚡ Effects&#xa;• useEffect&#xa;• API Calls&#xa;• Side Effects&#xa;• Cleanup" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="300" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="context-hooks" value="🔗 Context Hooks&#xa;• useContext&#xa;• Theme Context&#xa;• Auth Context&#xa;• Notification Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="410" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- STATE MANAGEMENT -->
+        <mxCell id="state-management-title" value="🏪 STATE MANAGEMENT" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="550" y="70" width="200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="redux-actions" value="🎬 Redux Actions&#xa;• Action Creators&#xa;• Async Actions&#xa;• Thunks&#xa;• Payload Data" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="redux-reducers" value="🔄 Reducers&#xa;• State Updates&#xa;• Immutable Changes&#xa;• Action Handling&#xa;• State Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="660" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="redux-store" value="🏬 Redux Store&#xa;• Global State&#xa;• State Tree&#xa;• Subscriptions&#xa;• Middleware" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="550" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="selectors" value="🎯 Selectors&#xa;• useSelector&#xa;• Memoized Selectors&#xa;• Computed Values&#xa;• State Filtering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- API LAYER -->
+        <mxCell id="api-layer-title" value="🔌 API LAYER" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="800" y="70" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="api-services" value="🌐 API Services&#xa;• HTTP Requests&#xa;• Axios Config&#xa;• Error Handling&#xa;• Response Processing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="cache-layer" value="💾 Cache Layer&#xa;• Response Cache&#xa;• Local Storage&#xa;• Session Storage&#xa;• Cache Invalidation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="800" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- REAL-TIME LAYER -->
+        <mxCell id="realtime-layer-title" value="⚡ REAL-TIME LAYER" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="950" y="70" width="180" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="socket-connection" value="🔌 Socket Connection&#xa;• WebSocket&#xa;• Socket.io Client&#xa;• Connection State&#xa;• Reconnection Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="realtime-events" value="📡 Real-time Events&#xa;• Message Received&#xa;• User Online/Offline&#xa;• Notification Push&#xa;• Live Updates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="110" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="webrtc-layer" value="📹 WebRTC Layer&#xa;• Peer Connection&#xa;• Media Stream&#xa;• Data Channel&#xa;• ICE Candidates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="950" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="push-notifications" value="🔔 Push Notifications&#xa;• Service Worker&#xa;• Notification API&#xa;• Background Sync&#xa;• Message Queue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="180" width="90" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- DATA FLOW ARROWS -->
+        <mxCell id="flow1" value="1. User Action" style="endArrow=classic;html=1;rounded=0;strokeColor=#FF6600;strokeWidth=3;labelBackgroundColor=#FFE6CC;" edge="1" parent="1" source="user-click" target="event-handlers">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow2" value="2. Dispatch Action" style="endArrow=classic;html=1;rounded=0;strokeColor=#0066CC;strokeWidth=3;labelBackgroundColor=#E6F2FF;" edge="1" parent="1" source="event-handlers" target="redux-actions">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow3" value="3. Reducer Update" style="endArrow=classic;html=1;rounded=0;strokeColor=#009900;strokeWidth=3;labelBackgroundColor=#E6FFE6;" edge="1" parent="1" source="redux-actions" target="redux-reducers">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow4" value="4. Store Update" style="endArrow=classic;html=1;rounded=0;strokeColor=#9900CC;strokeWidth=3;labelBackgroundColor=#F2E6FF;" edge="1" parent="1" source="redux-reducers" target="redux-store">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="flow5" value="5. Component Re-render" style="endArrow=classic;html=1;rounded=0;strokeColor=#CC0000;strokeWidth=3;labelBackgroundColor=#FFE6E6;" edge="1" parent="1" source="selectors" target="component-state">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- SPECIFIC FLOWS -->
+        <mxCell id="learning-flow-title" value="📚 LEARNING FLOW EXAMPLE" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#E1D5E7;strokeColor=#9673A6;" vertex="1" parent="1">
+          <mxGeometry x="50" y="280" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="lesson-start" value="📖 Start Lesson&#xa;User clicks lesson" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="fetch-lesson" value="🔄 Fetch Lesson Data&#xa;API call to backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="update-progress" value="📊 Update Progress&#xa;Store lesson state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="render-lesson" value="🎨 Render Lesson&#xa;Display content" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="track-progress" value="📈 Track Progress&#xa;Real-time updates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="complete-lesson" value="✅ Complete Lesson&#xa;Save progress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- CHAT FLOW -->
+        <mxCell id="chat-flow-title" value="💬 CHAT FLOW EXAMPLE" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#FFE6CC;strokeColor=#D79B00;" vertex="1" parent="1">
+          <mxGeometry x="400" y="280" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="type-message" value="✏️ Type Message&#xa;User input" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="validate-content" value="🛡️ Validate Content&#xa;Safety filter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="510" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="send-socket" value="📡 Send via Socket&#xa;Real-time delivery" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="receive-message" value="📥 Receive Message&#xa;Socket event" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="update-ui" value="🎨 Update Chat UI&#xa;New message bubble" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="510" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="play-sound" value="🔊 Play Notification&#xa;Sound effect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- ERROR HANDLING -->
+        <mxCell id="error-flow-title" value="⚠️ ERROR HANDLING FLOW" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#F8CECC;strokeColor=#B85450;" vertex="1" parent="1">
+          <mxGeometry x="750" y="280" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="api-error" value="❌ API Error&#xa;Network/Server error" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="750" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="error-handler" value="🔧 Error Handler&#xa;Catch and process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="error-state" value="⚠️ Error State&#xa;Update UI state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="970" y="320" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="error-message" value="💬 Show Error Message&#xa;Kid-friendly message" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="750" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="retry-button" value="🔄 Retry Button&#xa;Allow user retry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="fallback-ui" value="🏠 Fallback UI&#xa;Offline mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;align=center;" vertex="1" parent="1">
+          <mxGeometry x="970" y="390" width="90" height="50" as="geometry"/>
+        </mxCell>
+        
+        <!-- PERFORMANCE OPTIMIZATION -->
+        <mxCell id="performance-title" value="🚀 PERFORMANCE OPTIMIZATION" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1">
+          <mxGeometry x="50" y="480" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="memoization" value="🧠 Memoization&#xa;• React.memo&#xa;• useMemo&#xa;• useCallback&#xa;• Prevent re-renders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="lazy-loading" value="💤 Lazy Loading&#xa;• React.lazy&#xa;• Suspense&#xa;• Code splitting&#xa;• Dynamic imports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="virtualization" value="📋 Virtualization&#xa;• Virtual scrolling&#xa;• Large lists&#xa;• Windowing&#xa;• Performance boost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- SECURITY FLOW -->
+        <mxCell id="security-title" value="🛡️ SECURITY FLOW" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#FFE6CC;strokeColor=#D79B00;" vertex="1" parent="1">
+          <mxGeometry x="400" y="480" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="input-validation" value="✅ Input Validation&#xa;• Client-side validation&#xa;• Sanitization&#xa;• Type checking&#xa;• Length limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="400" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="auth-check" value="🔐 Auth Check&#xa;• Token validation&#xa;• Permission check&#xa;• Route guards&#xa;• Session timeout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="510" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="content-filter" value="🔍 Content Filter&#xa;• Text filtering&#xa;• Image analysis&#xa;• Age-appropriate&#xa;• Safety first" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="620" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- OFFLINE SUPPORT -->
+        <mxCell id="offline-title" value="📴 OFFLINE SUPPORT" style="text;html=1;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fillColor=#E1D5E7;strokeColor=#9673A6;" vertex="1" parent="1">
+          <mxGeometry x="750" y="480" width="300" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="service-worker" value="⚙️ Service Worker&#xa;• Background sync&#xa;• Cache strategies&#xa;• Push notifications&#xa;• Offline detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="750" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="cache-strategy" value="💾 Cache Strategy&#xa;• Cache first&#xa;• Network first&#xa;• Stale while revalidate&#xa;• Cache only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="860" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="sync-manager" value="🔄 Sync Manager&#xa;• Queue actions&#xa;• Retry logic&#xa;• Conflict resolution&#xa;• Data consistency" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=9;align=center;" vertex="1" parent="1">
+          <mxGeometry x="970" y="520" width="90" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Flow Connections for specific examples -->
+        <mxCell id="learning-flow1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#9673A6;strokeWidth=2;" edge="1" parent="1" source="lesson-start" target="fetch-lesson">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="learning-flow2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#9673A6;strokeWidth=2;" edge="1" parent="1" source="fetch-lesson" target="update-progress">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="learning-flow3" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#9673A6;strokeWidth=2;" edge="1" parent="1" source="update-progress" target="render-lesson">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="chat-flow1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#D79B00;strokeWidth=2;" edge="1" parent="1" source="type-message" target="validate-content">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="chat-flow2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#D79B00;strokeWidth=2;" edge="1" parent="1" source="validate-content" target="send-socket">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="error-flow1" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#B85450;strokeWidth=2;" edge="1" parent="1" source="api-error" target="error-handler">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="error-flow2" value="" style="endArrow=classic;html=1;rounded=0;strokeColor=#B85450;strokeWidth=2;" edge="1" parent="1" source="error-handler" target="error-state">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="450" as="sourcePoint"/>
+            <mxPoint x="450" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Data Flow Legend -->
+        <mxCell id="legend" value="LEGEND - DATA FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="320" width="150" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend1" value="🟠 User Actions" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="360" width="100" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend2" value="🔵 Component Updates" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="380" width="120" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend3" value="🟢 State Management" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="400" width="120" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend4" value="🟣 Store Updates" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="420" width="100" height="20" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="legend5" value="🔴 Re-rendering" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="440" width="100" height="20" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

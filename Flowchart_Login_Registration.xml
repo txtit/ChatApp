@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" version="22.1.16" etag="login-registration-flowchart" type="device">
+  <diagram name="Login & Registration Flow" id="login-flow">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="🔐 SƠ ĐỒ LUỒNG ĐĂNG KÝ VÀ ĐĂNG NHẬP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontSize=16;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="1100" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Start -->
+        <mxCell id="start" value="🚀 BẮT ĐẦU&#xa;Truy cập website" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="160" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Choose Action -->
+        <mxCell id="choose-action" value="👤 CHỌN HÀNH ĐỘNG" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="180" width="240" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Registration Path -->
+        <mxCell id="register-form" value="📝 ĐIỀN FORM ĐĂNG KÝ&#xa;- Tên, họ&#xa;- Username&#xa;- Email&#xa;- Mật khẩu&#xa;- Tuổi (6-10)&#xa;- Email phụ huynh" style="rect;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="180" height="120" as="geometry"/>
+        </mxCell>
+        
+        <!-- Validate Registration -->
+        <mxCell id="validate-register" value="✅ KIỂM TRA THÔNG TIN&#xa;- Email/Username duy nhất?&#xa;- Tuổi hợp lệ (6-10)?&#xa;- Mật khẩu đủ mạnh?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="160" y="480" width="260" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Registration Success -->
+        <mxCell id="register-success" value="🎉 ĐĂNG KÝ THÀNH CÔNG&#xa;- Tạo tài khoản&#xa;- Gửi email xác thực&#xa;- Thông báo phụ huynh" style="rect;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="640" width="180" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Login Path -->
+        <mxCell id="login-form" value="🔑 ĐIỀN FORM ĐĂNG NHẬP&#xa;- Username/Email&#xa;- Mật khẩu" style="rect;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="620" y="320" width="180" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Validate Login -->
+        <mxCell id="validate-login" value="🔍 XÁC THỰC ĐĂNG NHẬP&#xa;- Tài khoản tồn tại?&#xa;- Mật khẩu chính xác?&#xa;- Tài khoản đã xác thực?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="580" y="450" width="260" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Login Success -->
+        <mxCell id="login-success" value="🏠 ĐĂNG NHẬP THÀNH CÔNG&#xa;- Tạo session&#xa;- Chuyển về Dashboard&#xa;- Cập nhật trạng thái online" style="rect;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="620" y="640" width="180" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Error Handling -->
+        <mxCell id="error-register" value="❌ LỖI ĐĂNG KÝ&#xa;- Hiển thị thông báo lỗi&#xa;- Yêu cầu nhập lại" style="rect;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff6666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="580" width="160" height="80" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="error-login" value="❌ LỖI ĐĂNG NHẬP&#xa;- Hiển thị thông báo lỗi&#xa;- Yêu cầu nhập lại&#xa;- Gợi ý quên mật khẩu" style="rect;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff6666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="480" width="160" height="100" as="geometry"/>
+        </mxCell>
+        
+        <!-- Dashboard -->
+        <mxCell id="dashboard" value="🎮 DASHBOARD - TRANG CHỦ&#xa;- Hiển thị môn học&#xa;- Tiến độ học tập&#xa;- Huy hiệu đã đạt&#xa;- Bảng xếp hạng" style="rect;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="800" width="240" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Arrows -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="start" target="choose-action">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="600" y="300" as="sourcePoint"/>
+            <mxPoint x="650" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow2" value="Đăng ký" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#9673a6;fontStyle=1;" edge="1" parent="1" source="choose-action" target="register-form">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="300" as="sourcePoint"/>
+            <mxPoint x="450" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow3" value="Đăng nhập" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#b85450;fontStyle=1;" edge="1" parent="1" source="choose-action" target="login-form">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="300" as="sourcePoint"/>
+            <mxPoint x="750" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="register-form" target="validate-register">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="500" as="sourcePoint"/>
+            <mxPoint x="340" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="login-form" target="validate-login">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="500" as="sourcePoint"/>
+            <mxPoint x="760" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow6" value="Hợp lệ" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#82b366;fontStyle=1;" edge="1" parent="1" source="validate-register" target="register-success">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="650" as="sourcePoint"/>
+            <mxPoint x="340" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow7" value="Hợp lệ" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#82b366;fontStyle=1;" edge="1" parent="1" source="validate-login" target="login-success">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="650" as="sourcePoint"/>
+            <mxPoint x="760" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow8" value="Không hợp lệ" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;" edge="1" parent="1" source="validate-register" target="error-register">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="650" as="sourcePoint"/>
+            <mxPoint x="170" y="600" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow9" value="Không hợp lệ" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;" edge="1" parent="1" source="validate-login" target="error-login">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="860" y="550" as="sourcePoint"/>
+            <mxPoint x="910" y="500" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="register-success" target="dashboard">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="800" as="sourcePoint"/>
+            <mxPoint x="450" y="750" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="login-success" target="dashboard">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="800" as="sourcePoint"/>
+            <mxPoint x="770" y="750" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Return arrows for errors -->
+        <mxCell id="arrow12" value="Thử lại" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;dashed=1;" edge="1" parent="1" source="error-register" target="register-form">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="500" as="sourcePoint"/>
+            <mxPoint x="150" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="arrow13" value="Thử lại" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;fontColor=#ff6666;fontStyle=1;dashed=1;" edge="1" parent="1" source="error-login" target="login-form">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="950" y="400" as="sourcePoint"/>
+            <mxPoint x="1000" y="350" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
